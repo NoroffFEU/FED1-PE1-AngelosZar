@@ -17,7 +17,7 @@
   --h3-size: 2.5rem;
   --h4-size: 2rem;
   --h5-size: 1.75rem;
-  --h6-size: 1.5rem;
+  --h6-size: 1.25rem;
   /* ----spacing-------- */
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -286,6 +286,9 @@ header {
   align-items: center;
   width: 100%;
   max-width: var(--body-width);
+  /* padding: var(--spacing-xl), var(--spacing-md), var(--spacing-md),
+    var(--spacing-md); */
+  margin-top: var(--spacing-md);
 }
 
 nav {
@@ -322,6 +325,37 @@ nav ul {
 
 #menu-checkbox {
   display: none;
+}
+
+/* Footer */
+footer {
+  padding: var(--spacing-xl), var(--spacing-md), var(--spacing-md),
+    var(--spacing-md);
+  display: flex;
+  width: 100%;
+  max-width: var(--body-width);
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--2nd-font);
+  font-size: var(--h6-size);
+  padding: var(--spacing-lg);
+}
+.left-footer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.left-footer ul {
+  padding: 1.25rem;
+}
+.left-footer li {
+  padding: 0.5rem;
+}
+.right-footer {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 30%;
 }
 
 /* Media quarries */
