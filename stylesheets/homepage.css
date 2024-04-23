@@ -1,0 +1,87 @@
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+.hero--index {
+  /* padding: 0, 4rem; */
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 2rem;
+}
+.cards > h2 {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(64, 209, 13, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,209,13,1) 100%) */
+  margin: 2rem;
+}
+.hero-image {
+  width: 100%;
+}
+
+/* trending news section */
+
+.cards-container {
+  max-width: 25%;
+  display: grid;
+  grid-gap: 40px;
+}
+.card {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+}
+/* image and img container in cards */
+.card-img-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.card-img-container img {
+  width: 100%;
+  position: relative;
+}
+/*  text fields in cards */
+.card-text-content {
+  padding: 0, 1rem, 1rem, 1rem;
+}
+.article--title {
+  margin: 0.5rem;
+}
+/* Reuse later down and media quarries */
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+.card-info > p {
+  margin: 0.5rem;
+}
+.article--author {
+  color: var(--text-green);
+}
+.article--time-created {
+  color: var(--text-green);
+  margin-left: auto;
+}
+
+/* overlay-on-hero */
+.overlay-on-hero {
+  margin-top: -300px;
+  padding-top: -20px;
+  width: 50%;
+}

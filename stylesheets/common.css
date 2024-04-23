@@ -204,7 +204,9 @@ body {
 }
 main {
   width: 100%;
-  margin: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  max-width: var(--body-width);
+  /* padding: var(--spacing-xl); */
 }
 /* Images & videos */
 img,
