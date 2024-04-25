@@ -367,6 +367,30 @@ footer {
   max-width: 200px;
   margin-bottom: 1.5rem;
 }
+/* --------------- ** Button Styles ** ----------------- */
+.primary-button {
+  font-family: var(--2nd-font);
+  font-size: var(--h5-size);
+  letter-spacing: 1.25px;
+  color: var(--text-white);
+  background-color: var(--green-1);
+  border-radius: var(--standard-border-radius);
+  padding: 10px 30px;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 90px solid var(--gradient-1); */
+  /* box-shadow: 2px 4px 5px white; */
+  align-self: center;
+}
+
+.primary-button:hover {
+  background-color: var(--blue-1);
+  cursor: pointer;
+  /* border: 3px solid var(--gradient-1); */
+  /* box-shadow: 2px 2px 2px red; */
+}
 
 /* Media quarries */
 @media only screen and (max-width: 1020px) {

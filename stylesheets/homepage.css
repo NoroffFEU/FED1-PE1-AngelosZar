@@ -13,17 +13,48 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+  padding-bottom: 5%;
 }
 .two-column-flex-container > .column-left {
   width: 100%;
   display: flex;
   flex-direction: column;
+
   margin-left: 2rem;
 }
 .two-column-flex-container > .column-right {
   width: 30%;
   display: flex;
+}
+/* hero block */
+.hero-container {
+  background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-color: red;
+  width: 100%;
+  min-height: 70vh;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
+  position: relative;
+}
+.overlay-on-hero {
+  max-width: 40%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 4rem;
+  color: var(--text-green);
+  position: absolute;
+  bottom: -40%;
+  right: 80px;
+  font-size: var(--h1-size);
+}
+.overlay-on-hero p {
+  padding-bottom: 1rem;
+  font-size: var(--h5-size);
+}
+.overlay-on-hero h1 {
+  padding-bottom: 2rem;
 }
 /* -------------trending now section ------------- */
 .hero-cards-container {
@@ -42,7 +73,6 @@ main {
   /* for bigger screen sizes */
   /* flex-direction: row; */
   /* flex-wrap: wrap; */
-  border: 5px solid red;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -66,7 +96,22 @@ main {
   width: 100%;
   position: relative;
 }
-
+/* sign up section */
+.sign-up-section {
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+.sign-up-section img {
+  max-width: 90%;
+}
+.sign-up-section h3,
+button {
+  margin-bottom: 2rem;
+}
+.sign-up-section button {
+  margin-bottom: 30%;
+}
 /* ------------- Recent articles section ------------- */
 .recent-articles > h2 {
   text-align: center;
@@ -147,7 +192,7 @@ main {
   padding: 5px 20px;
 }
 
-/* media quarries */
+/* -------------Media quarries------------- */
 
 @media only screen and (max-width: 1000px) {
   .grid-card {
