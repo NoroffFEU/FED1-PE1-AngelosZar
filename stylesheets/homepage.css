@@ -1,10 +1,13 @@
 main {
   display: flex;
   flex-direction: column;
+  margin: 2rem;
   /* flex-wrap: wrap; */
   /* justify-content: space-between; */
 }
-/* hero section  */
+
+/* -------------hero section ------------- */
+/* -------------two column flex layout ------------- */
 .two-column-flex-container {
   max-width: var(--body-width);
   width: 100%;
@@ -15,71 +18,59 @@ main {
 .two-column-flex-container > .column-left {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
 }
 .two-column-flex-container > .column-right {
-  max-width: 30%;
+  width: 30%;
   display: flex;
-  /* /* justify-content: center; */
-  align-content: center;
-  text-align: center;
-  /* flex-direction: row; */
+}
+/* -------------trending now section ------------- */
+.hero-cards-container {
+  grid-column: 2 / span 8;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(auto, 3.75rem));
+  grid-gap: 10px;
+  margin: 1rem;
 }
 
-/* delete start */
-/* .hero--index {
-  margin-left: 2rem;
-  margin-right: 2rem;
+.hero-grid-card {
+  grid-column-end: span 8;
   display: flex;
-  gap: 2rem;
-  position: relative;
+  flex-direction: column;
+  margin: 1rem;
+  /* for bigger screen sizes */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  border: 5px solid red;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
-.cards > h2 {
+.hero-grid-card > img {
+  object-fit: contain;
+}
+.hero-cards-container h2 {
+  display: inline;
+  text-align: start;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(64, 209, 13, 1) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 2rem;
-} */
-/* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,209,13,1) 100%) */
+}
 
-/* .hero-image {
+.hero-image {
   width: 100%;
   position: relative;
-} */
-/* delete end */
+}
 
-/* trending news section */
-/* trending news section */
-
-/* .sign-up-div-container {
-  padding-top: 6rem;
-} */
-
-/* sign up link */
-/* .sign-up-div-container {
-  position: absolute;
-  max-width: 70%;
-  top: 50%; */
-/* right: 0px; */
-/* } */
-/* .sign-up-link {
-  color: var(--text-green);
-  margin: 2rem;
-  text-align: end;
-  padding-right: 2rem;
-} */
-
-/* .carousel-element {
-  margin-top: 8rem;
-  align-self: center;
-} */
-
-/* section recent-articles */
+/* ------------- Recent articles section ------------- */
 .recent-articles > h2 {
   text-align: center;
+  margin: 4rem;
   background: linear-gradient(
     90deg,
     rgba(75, 38, 245, 1) 0%,
@@ -93,14 +84,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem;
-}
-/* trending news section */
-.cards-container {
-  display: grid;
-  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
-  grid-gap: 40px;
-  padding: 60px 0;
+  margin: 2.5rem;
 }
 
 .text--grid-card {
@@ -112,15 +96,13 @@ main {
   grid-column: 2 / span 12;
   display: grid;
   grid-template-columns: repeat(12, minmax(auto, 3.75rem));
-  grid-gap: 40px;
+  grid-gap: 2.5rem;
 }
 
 .grid-card {
   grid-column-end: span 4;
   display: flex;
   flex-direction: column;
-  /* background-color: #39393b; */
-  border: 5px solid red;
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -163,11 +145,10 @@ main {
 .card-time {
   margin-left: auto;
   padding: 5px 20px;
-  /* background-color: #303032;
-  border-radius: 20px; */
 }
 
 /* media quarries */
+
 @media only screen and (max-width: 1000px) {
   .grid-card {
     grid-column-end: span 6;
@@ -188,11 +169,7 @@ main {
     grid-template-columns: 10px repeat(6, 1fr) 10px;
     grid-gap: 10px;
   }
-  .cards-container {
-    grid-column: 2 / span 6;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 20px;
-  }
+
   .grid-card {
     grid-column-end: span 6;
   }
