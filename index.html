@@ -10,6 +10,8 @@
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="mjs-files/common.mjs"></script>
+    <script type="module" src="mjs-files/homepage.mjs"></script>
   </head>
   <body>
     <header>
@@ -58,85 +60,187 @@
             </h5>
           </div>
         </div>
-        <div class="cards-container">
-          <div class="cards hero-cards">
-            <h2>trending now</h2>
-            <div class="card hero-card">
-              <div class="card-img-container">
-                <img
-                src=https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1294&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-              <div class="card-text-content">
-                <p class="article--title">article--title</p>
-                <div class="card-info">
-                  <p class="article--author">article--author</p>
-                  <p class="article--time-created">time article was created</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cards hero-cards">
-            <div class="card hero-card">
-              <div class="card-img-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1294&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-
-              <div class="card-text-content">
-                <p class="article--title">article--title</p>
-                <div class="card-info">
-                  <p class="article--author">article--author</p>
-                  <p class="article--time-created">time article was created</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cards hero-cards">
-            <div class="card hero-card">
-              <div class="card-img-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1294&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-              <div class="card-text-content">
-                <p class="article--title">article--title</p>
-                <div class="card-info">
-                  <p class="article--author">article--author</p>
-                  <!-- might delete ? -->
-                  <p class="article--time-created">time article was created</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cards hero-cards">
-            <div class="card hero-card">
-              <div class="card-img-container">
-                <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=1294&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                />
-              </div>
-              <div class="card-text-content">
-                <p class="article--title">article--title</p>
-                <div class="card-info">
-                  <p class="article--author">article--author</p>
-                  <p class="article--time-created">time article was created</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
       <section class="carousel-element">
         <img
           src="https://images.unsplash.com/photo-1627435394622-c239422ce808?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="bitcoin"
         />
+      </section>
       <!-- grid-of-12-articles-->
       <section class="recent-articles">
-      <h2>Most recent => </h2>
-    </section>
+        <h2>Most recent =></h2>
+        <section class="cards-container">
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="card--image-container">
+              <img
+                src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-title text--grid-card">title of article</p>
+              <div class="card-info">
+                <p class="text--grid-card">tag category</p>
+                <p class="card-time text--grid-card">time optional</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
     </main>
     <footer>
       <div class="left-footer">

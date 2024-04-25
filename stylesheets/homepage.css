@@ -1,7 +1,7 @@
 main {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   /* justify-content: space-between; */
 }
 .hero--index {
@@ -30,83 +30,10 @@ main {
 }
 
 /* trending news section */
-
-.cards-container {
-  max-width: 25%;
-  display: grid;
-  grid-gap: 40px;
-}
-.card {
-  grid-column-end: span 4;
-  display: flex;
-  flex-direction: row-reverse;
-  flex-direction: column;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-}
-
-.card:hover {
-  transform: translateY(-7px);
-}
-/* image and img container in cards */
-.card-img-container {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.card-img-container img {
-  width: 100%;
-  position: relative;
-}
-/*  text fields in cards */
-.card-text-content {
-  padding: 0, 1rem, 1rem, 1rem;
-}
-.article--title {
-  margin: 0.5rem;
-}
-/* Reuse later down and media quarries */
-.card-info {
-  display: flex;
-  flex-direction: column;
-}
-.card-info > p {
-  margin: 0.5rem;
-}
-.article--author {
-  color: var(--text-green);
-}
-.article--time-created {
-  color: var(--text-green);
-  margin-left: auto;
-}
-
-/* overlay-on-hero */
-.overlay-on-hero {
-  max-width: 45%;
-  color: var(--text-white);
-  font-size: var(--h1-size);
-  position: absolute;
-  top: 65%;
-  right: 0px;
-  padding: 2rem;
-  margin: 2rem;
-  /* background-color: aliceblue; */
-  opacity: 0.9;
-  /* border: 50px solid red; */
-}
-.overlay-on-hero > h1 {
-  color: var(--text-white);
-  margin-bottom: 2rem;
-}
-.overlay-on-hero > p {
-  font-size: var(--h4-size);
-  color: var(--purple-1);
-}
+/* trending news section */
 
 .sign-up-div-container {
   padding-top: 6rem;
-  /* margin: 1rem; */
 }
 
 /* sign up link */
@@ -128,14 +55,6 @@ main {
   align-self: center;
 }
 
-/* articles 12 */
-.articles-12 {
-  display: grid;
-  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
-  grid-gap: 40px;
-  padding: 60px 0;
-}
-
 /* section recent-articles */
 .recent-articles > h2 {
   text-align: center;
@@ -147,4 +66,112 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-top: var(--spacing-xl);
+}
+.recent-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+/* trending news section */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+  grid-gap: 40px;
+  padding: 60px 0;
+}
+
+.text--grid-card {
+  line-height: 1.25rem;
+  color: var(--text-green);
+}
+
+.cards-container {
+  grid-column: 2 / span 12;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(auto, 3.75rem));
+  grid-gap: 40px;
+}
+
+.grid-card {
+  grid-column-end: span 4;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #39393b; */
+  border: 5px solid red;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.grid-card:hover {
+  transform: translateY(-7px);
+}
+
+.card--image-container {
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card--image-container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  /* align-self: center; */
+  /* align-items: center; */
+}
+
+.card-time {
+  margin-left: auto;
+  padding: 5px 20px;
+  /* background-color: #303032;
+  border-radius: 20px; */
+}
+
+/* media quarries */
+@media only screen and (max-width: 1000px) {
+  .grid-card {
+    grid-column-end: span 6;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cards-container {
+    grid-gap: 20px;
+  }
+  .grid-card {
+    grid-column-end: span 12;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .cards-container {
+    grid-template-columns: 10px repeat(6, 1fr) 10px;
+    grid-gap: 10px;
+  }
+  .cards-container {
+    grid-column: 2 / span 6;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px;
+  }
+  .grid-card {
+    grid-column-end: span 6;
+  }
 }
