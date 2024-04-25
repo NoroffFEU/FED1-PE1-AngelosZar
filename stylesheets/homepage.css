@@ -4,12 +4,32 @@ main {
   /* flex-wrap: wrap; */
   /* justify-content: space-between; */
 }
-.hero--index {
-  /* padding: 0, 4rem; */
+/* hero section  */
+.two-column-flex-container {
+  max-width: var(--body-width);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.two-column-flex-container > .column-left {
+  width: 100%;
+  display: flex;
+}
+.two-column-flex-container > .column-right {
+  max-width: 30%;
+  display: flex;
+  /* /* justify-content: center; */
+  align-content: center;
+  text-align: center;
+  /* flex-direction: row; */
+}
+
+/* delete start */
+/* .hero--index {
   margin-left: 2rem;
   margin-right: 2rem;
   display: flex;
-  /* flex-direction: column; */
   gap: 2rem;
   position: relative;
 }
@@ -21,39 +41,41 @@ main {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,209,13,1) 100%) */
   margin: 2rem;
-}
-.hero-image {
+} */
+/* background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(64,209,13,1) 100%) */
+
+/* .hero-image {
   width: 100%;
   position: relative;
-}
+} */
+/* delete end */
 
 /* trending news section */
 /* trending news section */
 
-.sign-up-div-container {
+/* .sign-up-div-container {
   padding-top: 6rem;
-}
+} */
 
 /* sign up link */
-.sign-up-div-container {
+/* .sign-up-div-container {
   position: absolute;
   max-width: 70%;
-  top: 50%;
-  /* right: 0px; */
-}
-.sign-up-link {
+  top: 50%; */
+/* right: 0px; */
+/* } */
+/* .sign-up-link {
   color: var(--text-green);
   margin: 2rem;
   text-align: end;
   padding-right: 2rem;
-}
+} */
 
-.carousel-element {
+/* .carousel-element {
   margin-top: 8rem;
   align-self: center;
-}
+} */
 
 /* section recent-articles */
 .recent-articles > h2 {
@@ -63,7 +85,7 @@ main {
     rgba(75, 38, 245, 1) 0%,
     rgba(64, 209, 13, 1) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-top: var(--spacing-xl);
 }
