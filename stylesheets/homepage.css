@@ -255,7 +255,37 @@ button {
   margin-left: auto;
   padding: 5px 20px;
 }
-
+/*-------------------- newsletter section --------------------*/
+.newsletter-section {
+  margin: 0 auto;
+  width: 80%;
+  padding: 6rem 2rem;
+}
+.newsletter-container {
+  background-color: var(--purple-1);
+  padding: 4rem 2rem;
+  max-width: 100%;
+  border-radius: var(--standard-border-radius);
+  display: flex;
+}
+input[type='email'] {
+  width: 16rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: var(--text-white);
+  color: var(--body-color-dark);
+  font-family: var(--body-font);
+  font-size: 1.25rem;
+  /* display: flex; */
+  /* flex-direction: column-reverse; */
+}
+/* .newsletter-container h5 {
+  display: inline-block;
+  max-width: 50%;
+} */
 /* -------------Media quarries------------- */
 
 @media only screen and (max-width: 1000px) {
