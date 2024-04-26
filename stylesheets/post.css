@@ -1,0 +1,24 @@
+/* ----------------- index html ----------------- */
+
+.focused-blog,
+.focused-blog-article {
+  padding: 4rem 2rem;
+}
+
+.focused-blog-info {
+  display: flex;
+  max-width: 40%;
+  padding-bottom: 2rem;
+}
+.focused-blog h1 {
+  padding-bottom: 2rem;
+}
+.focused-blog-info-img-container {
+  max-width: 100rem;
+  display: flex;
+}
+
+.focused-blog-article {
+  max-width: 60rem;
+  line-height: 1.5;
+}

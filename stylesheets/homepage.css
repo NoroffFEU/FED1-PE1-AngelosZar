@@ -279,13 +279,8 @@ input[type='email'] {
   color: var(--body-color-dark);
   font-family: var(--body-font);
   font-size: 1.25rem;
-  /* display: flex; */
-  /* flex-direction: column-reverse; */
 }
-/* .newsletter-container h5 {
-  display: inline-block;
-  max-width: 50%;
-} */
+
 /* -------------Media quarries------------- */
 
 @media only screen and (max-width: 1000px) {

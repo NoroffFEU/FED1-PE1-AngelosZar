@@ -3,8 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>admin</title>
+    <title>public-posts</title>
     <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link rel="stylesheet" href="/stylesheets/post.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <a href="/post/index.html">
+        <img
+          src="/Media/logos-png/logo-no-background.png"
+          alt="logo"
+          class="header-logo"
+        />
+      </a>
+      <label for="menu-checkbox"><i class="fa-solid fa-bars fa-2x"></i></label>
+      <input type="checkbox" name="" id="menu-checkbox" />
+      <nav>
+        <!-- <div id="nav-toggle"> -->
+        <ul class="menu">
+          <a href=""> <li>Tech /</li></a>
+          <a href=""> <li>Research /</li> </a>
+          <a href=""> <li>Dev /</li> </a>
+          <a href=""><li>Log In /</li> </a>
+          <a href=""><li>Sign Up /</li> </a>
+        </ul>
+      </nav>
+    </header>
+    <!------------------- Main ------------------->
+    <main>
+      <section class="focused-blog">
+        <div>
+          <div class="focused-blog-info">
+            <h5>Topic /</h5>
+            <h5>Date /</h5>
+          </div>
+          <h1>Article title</h1>
+          <div class="focused-blog-info-img-container">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+        </div>
+        <article class="focused-blog-article">
+          <p>
+            The Promise of Quantum ComputingQuantum computing represents a
+            paradigm shift in computational power, with the potential to solve
+            complex problems that are beyond the capabilities of classical
+            computers. Unlike classical computers, which use bits to represent
+            information as either 0 or 1, quantum computers use quantum bits, or
+            qubits, which can exist in multiple states simultaneously due to the
+            principles of quantum mechanics.One of the most significant
+            advantages of quantum computing is its ability to perform complex
+            calculations much faster than classical computers. Quantum
+            algorithms, such as Shor's algorithm and Grover's algorithm, enable
+            quantum computers to solve certain problems, such as integer
+            factorization and database search, exponentially faster than
+            classical algorithms.Quantum computing has promising applications in
+            various fields, including cryptography, drug discovery,
+            optimization, and machine learning. In cryptography,
+            quantum-resistant algorithms are being developed to secure
+            communications and data against potential threats from quantum
+            computers. In drug discovery, quantum computers can simulate
+            molecular structures and interactions more accurately, accelerating
+            the discovery of new drugs and therapies.Additionally, quantum
+            computing can revolutionize optimization problems by finding optimal
+            solutions to complex optimization challenges, such as route
+            optimization in logistics or portfolio optimization in finance.
+            Moreover, quantum machine learning algorithms have the potential to
+            uncover patterns and insights in large datasets more efficiently,
+            leading to advancements in artificial intelligence and data
+            analysis.Despite its potential, quantum computing is still in its
+            early stages of development, and significant technical challenges
+            remain to be addressed. These challenges include qubit stability,
+            error correction, and scalability. However, as researchers continue
+            to make advancements in quantum hardware and software, the potential
+            of quantum computing to solve real-world problems will become
+            increasingly achievable.In conclusion, quantum computing represents
+            a revolutionary approach to computation that has the potential to
+            transform various industries and address some of the most complex
+            challenges facing society today. As the field continues to evolve,
+            the promise of quantum computing to unlock new capabilities and
+            insights is becoming closer to reality.
+          </p>
+        </article>
+      </section>
+      <!-- Recommended articles -->
+    </main>
+    <!------------------- Footer ------------------->
+    <footer>
+      <div class="left-footer">
+        <div class="footer-links">
+          <ul>
+            <li>Terms and conditions /</li>
+            <li>Privacy policy /</li>
+            <li>Cookie policy /</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li>NewsLetter /</li>
+            <li>Reviews /</li>
+            <li>Log in /</li>
+            <li>Sign up /</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li>Contact us /</li>
+            <li>About us /</li>
+            <li>FAQ /</li>
+          </ul>
+        </div>
+        <!--  -->
+      </div>
+      <div class="right-footer">
+        <img
+          src="/Media/logos-png/logo-no-background.png"
+          alt="logo"
+          class="footer-logo"
+        />
+        <p>© HotView Labs All rights reserved</p>
+      </div>
+    </footer>
+  </body>
 </html>
