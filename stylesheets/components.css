@@ -1,4 +1,5 @@
 /* -------------two column flex layout ------------- */
+
 .two-column-flex-container {
   max-width: var(--body-width);
   width: 100%;
@@ -21,7 +22,3 @@
   display: flex;
 }
 /* refactor for login and sign up pages */
-.two-column-flex-container > .column-right-50 {
-  width: 50%;
-  display: flex;
-}

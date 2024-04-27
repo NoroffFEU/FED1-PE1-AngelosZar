@@ -8,6 +8,26 @@ main {
 
 /* -------------hero section ------------- */
 /* -------------two column flex layout ------------- */
+/* .two-column-flex-container {
+  max-width: var(--body-width);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+  padding-bottom: 5%;
+}
+.two-column-flex-container > .column-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+.two-column-flex-container > .column-right {
+  width: 30%;
+  display: flex;
+} */
 /* hero block */
 .hero-container {
   background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
