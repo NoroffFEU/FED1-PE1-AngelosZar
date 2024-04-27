@@ -203,8 +203,10 @@ button {
 
 .cards-container {
   grid-column: 2 / span 12;
+  /* grid-column: 2 / span 18; */
   display: grid;
   grid-template-columns: repeat(12, minmax(auto, 3.75rem));
+  /* grid-template-columns: repeat(18, minmax(auto, 3.75rem)); */
   grid-gap: 2.5rem;
 }
 
