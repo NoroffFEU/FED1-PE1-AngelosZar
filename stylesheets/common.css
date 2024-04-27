@@ -290,7 +290,8 @@ header {
   max-width: var(--body-width);
   /* padding: var(--spacing-xl), var(--spacing-md), var(--spacing-md),
     var(--spacing-md); */
-  margin-top: var(--spacing-md);
+  /* margin-top: var(--spacing-md); */
+  margin: var(--spacing-md);
 }
 
 nav {
@@ -319,6 +320,7 @@ nav ul {
 
 .fa-bars:before {
   display: none;
+  margin-right: 2rem;
 }
 
 #menu-checkbox:checked ~ nav {
@@ -367,6 +369,21 @@ footer {
   max-width: 200px;
   margin-bottom: 1.5rem;
 }
+/* ------------- ** current page styles ** ----------------- */
+.current-page {
+  color: var(--blue-1);
+  text-decoration-line: underline;
+}
+
+.current-page:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(64, 209, 13, 1) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* --------------- ** Button Styles ** ----------------- */
 .primary-button {
   font-family: var(--2nd-font);
@@ -398,14 +415,18 @@ footer {
     display: block;
     display: none;
     position: absolute;
-    top: 78.3px;
+    top: 10rem;
     right: 0;
-    z-index: 1000;
+    z-index: 1;
     border-radius: 10px;
-    background-color: #111111;
+    width: 100%;
+    padding-right: 2rem;
+    text-align: end;
+    background-color: rgba(40, 40, 40, 0.9);
   }
 
   nav li {
+    padding-bottom: 1rem;
     display: block;
     color: var(--text-white);
     font-size: 3rem;

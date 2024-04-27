@@ -2,7 +2,7 @@
 
 .focused-blog,
 .focused-blog-article {
-  padding: 4rem 2rem;
+  padding: 8rem 2rem 0 2rem;
 }
 
 .focused-blog-info {
@@ -19,6 +19,6 @@
 }
 
 .focused-blog-article {
-  max-width: 60rem;
+  max-width: 50rem;
   line-height: 1.5;
 }
