@@ -6,6 +6,7 @@
     <title>Hot view-labs-homepage</title>
     <link rel="stylesheet" href="stylesheets/common.css" />
     <link rel="stylesheet" href="stylesheets/homepage.css" />
+    <link rel="stylesheet" href="stylesheets/components.css" />
     <script
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
@@ -30,8 +31,8 @@
           <a href=""> <li>Tech /</li></a>
           <a href=""> <li>Research /</li> </a>
           <a href=""> <li>Dev /</li> </a>
-          <a href=""><li>Log In /</li> </a>
-          <a href=""><li>Sign Up /</li> </a>
+          <a href="/account/login.html"><li>Log In /</li> </a>
+          <a href="/account/register.html"><li>Sign Up /</li> </a>
         </ul>
       </nav>
     </header>
@@ -112,7 +113,9 @@
         </div>
         <div class="overlay-on-sign-up">
           <h3>Not a member ? sign up and join us</h3>
-          <button class="primary-button btn-sign-up">Sign up</button>
+          <a href="/account/register.html"
+            ><button class="primary-button btn-sign-up">Sign up</button></a
+          >
         </div>
       </section>
       <!-- carousel section -->
