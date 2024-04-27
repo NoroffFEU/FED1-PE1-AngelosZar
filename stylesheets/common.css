@@ -249,7 +249,7 @@ h5,
 h6 {
   font-family: var(--2nd-font);
   margin: 0;
-  width: 100%;
+  /* width: 100%; */
 }
 
 h1 {

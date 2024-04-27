@@ -175,6 +175,7 @@ button {
   max-width: 100%;
   border-radius: var(--standard-border-radius);
   display: flex;
+  justify-content: space-between;
 }
 input[type='email'] {
   width: 14rem;
@@ -275,17 +276,7 @@ input[type='email'] {
     display: flex;
     flex-direction: column;
   }
-  /* #two-column-flex_homepage,
-  #two-right-flex_homepage {
-    width: 100%;
-  } */
-  /* .hero-container {
-    width: 100%;
-  } */
-  /* #two-column-flex_homepage > #two-right-flex_homepage {
-    width: 1200px;
-    display: flex;
-  } */
+
   .overlay-on-hero {
     max-width: 100%;
     padding: 4rem;

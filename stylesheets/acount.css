@@ -20,10 +20,25 @@ label {
   color: var(--text-white);
   font-size: var(--h5-size);
   font-weight: 400;
-  display: block;
+  display: inline-block;
+  max-width: 200px;
   padding: 0px;
   margin: 30px 0 10px 0;
   display: flex;
+}
+
+input[type='email'],
+input[type='password'] {
+  width: 14rem;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: var(--text-white);
+  color: var(--body-color-dark);
+  font-family: var(--body-font);
+  font-size: 1.25rem;
 }
 
 .btn-log-in,
@@ -56,8 +71,32 @@ label {
   font-size: var(--h4-size);
   /* align-self: flex-end; */
 }
+.log-in-se {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.log-in-se > h1 {
+  width: 50%;
+}
 .log-in-se h2,
 h3 {
-  display: flex;
-  align-self: center;
+  margin: 1rem 1rem 1rem 0;
+}
+.primary-button {
+  margin: 1rem 0;
+}
+@media only screen and (max-width: 750px) {
+  #two-column-flex-container_at-log-in {
+    flex-direction: column-reverse;
+  }
+  .background-img {
+    width: 100%;
+    min-height: 35vh;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    position: relative;
+    margin-right: 2rem;
+  }
 }
