@@ -204,7 +204,7 @@ body {
 }
 main {
   width: 100%;
-  margin-top: var(--spacing-lg);
+  /* margin-top: var(--spacing-lg); */
   max-width: var(--body-width);
   /* padding: var(--spacing-xl); */
 }
@@ -331,7 +331,7 @@ nav ul {
   display: none;
 }
 .header-logo {
-  max-width: 400px;
+  max-width: 340px;
   margin-left: var(--spacing-lg);
 }
 /* Footer */
@@ -387,38 +387,57 @@ footer {
 /* --------------- ** Button Styles ** ----------------- */
 .primary-button {
   font-family: var(--2nd-font);
-  font-size: var(--h5-size);
+  font-size: var(--h6-size);
   letter-spacing: 1.25px;
   color: var(--text-white);
   background-color: var(--green-1);
   border-radius: var(--standard-border-radius);
-  padding: 10px 30px;
+  padding: 8px 24px;
   transition: all 0.2s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 90px solid var(--gradient-1); */
-  /* box-shadow: 2px 4px 5px white; */
 }
 
 .primary-button:hover {
   background-color: var(--blue-1);
   cursor: pointer;
-  /* border: 3px solid var(--gradient-1); */
-  /* box-shadow: 2px 2px 2px red; */
+}
+.primary-button:active {
+  background-color: var(--purple-1);
+  cursor: pointer;
 }
 
-/* Media quarries */
-@media only screen and (max-width: 1020px) {
+/* -------------------- Media quarries -------------------- */
+@media only screen and (max-width: 1230px) {
+  :root {
+    --h1-size: 3.4rem;
+    --h2-size: 2.4rem;
+    --h3-size: 2rem;
+    --h4-size: 1.75rem;
+    /* --h5-size:  */
+    --h6-size: 18px;
+  }
+  .header-logo {
+    max-width: 260px;
+  }
+}
+@media only screen and (max-width: 980px) {
+  :root {
+    --h6-size: 14px;
+  }
+  p {
+    font-size: 14px;
+  }
   /* Header */
   nav {
     display: block;
     display: none;
     position: absolute;
-    top: 10rem;
+    top: 4.5rem;
     right: 0;
     z-index: 1;
-    border-radius: 10px;
+    /* border-radius: 20px; */
     width: 100%;
     padding-right: 2rem;
     text-align: end;
@@ -429,7 +448,7 @@ footer {
     padding-bottom: 1rem;
     display: block;
     color: var(--text-white);
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 
   nav ul {
@@ -446,6 +465,34 @@ footer {
   }
   #menu-checkbox {
     display: none;
-    /* display: block; */
+  }
+}
+@media only screen and (max-width: 800px) {
+  /* footer */
+  .footer-logo {
+    max-width: 160px;
+  }
+  .left-footer ul {
+    padding: 0.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .left-footer {
+    flex-wrap: wrap;
+  }
+  .right-footer {
+    margin-left: 2rem;
+    padding-right: 2rem;
+    align-self: flex-end;
+  }
+  /* footer */
+}
+@media only screen and (max-width: 500px) {
+  /* header */
+  nav li {
+    font-size: 1.75rem;
+  }
+  .header-logo {
+    max-width: 170px;
   }
 }

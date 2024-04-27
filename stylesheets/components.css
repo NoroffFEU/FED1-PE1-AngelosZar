@@ -26,7 +26,6 @@
 /* ------------- grid container ------------- */
 .recent-articles > h2 {
   text-align: center;
-  margin: 4rem;
   background: linear-gradient(
     90deg,
     rgba(75, 38, 245, 1) 0%,
@@ -34,7 +33,6 @@
   );
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding-top: var(--spacing-xl);
 }
 .recent-articles {
   display: flex;
@@ -85,7 +83,7 @@
 }
 
 .card-content {
-  padding: 20px;
+  padding: 10px;
 }
 
 .card-title {
@@ -103,4 +101,10 @@
 .card-time {
   margin-left: auto;
   padding: 5px 20px;
+}
+@media only screen and (max-width: 680px) {
+  .two-column-flex-container > .column-right {
+    width: 100%;
+    display: flex;
+  }
 }

@@ -1,4 +1,4 @@
-.column-left-50 {
+.two-column-flex-container > .column-left-50 {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,4 +55,9 @@ label {
   color: var(--text-green);
   font-size: var(--h4-size);
   /* align-self: flex-end; */
+}
+.log-in-se h2,
+h3 {
+  display: flex;
+  align-self: center;
 }
