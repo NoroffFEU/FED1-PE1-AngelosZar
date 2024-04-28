@@ -76,12 +76,16 @@
 /* -------------sign up section ------------- */
 .sign-up-section {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
+  /* max-width: 70%; */
+  margin-top: 8rem;
 }
 .sign-up-section img {
   max-width: 90%;
 }
+
 .sign-up-section h3,
 button {
   margin-bottom: 2rem;
@@ -207,15 +211,15 @@ input[type='email'] {
     max-width: 45%;
     bottom: -10%;
   }
+  .sign-up-section {
+    margin-top: 4rem;
+  }
 }
 @media only screen and (max-width: 1000px) {
   .column-left {
     max-width: 60%;
   }
   /* ----------------- Hero section----------------- */
-  .hero-cards-container {
-    /* grid-column-end: span 6; */
-  }
   .grid-card {
     grid-column-end: span 6;
   }
@@ -314,6 +318,7 @@ input[type='email'] {
     justify-content: center;
     align-items: center;
   }
+
   .sign-up-section button {
     margin: 0 0 0 0;
   }
@@ -329,10 +334,10 @@ input[type='email'] {
     padding: 0 2rem;
   }
   .carousel-heading {
-    margin-bottom: -4rem;
+    margin-bottom: -2rem;
   }
   .recent-articles {
-    margin-top: -4rem;
+    margin-top: -2rem;
   }
 }
 @media only screen and (max-width: 500px) {

@@ -73,8 +73,11 @@ input[type='password'] {
 }
 .log-in-se {
   width: 50%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .log-in-se > h1 {
   width: 50%;
@@ -86,17 +89,23 @@ h3 {
 .primary-button {
   margin: 1rem 0;
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 850px) {
   #two-column-flex-container_at-log-in {
     flex-direction: column-reverse;
   }
   .background-img {
     width: 100%;
-    min-height: 35vh;
+    min-height: 25vh;
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
     position: relative;
     margin-right: 2rem;
+  }
+
+  .two-column-flex-container > .column-left-50 {
+    padding: 2rem 0 2rem 0;
+    margin-left: 0;
+    flex-direction: column;
   }
 }
