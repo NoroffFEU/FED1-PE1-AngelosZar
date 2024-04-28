@@ -12,7 +12,7 @@
   position: relative;
 }
 .overlay-on-hero {
-  max-width: 45%;
+  max-width: 40%;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 4rem;
   color: var(--text-green);
@@ -87,7 +87,7 @@ button {
   margin-bottom: 2rem;
 }
 .sign-up-section button {
-  margin-bottom: 30%;
+  margin-bottom: 2rem;
 }
 /* ------------- carousel with 3 sliders section ------------- */
 .carousel-section {
@@ -111,7 +111,11 @@ button {
   justify-content: center;
   transition: transform 1s;
 }
-
+.slider-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .slider-title {
   position: absolute;
   top: 70%;
@@ -189,9 +193,21 @@ input[type='email'] {
   font-family: var(--body-font);
   font-size: 1.25rem;
 }
-
+.cards-container {
+  /* grid-column: 2 / span 8; */
+  /* grid-column: 2 / span 18; */
+  /* display: grid; */
+  grid-template-columns: repeat(8, minmax(auto, 3.75rem));
+  /* grid-template-columns: repeat(18, minmax(auto, 3.75rem)); */
+  /* grid-gap: 2.5rem; */
+}
 /* -------------Media quarries------------- */
-
+@media only screen and (max-width: 1480px) {
+  .overlay-on-hero {
+    max-width: 45%;
+    bottom: -10%;
+  }
+}
 @media only screen and (max-width: 1000px) {
   .column-left {
     max-width: 60%;
@@ -262,12 +278,14 @@ input[type='email'] {
     grid-column-end: span 12;
   }
   .slider-title {
-    position: absolute;
     top: 60%;
-    left: 25%;
-    right: 25%;
-    text-align: center;
-    padding-bottom: 2rem;
+  }
+  .slider-btn {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  .slide {
+    max-width: 100%;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -285,6 +303,37 @@ input[type='email'] {
     bottom: 5%;
     right: -35%;
   }
+  .hero-cards-container {
+    padding-top: 4rem;
+  }
+  .sign-up-section h3 {
+    padding-top: 2rem;
+  }
+  .sign-up-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sign-up-section button {
+    margin: 0 0 0 0;
+  }
+
+  .slider-title {
+    right: 5%;
+    left: 5%;
+  }
+  .slider-title h2 {
+    font-size: 1.5rem;
+  }
+  .carousel-section {
+    padding: 0 2rem;
+  }
+  .carousel-heading {
+    margin-bottom: -4rem;
+  }
+  .recent-articles {
+    margin-top: -4rem;
+  }
 }
 @media only screen and (max-width: 500px) {
   /* ----------------- grid ----------------- */
@@ -295,5 +344,18 @@ input[type='email'] {
 
   .grid-card {
     grid-column-end: span 6;
+  }
+  .slider-title h2 {
+    font-size: 1.1rem;
+  }
+  .carousel-heading {
+    margin-bottom: -10rem;
+  }
+  .recent-articles {
+    margin-top: -40px;
+    padding-top: -20rem;
+  }
+  .newsletter-container {
+    flex-direction: column;
   }
 }
