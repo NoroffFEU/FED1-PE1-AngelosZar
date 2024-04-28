@@ -6,6 +6,7 @@
     <title>admin-page</title>
     <link rel="stylesheet" href="/stylesheets/common.css" />
     <link rel="stylesheet" href="/stylesheets/post.css" />
+    <link rel="stylesheet" href="/stylesheets/components.css" />
     <script
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
@@ -28,19 +29,126 @@
         <ul class="menu">
           <a href=""> <li>Tech /</li></a>
           <a href=""> <li>Dev /</li> </a>
-          <!-- <a href=""><li>Log In /</li> </a> -->
-          <!-- <a href=""><li>Sign Up /</li> </a> -->
+          <a href=""><li class="current-page">admin/</li> </a>
+          <a href=""><li>Log out /</li> </a>
         </ul>
       </nav>
     </header>
     <!-- main -->
-
     <main>
-      <section class="two-column-flex-container">
-        <div class="column-left"></div>
-        <div class="column-right"></div>
+      <section class="two-column-flex-container" id="main_body-edit-page">
+        <div class="column-left">
+          <h1>hello admin</h1>
+          <h3>pick a card and start editing</h3>
+          <section class="cards-container">
+            <div class="grid-card">
+              <div class="card--image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+              </div>
+              <div class="card-content">
+                <p class="card-title text--grid-card">title of article</p>
+                <div class="card-info">
+                  <p class="text--grid-card">tag category</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="card--image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+              </div>
+              <div class="card-content">
+                <p class="card-title text--grid-card">title of article</p>
+                <div class="card-info">
+                  <p class="text--grid-card">tag category</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="card--image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+              </div>
+              <div class="card-content">
+                <p class="card-title text--grid-card">title of article</p>
+                <div class="card-info">
+                  <p class="text--grid-card">tag category</p>
+                  <p class="text--grid-card">id</p>
+                </div>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="card--image-container">
+                <img
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                />
+              </div>
+              <div class="card-content">
+                <p class="card-title text--grid-card">title of article</p>
+                <div class="card-info">
+                  <p class="text--grid-card">tag category</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="column-right">
+          <div class="editor-container">
+            <form action="PUT">
+              <h3>You are now editing post the id of ${id}</h3>
+
+              <label for="post-title">post title:</label>
+              <textarea
+                name="post-title:"
+                id="post-title"
+                cols="60"
+                rows="2"
+              ></textarea>
+              <label for="post-title">post tags:</label>
+              <textarea
+                name="post-tags"
+                id="post-tags"
+                cols="60"
+                rows="2"
+              ></textarea>
+              <label for="post-media-url">post/media url:</label>
+              <textarea
+                name="post-media-url"
+                id="post-media-url"
+                cols="60"
+                rows="2"
+              ></textarea>
+              <label for="post-media-alt">post/media alt:</label>
+              <textarea
+                name="post-media-alt"
+                id="post-media-alt"
+                cols="60"
+                rows="2"
+              ></textarea>
+              <label for="post-author-name">post/author name:</label>
+              <textarea
+                name="post/author-name:"
+                id="post-author-name"
+                cols="60"
+                rows="2"
+              ></textarea>
+              <label for="post-body">post/body:</label>
+              <textarea
+                name="post-body"
+                id="post-body"
+                cols="80"
+                rows="30"
+              ></textarea>
+
+              <button class="primary-button">Submit changes to post</button>
+            </form>
+          </div>
+        </div>
       </section>
-      <h1>hello admin</h1>
     </main>
     <!------------------- Footer ------------------->
     <footer>

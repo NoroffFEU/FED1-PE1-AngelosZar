@@ -371,7 +371,7 @@ footer {
 }
 /* ------------- ** current page styles ** ----------------- */
 .current-page {
-  color: var(--blue-1);
+  color: var(--purple-1);
   text-decoration-line: underline;
 }
 
@@ -407,6 +407,27 @@ footer {
   background-color: var(--purple-1);
   cursor: pointer;
 }
+/* label*/
+label {
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: var(--h4-size);
+  font-weight: 400;
+  display: inline-block;
+  max-width: 200px;
+  padding: 0px;
+  margin: 30px 0 10px 0;
+  display: flex;
+}
+textarea {
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: var(--body-color-white);
+  font-size: 18px;
+  resize: none;
+}
 
 /* -------------------- Media quarries -------------------- */
 @media only screen and (max-width: 1230px) {
@@ -437,7 +458,6 @@ footer {
     top: 4.5rem;
     right: 0;
     z-index: 1;
-    /* border-radius: 20px; */
     width: 100%;
     padding-right: 2rem;
     text-align: end;

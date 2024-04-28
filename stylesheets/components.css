@@ -41,11 +41,6 @@
   margin: 2.5rem;
 }
 
-.text--grid-card {
-  line-height: 1.25rem;
-  color: var(--text-green);
-}
-
 .cards-container {
   grid-column: 2 / span 12;
   /* grid-column: 2 / span 18; */
@@ -87,6 +82,7 @@
 }
 
 .card-title {
+  color: var(--text-green);
   margin-bottom: 20px;
 }
 
@@ -94,13 +90,14 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  /* align-self: center; */
-  /* align-items: center; */
 }
 
-.card-time {
+.card-author {
+  /* line-height: 1.25rem; */
+  color: var(--text-green);
+}
+.text--grid-card {
   margin-left: auto;
-  padding: 5px 20px;
 }
 
 /* -------------Media quarries------------- */

@@ -14,18 +14,6 @@
 h2 {
   margin: 0 0 2rem 0;
 }
-/* label*/
-label {
-  cursor: pointer;
-  color: var(--text-white);
-  font-size: var(--h5-size);
-  font-weight: 400;
-  display: inline-block;
-  max-width: 200px;
-  padding: 0px;
-  margin: 30px 0 10px 0;
-  display: flex;
-}
 
 input[type='email'],
 input[type='password'] {

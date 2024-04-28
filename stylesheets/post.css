@@ -23,8 +23,21 @@
   max-width: 60rem;
   line-height: 1.5;
 }
-.reccomended_articles > h2 {
+.recomended_articles > h2 {
   padding: 2rem 0 3rem 0;
+}
+/* ----------------- edit post page ----------------- */
+
+#main_body-edit-page {
+  padding-top: 3rem;
+}
+#main_body-edit-page > .column-left {
+  width: 40%;
+}
+#main_body-edit-page > .column-right {
+  width: 60%;
+  padding: 2rem;
+  flex-direction: column;
 }
 
 /* Media quarries */
