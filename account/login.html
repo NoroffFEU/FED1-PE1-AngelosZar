@@ -25,40 +25,54 @@
         />
       </a>
       <label for="menu-checkbox"><i class="fa-solid fa-bars fa-2x"></i></label>
-      <input type="checkbox" name="" id="menu-checkbox" />
+      <input type="checkbox" id="menu-checkbox" />
       <nav>
         <ul class="menu">
-          <a href=""> <li>Tech /</li></a>
-          <a href=""> <li>Dev /</li> </a>
-          <a href="/account/login.html"><li class="current-page" >Log In /</li > </a>
-          <a href="/account/register.html"><li>Sign Up /</li> </a >
+          <li><a href=""></a>Tech /</li>
+          <li><a href=""></a>Dev /</li>
+          <li class="current-page">
+            <a href="/account/login.html">Log In /</a>
+          </li>
+          <li><a href="/account/register.html">Sign Up /</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="two-column-flex-container" id="two-column-flex-container_at-log-in">
+      <section
+        class="two-column-flex-container"
+        id="two-column-flex-container_at-log-in"
+      >
         <div class="column-left-50">
           <div>
             <h1>Log in</h1>
-            <form action="" method="post">
-              <label for="email-input">Email</label>
-              <input id="email-input-log_in" type="email" placeholder="enter email"/>
+            <form method="post">
+              <label for="email-input-log_in">Email</label>
+              <input
+                id="email-input-log_in"
+                type="email"
+                placeholder="enter email"
+              />
               <label for="password-input">Password</label>
-              <input id="password-input" type="password" placeholder="enter email"/>
-              <button type="submit" class="primary-button" id="btn-log-in">Log in</button>
+              <input
+                id="password-input"
+                type="password"
+                placeholder="enter email"
+              />
+              <button type="submit" class="primary-button" id="btn-log-in">
+                Log in
+              </button>
             </form>
-           <div class="sign-up-se">
-            <h2>no account?
-              <br>
-              no problem ! 
-            </h2>
-            <a href="register.html" class="btn-link">Sign up now</a>
-           </div>
+            <div class="sign-up-se">
+              <h2>
+                no account?
+                <br />
+                no problem !
+              </h2>
+              <a href="register.html" class="btn-link">Sign up now</a>
+            </div>
           </div>
         </div>
-        <div class="column-right-50 background-img log-in-img">
-          </div>
-        </div>
+        <div class="column-right-50 background-img log-in-img"></div>
       </section>
     </main>
     <!--------------------------  Footer  -------------------------->

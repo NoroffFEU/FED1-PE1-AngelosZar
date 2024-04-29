@@ -23,15 +23,17 @@
         />
       </a>
       <label for="menu-checkbox"><i class="fa-solid fa-bars fa-2x"></i></label>
-      <input type="checkbox" name="" id="menu-checkbox" />
+      <input type="checkbox" id="menu-checkbox" />
       <nav>
         <ul class="menu">
-          <a href=""> <li>Tech /</li></a>
-          <a href=""> <li>Dev /</li> </a>
-          <a href="/account/login.html"><li>Log In /</li> </a>
-          <a href="/account/register.html"
-            ><li class="current-page">Sign Up /</li>
-          </a>
+          <li><a href=""></a>Tech /</li>
+          <li><a href=""></a>Dev /</li>
+          <li>
+            <a href="/account/login.html">Log In /</a>
+          </li>
+          <li class="current-page">
+            <a href="/account/register.html">Sign Up /</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -42,14 +44,14 @@
       >
         <div class="column-left-50">
           <h1>Sign up</h1>
-          <form action="" method="post">
-            <label for="email-input">Email</label>
+          <form action="register-form" method="post">
+            <label for="email-input-sign_up">Email</label>
             <input
               id="email-input-sign_up"
               type="email"
               placeholder="enter email"
             />
-            <label for="password-input">Password</label>
+            <label for="password-input-sign_up">Password</label>
             <input
               id="password-input-sign_up"
               type="password"

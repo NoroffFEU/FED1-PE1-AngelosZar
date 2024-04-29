@@ -4,8 +4,8 @@
 /* Variables/custom properties */
 :root {
   /* fonts---both from google but with safe fonds /////adjust sizes afterwards*/
-  --body-font: 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
-  --2nd-font: 'Nova Square', Tahoma, sans-serif;
+  --body-font: 'Montserrat', Verdana, Geneva, Tahoma, 'sans-serif';
+  --headings-font: 'Nova Square', Tahoma, 'sans-serif';
   /*Text colors */
   --text-dark: #000;
   --text-white: #fff;
@@ -38,7 +38,7 @@
 
   /* gradient */
   --gradient-1: #40d10d, #216b07;
-  --gradient-1: #4926f5, #40d10d;
+  --gradient-2: #4926f5, #40d10d;
 
   /* body */
   --body-width: 1920px;
@@ -190,7 +190,7 @@ body {
   height: 100%;
   margin: 0;
   box-sizing: border-box;
-  padding: var(--spacing-lg), 0, 0, 0;
+  padding: var(--spacing-md) 0 0 0;
   color: var(--text-white);
 }
 html,
@@ -247,9 +247,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--2nd-font);
+  font-family: var(--headings-font);
   margin: 0;
-  /* width: 100%; */
 }
 
 h1 {
@@ -278,7 +277,7 @@ h6 {
 p {
   font-size: 1.125rem;
   font-weight: 400;
-  margin: var var(--spacing-md 0);
+  /* margin: var(--spacing-md) 0; */
 }
 
 /* Header */
@@ -288,14 +287,11 @@ header {
   align-items: center;
   width: 100%;
   max-width: var(--body-width);
-  /* padding: var(--spacing-xl), var(--spacing-md), var(--spacing-md),
-    var(--spacing-md); */
-  /* margin-top: var(--spacing-md); */
   margin: var(--spacing-md);
 }
 
 nav {
-  font-family: var(--2nd-font);
+  font-family: var(--headings-font);
 }
 
 nav li {
@@ -334,16 +330,17 @@ nav ul {
   max-width: 340px;
   margin-left: var(--spacing-lg);
 }
+
 /* Footer */
 footer {
-  padding: var(--spacing-xl), var(--spacing-md), var(--spacing-md),
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md)
     var(--spacing-md);
   display: flex;
   width: 100%;
   max-width: var(--body-width);
   justify-content: space-between;
   align-items: center;
-  font-family: var(--2nd-font);
+  font-family: var(--headings-font);
   font-size: var(--h6-size);
   padding: var(--spacing-lg);
 }
@@ -385,8 +382,9 @@ footer {
   -webkit-text-fill-color: transparent;
 }
 /* --------------- ** Button Styles ** ----------------- */
-.primary-button {
-  font-family: var(--2nd-font);
+.primary-button,
+.secondary-button {
+  font-family: var(--headings-font);
   font-size: var(--h6-size);
   letter-spacing: 1.25px;
   color: var(--text-white);
@@ -394,16 +392,20 @@ footer {
   border-radius: var(--standard-border-radius);
   padding: 8px 24px;
   transition: all 0.2s ease;
+}
+.primary-button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.primary-button:hover {
+.primary-button:hover,
+.secondary-button:hover {
   background-color: var(--blue-1);
   cursor: pointer;
 }
-.primary-button:active {
+.primary-button:active,
+.secondary-button:active {
   background-color: var(--purple-1);
   cursor: pointer;
 }

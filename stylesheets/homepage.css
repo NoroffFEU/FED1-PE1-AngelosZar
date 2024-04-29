@@ -42,9 +42,6 @@
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  /* for bigger screen sizes */
-  /* flex-direction: row; */
-  /* flex-wrap: wrap; */
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
@@ -65,9 +62,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.carousel-heading {
-  margin: 2rem;
-}
+
 .hero-image {
   width: 100%;
   position: relative;
@@ -93,6 +88,7 @@ button {
 .sign-up-section button {
   margin-bottom: 2rem;
 }
+
 /* ------------- carousel with 3 sliders section ------------- */
 .carousel-section {
   padding: 6rem 2rem 2rem 2rem;
@@ -122,7 +118,7 @@ button {
 }
 .slider-title {
   position: absolute;
-  top: 70%;
+  top: 65%;
   left: 25%;
   right: 25%;
   text-align: center;
@@ -158,6 +154,13 @@ button {
   height: 100%;
   object-fit: cover;
   margin: -20rem;
+}
+.carousel-heading {
+  margin: 2rem;
+}
+.card-author {
+  padding-top: 1rem;
+  font-size: clamp(1rem, 2.5vw, 2rem);
 }
 /* Need to work on the dots */
 /* position of article title and color */
@@ -205,6 +208,7 @@ input[type='email'] {
   /* grid-template-columns: repeat(18, minmax(auto, 3.75rem)); */
   /* grid-gap: 2.5rem; */
 }
+
 /* -------------Media quarries------------- */
 @media only screen and (max-width: 1480px) {
   .overlay-on-hero {
@@ -282,7 +286,7 @@ input[type='email'] {
     grid-column-end: span 12;
   }
   .slider-title {
-    top: 60%;
+    top: 56%;
   }
   .slider-btn {
     height: 3.5rem;
@@ -327,6 +331,7 @@ input[type='email'] {
     right: 5%;
     left: 5%;
   }
+
   .slider-title h2 {
     font-size: 1.5rem;
   }
@@ -338,6 +343,11 @@ input[type='email'] {
   }
   .recent-articles {
     margin-top: -2rem;
+  }
+  .slider-title {
+    top: 60%;
+    left: 15%;
+    right: 15%;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -356,10 +366,10 @@ input[type='email'] {
   .carousel-heading {
     margin-bottom: -10rem;
   }
-  .recent-articles {
+  /* .recent-articles {
     margin-top: -40px;
     padding-top: -20rem;
-  }
+  } */
   .newsletter-container {
     flex-direction: column;
   }
