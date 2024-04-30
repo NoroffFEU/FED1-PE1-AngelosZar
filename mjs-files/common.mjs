@@ -14,8 +14,9 @@ export const singlePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
 export async function fetchData(url) {
   try {
     const res = await axios.get(url);
-    console.log(res, res.data, res.data.data);
-    return res.data.data;
+    // console.log(res, res.data, res.data.data);
+    return res.data;
+    // return res.data.data;
   } catch (error) {
     console.log('error');
     throw new Error(error);
