@@ -6,14 +6,7 @@ import { singlePost } from './common.mjs';
 import { singlePostId } from './common.mjs';
 const a = 'https://v2.api.noroff.dev/blog/posts/angZar';
 //all posts
-fetchData(allArticles);
-// single post by id
-// fetchData(baseApiUrl, singlePostId);
-
-//
-// function to display a grid card on
-// Variables from Grid
-
+// fetchData(allArticles);
 //
 //
 function genHtmlForGrid(post) {
@@ -25,7 +18,6 @@ function genHtmlForGrid(post) {
   cardImgContainer.classList.add('card--image-container');
   //   card img
   const productImg = document.createElement('img');
-
   //   issue with img
   productImg.src = post.media.url;
   //   do i have to declare the alt text for img ?
@@ -38,15 +30,12 @@ function genHtmlForGrid(post) {
   //   card-info
   const cardInfo = document.createElement('div');
   cardInfo.classList.add('card-info');
-
   const cardAuthor = document.createElement('p');
   cardAuthor.classList.add('card-author');
   cardAuthor.textContent = post.author.name;
-
-  const tagCategory = document.createComment('p');
+  const tagCategory = document.createElement('p');
   tagCategory.classList.add('text--grid-card');
-  //   tagCategory.textContent = post.tags;
-  console.log('breakpoint');
+  tagCategory.textContent = post.tags;
   //   appending
   cardInfo.append(cardAuthor, tagCategory);
   cardContent.append(cardTtl, cardInfo);
@@ -58,7 +47,6 @@ function displayRecentArticles(posts) {
   posts.forEach(post => {
     const gridOfCard = genHtmlForGrid(post);
     gridCardsContainer.appendChild(gridOfCard);
-    console.log(post);
     return gridCardsContainer;
   });
 }
