@@ -4,15 +4,14 @@ import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { singlePost } from './common.mjs';
 import { singlePostId } from './common.mjs';
-const a = 'https://v2.api.noroff.dev/blog/posts/angZar';
-//all posts
-// fetchData(allArticles);
-//
-//
+
 function genHtmlForGrid(post) {
   // card
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
+  gridCard.addEventListener('click', () => {
+    clickedPost(post);
+  });
   //   card img div
   const cardImgContainer = document.createElement('div');
   cardImgContainer.classList.add('card--image-container');
@@ -50,14 +49,17 @@ function displayRecentArticles(posts) {
     return gridCardsContainer;
   });
 }
-//
+export function clickedPost(post) {
+  localStorage.setItem('clickedPost', JSON.stringify(post));
+  location.href = 'post/index.html';
+}
+// Rendering homepage
 async function main() {
   // 1. check if logged in
   // 2. check if user is admin
   // 3. Async load api data for
   try {
     const { data: posts } = await fetchData(allArticles);
-    // console.log(posts);
     // functions to render sections here
     //  - hero section extra is not asked in user stories.
     //  - picks of the day //carousel section/
