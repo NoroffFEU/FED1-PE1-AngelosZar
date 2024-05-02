@@ -1,6 +1,7 @@
 import { baseApiUrl } from './common.mjs';
 const registerEndPoint = '/auth/register';
 const registerUrl = `${baseApiUrl}${registerEndPoint}`;
+const registerUrl2 = 'https://v2.api.noroff.dev/auth/register';
 //
 // Sign up form variables
 const inputUserEmail = document.querySelector('#email-input-sign_up').value;
@@ -16,11 +17,16 @@ const registeringUser = {
   email: `${inputUserName}`,
   password: `${inputUserName}`,
 };
-signUpForm.addEventListener('submit', async e => {
+const myCredentials = {
+  name: 'angZar',
+  email: 'angzar49347@stud.noroff.no',
+  password: '/.,offThe12qw3p09/',
+};
+signUpForm.addEventListener('submit', async () => {
   e.preventDefault();
   //   e.stopPropagation()
   console.log(inputUserEmail, inputUserName, inputUserPassword);
-  registerUser(registeringUser, registerUrl);
+  registerUser(registeringUser, registerUrl2);
 });
 
 // api test platform
@@ -46,10 +52,13 @@ async function registerUser(user, api) {
     });
     const responseData = await res.json();
     console.log(responseData);
-    prompt('Congratulation \nNew user was registered');
+    responseData.ok ? prompt('Congratulation \nNew user was registered') : '';
+
     return responseData;
   } catch (error) {
     console.error(`Error creating user:, ${error.message}`);
     return null;
   }
 }
+
+// registerUser(myCredentials, registerUrl2);
