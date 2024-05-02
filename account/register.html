@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/stylesheets/acount.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="/mjs-files/common.mjs"></script>
+    <script type="module" src="/mjs-files/register.mjs"></script>
 
     <script
       src="https://kit.fontawesome.com/aea85badd7.js"
@@ -47,18 +48,25 @@
       >
         <div class="column-left-50">
           <h1>Sign up</h1>
-          <form action="register-form" method="post">
+          <form action="register-form" method="post" id="signUpForm">
             <label for="email-input-sign_up">Email</label>
             <input
               id="email-input-sign_up"
               type="email"
-              placeholder="enter email"
+              placeholder="Enter email"
             />
             <label for="password-input-sign_up">Password</label>
             <input
               id="password-input-sign_up"
               type="password"
-              placeholder="enter email"
+              placeholder="Enter Password"
+            />
+            <label for="userNameInput">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="userNameInput"
+              placeholder="Enter a User name"
             />
             <button type="submit" class="primary-button" id="btn-sign-up">
               Sign up

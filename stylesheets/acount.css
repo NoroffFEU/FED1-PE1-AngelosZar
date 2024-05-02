@@ -16,7 +16,8 @@ h2 {
 }
 
 input[type='email'],
-input[type='password'] {
+input[type='password'],
+#userNameInput {
   width: 14rem;
   height: 2rem;
   padding: 0.5rem;
