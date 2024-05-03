@@ -5,11 +5,14 @@ const logInApi = `${baseApiUrl}${logInEndPoint}`;
 // Log in user variables
 
 const logInForm = document.querySelector('#log-in-form');
-logInForm.addEventListener('submit', () => {
-  // preventDefault();
+logInForm.addEventListener('submit', async e => {
+  e.preventDefault();
   const logInUserName = document.querySelector('#email-input-log_in').value;
   const logInUserEmail = document.querySelector('#password-input').value;
-  logInUser(logInUserEmail, logInUserName, logInApi);
+  await logInUser(logInUserName, logInUserEmail, logInApi);
+  prompt('You are now logged in');
+  logInForm.reset();
+  window.location.href = '/post/edit.html';
 });
 
 const name = 'angzar49347@stud.noroff.no';
@@ -25,9 +28,12 @@ async function logInUser(email, password, api) {
       body: JSON.stringify({ email, password }),
     });
     const responseData = await res.json();
-    console.log(responseData);
+    const accessToken = responseData.data.accessToken;
+    localStorage.setItem('accessToken', accessToken);
+    // console.log(responseData, accessToken);
+    // console.log(accessToken);
     responseData.ok ? prompt('You are now logged in') : '';
-    return responseData;
+    return responseData, accessToken;
   } catch (error) {
     console.error(`Error :, ${error.message}`);
     return null;
