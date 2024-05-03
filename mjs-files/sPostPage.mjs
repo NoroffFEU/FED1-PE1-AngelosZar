@@ -10,8 +10,8 @@ function displaySinglePost(post) {
         <div>
           <div class="focused-blog-info">
             <h5>${post.tags} /</h5>
-            <h5>${post.created} /</h5>
-            <h5>${post.author} /</h5>
+            <h5>${new Date(post.created).toLocaleDateString()} /</h5>
+            <h5>${post.author.name} /</h5>
           </div>
           <h1>${post.title}</h1>
           <div class="focused-blog-info-img-container">
