@@ -9,6 +9,22 @@ logInForm.addEventListener('submit', async e => {
   e.preventDefault();
   const logInUserName = document.querySelector('#email-input-log_in').value;
   const logInUserEmail = document.querySelector('#password-input').value;
+  try {
+    const response = await logInUser(logInUserName, logInUserEmail, logInApi);
+    if (response.ok) {
+      console.log('response:', response);
+      alert('You are now logged in');
+      logInForm.reset();
+      window.location.href = '/post/edit.html';
+    } else {
+      console.log('response:', response);
+      alert('Invalid username or password\nPlease try again');
+    }
+  } catch (error) {
+    console.error(`Error :, ${error.message}`);
+    return null;
+  }
+
   await logInUser(logInUserName, logInUserEmail, logInApi);
   prompt('You are now logged in');
   logInForm.reset();
@@ -39,4 +55,3 @@ async function logInUser(email, password, api) {
     return null;
   }
 }
-// logInUser(name, pass, logInApi);

@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     ></script>
     <script type="module" src="/mjs-files/common.mjs"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/mjs-files/logOut.mjs"></script>
   </head>
   <!------------------- Body ------------------->
   <body>
@@ -33,7 +33,9 @@
           <li class="current-page">
             <a href="edit.html">Admin /</a>
           </li>
-          <li><a href="index.html">Log out /</a></li>
+          <li class="log-out-btn">
+            <a href="index.html" id="log-out-btn2">Log out /</a>
+          </li>
         </ul>
       </nav>
     </header>
