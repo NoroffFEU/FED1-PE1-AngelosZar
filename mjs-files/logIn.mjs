@@ -55,3 +55,4 @@ async function logInUser(email, password, api) {
     return null;
   }
 }
+// document.addEventListener('DOMContentLoaded', () => {});
