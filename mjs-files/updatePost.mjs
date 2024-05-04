@@ -1,45 +1,27 @@
 // update post function
+// work on the username variable
+// const username = localStorage.getItem('name');
+// console.log(username);
+// const updatePostEndpoint = `${baseApiUrl}/posts/${username}${singlePostId}`;
 
-import { baseApiUrl } from './common.mjs';
-
-const updatePostEndpoint = `${baseApiUrl}/posts/${username}${singlePostId}`;
+// import { fetchData } from './common.mjs';
+// import { genHtmlForGrid } from './homepage.mjs';
+// import { displayRecentArticles } from './homepage.mjs';
 const testapireqresin = 'https://reqres.in/api/users/2';
 const datatest = {
   name: 'morpheus',
   job: 'zion resident',
 };
-// const updatePost = async (data, api) => {
-const updatePost = async (
-  singlePostId,
-  title,
-  body,
-  tags,
-  mediaUrl,
-  mediaAlt
-) => {
-  const token = localStorage.getItem('token');
-  const data = {
-    title,
-    body,
-    tags,
-    media: {
-      url: mediaUrl,
-      alt: mediaAlt,
+// update async function
+export const updatePost = async (data, api) => {
+  const response = await fetch(api, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      // Authorization: `Bearer ${token}`,
     },
-  };
-
-  const response = await fetch(
-    `${baseApiUrl}/posts/${username}${singlePostId}`,
-    {
-      //   const response = await fetch(`${baseApiUrl}/posts/${username}${postId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(data),
-    }
-  );
+    body: JSON.stringify(data),
+  });
   if (response.ok) {
     const updatedPost = await response.json();
     console.log(updatedPost);
@@ -47,11 +29,12 @@ const updatePost = async (
   } else {
     const error = await response.json();
     console.error(`Error updating post: ${error.message}`);
+    // might change
+    alert(error(`Error updating post: ${error.message}`));
   }
 };
 
 // updatePost(datatest, testapireqresin);
-
 // Update post
 // PUT
 // /blog/posts/<name>/<id>
@@ -70,35 +53,16 @@ const updatePost = async (
 //     "alt": "string"
 //   }
 // }
-
-// Dom variables
-// const editFormPost = document.querySelector('#edit-form-Post');
-// const postTitle = document.querySelector('#post-title');
-// const postTags = document.querySelector('#post-tags');
-// const postMediaUrl = document.querySelector('#post-media-url');
-// const postMediaAlt = document.querySelector('#post-media-alt');
-// const postBody = document.querySelector('#post-body');
-
-// editFormPost.addEventListener('submit', e => {
-//   e.preventDefault();
-//   const postId = editFormPost.dataset.postId;
-//   const title = postTitle.value;
-//   const tags = postTags.value.split(',');
-//   const mediaUrl = postMediaUrl.value;
-//   const mediaAlt = postMediaAlt.value;
-//   const body = postBody.value;
-//   updatePost(postId, title, body, tags, mediaUrl, mediaAlt);
+// document.addEventListener('DOMContentLoaded', () => {
+//   const editFormPost = document.querySelector('#edit-form-Post');
+//   editFormPost.addEventListener('submit', async e => {
+//     e.preventDefault();
+//     const postId = editFormPost.dataset.postId;
+//     const title = postTitle.value;
+//     const tags = postTags.value.split(',');
+//     const mediaUrl = postMediaUrl.value;
+//     const mediaAlt = postMediaAlt.value;
+//     const body = postBody.value;
+//     updatePost(postId, title, body, tags, mediaUrl, mediaAlt);
+//   });
 // });
-document.addEventListener('DOMContentLoaded', () => {
-  const editFormPost = document.querySelector('#edit-form-Post');
-  editFormPost.addEventListener('submit', async e => {
-    e.preventDefault();
-    const postId = editFormPost.dataset.postId;
-    const title = postTitle.value;
-    const tags = postTags.value.split(',');
-    const mediaUrl = postMediaUrl.value;
-    const mediaAlt = postMediaAlt.value;
-    const body = postBody.value;
-    updatePost(postId, title, body, tags, mediaUrl, mediaAlt);
-  });
-});

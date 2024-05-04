@@ -5,7 +5,7 @@ import { allArticles } from './common.mjs';
 import { singlePost } from './common.mjs';
 import { singlePostId } from './common.mjs';
 
-function genHtmlForGrid(post) {
+export function genHtmlForGrid(post) {
   // card
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
@@ -41,7 +41,7 @@ function genHtmlForGrid(post) {
   gridCard.append(cardImgContainer, cardContent);
   return gridCard;
 }
-function displayRecentArticles(posts) {
+export function displayRecentArticles(posts) {
   const gridCardsContainer = document.querySelector('.cards-container');
   posts.forEach(post => {
     const gridOfCard = genHtmlForGrid(post);
