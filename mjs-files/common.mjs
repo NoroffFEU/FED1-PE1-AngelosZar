@@ -10,15 +10,15 @@ export const singlePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
 
 //
 // fetch async api // get//
+
 export async function fetchData(url) {
   try {
-    const res = await axios.get(url);
-    // console.log(res, res.data,);
-    console.log(res.data);
-    return res.data;
-    // return res.data.data;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log('data', data);
+    return data;
   } catch (error) {
     console.log('error');
-    throw new Error(error);
+    throw new Error(`error) ${error.message}`);
   }
 }

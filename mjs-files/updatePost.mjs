@@ -53,16 +53,3 @@ export const updatePost = async (data, api) => {
 //     "alt": "string"
 //   }
 // }
-// document.addEventListener('DOMContentLoaded', () => {
-//   const editFormPost = document.querySelector('#edit-form-Post');
-//   editFormPost.addEventListener('submit', async e => {
-//     e.preventDefault();
-//     const postId = editFormPost.dataset.postId;
-//     const title = postTitle.value;
-//     const tags = postTags.value.split(',');
-//     const mediaUrl = postMediaUrl.value;
-//     const mediaAlt = postMediaAlt.value;
-//     const body = postBody.value;
-//     updatePost(postId, title, body, tags, mediaUrl, mediaAlt);
-//   });
-// });
