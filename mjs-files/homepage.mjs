@@ -19,6 +19,7 @@ export function genHtmlForGrid(post) {
   const productImg = document.createElement('img');
   //   issue with img
   productImg.src = post.media.url;
+  // const altImgText = post.media.alt;
   //   do i have to declare the alt text for img ?
   //   card content
   const cardContent = document.createElement('div');
