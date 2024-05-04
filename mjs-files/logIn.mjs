@@ -56,4 +56,5 @@ async function logInUser(email, password, api) {
     return null;
   }
 }
+// logInUser(name, pass, logInApi);
 // document.addEventListener('DOMContentLoaded', () => {});
