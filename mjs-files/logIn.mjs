@@ -45,6 +45,7 @@ async function logInUser(email, password, api) {
     });
     const responseData = await res.json();
     const accessToken = responseData.data.accessToken;
+    // const currentUser = responseData.data.name;
     localStorage.setItem('accessToken', accessToken);
     // console.log(responseData, accessToken);
     // console.log(accessToken);
