@@ -3,32 +3,19 @@ import { baseApiUrl } from './common.mjs';
 const logInEndPoint = '/auth/login';
 const logInApi = `${baseApiUrl}${logInEndPoint}`;
 // Log in user variables
-
-const logInForm = document.querySelector('#log-in-form');
-logInForm.addEventListener('submit', async e => {
-  e.preventDefault();
-  const logInUserName = document.querySelector('#email-input-log_in').value;
-  const logInUserEmail = document.querySelector('#password-input').value;
-  try {
-    const response = await logInUser(logInUserName, logInUserEmail, logInApi);
-    if (response.ok) {
-      console.log('response:', response);
-      alert('You are now logged in');
-      logInForm.reset();
-      window.location.href = '/post/edit.html';
-    } else {
-      console.log('response:', response);
-      alert('Invalid username or password\nPlease try again');
-    }
-  } catch (error) {
-    console.error(`Error :, ${error.message}`);
-    return null;
-  }
-
-  await logInUser(logInUserName, logInUserEmail, logInApi);
-  prompt('You are now logged in');
-  logInForm.reset();
-  window.location.href = '/post/edit.html';
+document.addEventListener('DOMContentLoaded', () => {
+  const logInForm = document.querySelector('#log-in-form');
+  logInForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const logInUserName = document.querySelector('#email-input-log_in').value;
+    const logInUserEmail = document.querySelector('#password-input').value;
+    await logInUser(logInUserName, logInUserEmail, logInApi);
+    // alert('1 You are now logged in');
+    // prompt('2 You are now logged in');
+    confirm('You are now logged in');
+    logInForm.reset();
+    window.location.href = '/post/edit.html';
+  });
 });
 
 const name = 'angzar49347@stud.noroff.no';
@@ -43,18 +30,24 @@ async function logInUser(email, password, api) {
       },
       body: JSON.stringify({ email, password }),
     });
-    const responseData = await res.json();
-    const accessToken = responseData.data.accessToken;
-    // const currentUser = responseData.data.name;
-    localStorage.setItem('accessToken', accessToken);
-    // console.log(responseData, accessToken);
-    // console.log(accessToken);
-    responseData.ok ? prompt('You are now logged in') : '';
-    return responseData, accessToken;
+    if (res.ok) {
+      const responseData = await res.json();
+      const accessToken = responseData.data.accessToken;
+      // const currentUser = responseData.data.name;
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('name', responseData.data.name);
+      // console.log(responseData);
+      // console.log(responseData.data.name);
+      // console.log(accessToken);
+      responseData.ok ? alert('You are now logged in') : '';
+      return { responseData, accessToken, name };
+    } else {
+      console.log('response:', response);
+      alert('Invalid username or password\nPlease try again');
+    }
   } catch (error) {
     console.error(`Error :, ${error.message}`);
     return null;
   }
 }
-// logInUser(name, pass, logInApi);
-// document.addEventListener('DOMContentLoaded', () => {});
+logInUser(name, pass, logInApi);
