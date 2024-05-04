@@ -13,6 +13,7 @@
     ></script>
     <script type="module" src="/mjs-files/common.mjs"></script>
     <script type="module" src="/mjs-files/logOut.mjs"></script>
+    <script type="module" src="/mjs-files/updatePost.mjs"></script>
   </head>
   <!------------------- Body ------------------->
   <body>
@@ -107,7 +108,7 @@
         </div>
         <div class="column-right">
           <div class="editor-container">
-            <form action="PUT">
+            <form action="PUT" id="edit-form-post">
               <h3>You are now editing post the id of ${id}</h3>
 
               <label for="post-title">post title:</label>
@@ -138,13 +139,6 @@
                 cols="60"
                 rows="2"
               ></textarea>
-              <label for="post-author-name">post/author name:</label>
-              <textarea
-                name="post/author-name:"
-                id="post-author-name"
-                cols="60"
-                rows="2"
-              ></textarea>
               <label for="post-body">post/body:</label>
               <textarea
                 name="post-body"
@@ -153,7 +147,9 @@
                 rows="30"
               ></textarea>
 
-              <button class="primary-button">Submit changes to post</button>
+              <button class="primary-button" type="submit">
+                Submit changes to post
+              </button>
             </form>
           </div>
         </div>
