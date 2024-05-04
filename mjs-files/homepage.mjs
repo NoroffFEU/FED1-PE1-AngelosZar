@@ -5,7 +5,11 @@ import { allArticles } from './common.mjs';
 import { singlePost } from './common.mjs';
 import { singlePostId } from './common.mjs';
 
-export function genHtmlForGrid(post) {
+// add some logic if there is token or not to show the log in button
+// const token = JSON.parse(localStorage.getItem('token'));
+// const username = localStorage.getItem('name');
+// console.log(username);
+function genHtmlForGrid(post) {
   // card
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
@@ -42,7 +46,7 @@ export function genHtmlForGrid(post) {
   gridCard.append(cardImgContainer, cardContent);
   return gridCard;
 }
-export function displayRecentArticles(posts) {
+function displayRecentArticles(posts) {
   const gridCardsContainer = document.querySelector('.cards-container');
   posts.forEach(post => {
     const gridOfCard = genHtmlForGrid(post);
@@ -50,28 +54,20 @@ export function displayRecentArticles(posts) {
     return gridCardsContainer;
   });
 }
-export function clickedPost(post) {
+function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
   location.href = 'post/index.html';
 }
-// Rendering homepage
-async function main() {
-  // 1. check if logged in
-  // 2. check if user is admin
-  // 3. Async load api data for
+// // Rendering homepage
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     const { data: posts } = await fetchData(allArticles);
-    // functions to render sections here
-    //  - hero section extra is not asked in user stories.
-    //  - picks of the day //carousel section/
-    //  - most recent section / grid of min 12 cards
     displayRecentArticles(posts);
   } catch (error) {
-    console.error();
+    console.error(error);
     console.log('Problem loading the content');
   }
-}
-main();
-// document.addEventListener('DOMContentLoaded', () => {
-//   //
-// });
+});
+//   // 1. check if logged in
+//   // 2. check if user is admin
+//   // 3. Async load api data for

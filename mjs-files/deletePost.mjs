@@ -3,20 +3,25 @@ const admin = 'angZar';
 import { fetchData } from './common.mjs';
 const singlePostId = '00a949dd-8cdf-4b1a-a70c-96701e02b34b';
 import { baseApiUrl } from './common.mjs';
-const deletePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
-// only for test
+const deletePostUrl = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
+const token = localStorage.getItem('token');
+const bearerToken = `Bearer ${token}`;
+const username = localStorage.getItem('name');
+console.log(typeof token);
+console.log(typeof bearerToken);
+// document.addEventListener('DOMContentLoaded', () => {});
 
-// const token = JSON.parse(localStorage.getItem('token'));
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMjQwZjQwMzQ4MzQzMDAxNzQwZjQzZiIsImlhdCI6MTYxNzYwNjYwMiwiZXhwIjoxNjE3NjA2NjkyfQ.1Z6';
-const testDeletePost = 'https://reqres.in/api/users/2';
-// console.log(token);
-// async function deletePost(url) {
-async function deleteAPost(token, url) {
+// testing reqres succesfull
+// const testDeletePost = 'https://reqres.in/api/users/2';
+
+const deletePost = async function (token, postId) {
+  const admin = 'angZar';
+  const deleteApiUrl = `${baseApiUrl}/blog/posts/${admin}/${postId}`;
   try {
-    const res = await fetch(url, {
+    const res = await fetch(deleteApiUrl, {
       method: 'DELETE',
       headers: {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     });
@@ -31,6 +36,6 @@ async function deleteAPost(token, url) {
     console.log(`${error.message}`);
     throw new Error(`error) ${error.message}`);
   }
-}
+};
 
-deleteAPost(token, deletePost);
+// deletePost(token, singlePostId);

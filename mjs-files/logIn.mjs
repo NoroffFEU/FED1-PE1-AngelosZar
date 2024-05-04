@@ -2,7 +2,7 @@
 import { baseApiUrl } from './common.mjs';
 const logInEndPoint = '/auth/login';
 const logInApi = `${baseApiUrl}${logInEndPoint}`;
-// Log in user variables
+// Log in page  -  log in user
 document.addEventListener('DOMContentLoaded', () => {
   const logInForm = document.querySelector('#log-in-form');
   logInForm.addEventListener('submit', async e => {
@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const logInUserName = document.querySelector('#email-input-log_in').value;
     const logInUserEmail = document.querySelector('#password-input').value;
     await logInUser(logInUserName, logInUserEmail, logInApi);
-    // alert('1 You are now logged in');
-    // prompt('2 You are now logged in');
     confirm('You are now logged in');
     logInForm.reset();
     window.location.href = '/post/edit.html';
@@ -46,8 +44,8 @@ async function logInUser(email, password, api) {
       alert('Invalid username or password\nPlease try again');
     }
   } catch (error) {
-    console.error(`Error :, ${error.message}`);
+    alert('Something went wrong\nPlease try again');
     return null;
   }
 }
-logInUser(name, pass, logInApi);
+// logInUser(name, pass, logInApi);
