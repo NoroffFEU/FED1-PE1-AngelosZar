@@ -4,10 +4,9 @@ import { allArticles } from './common.mjs';
 import { updatePost } from './updatePost.mjs';
 import { fetchDataById } from './common.mjs';
 
-async function renderPost() {
+export async function renderPost() {
   try {
     const { data: posts } = await fetchData(allArticles);
-    // functioning
     const cardsContainerEdit = document.querySelector('.cards-container-edit');
     posts.forEach(post => {
       const htmlForPost = `<div class="grid-card">
@@ -25,10 +24,11 @@ async function renderPost() {
       const gridCard = cardsContainerEdit.lastElementChild;
       gridCard.addEventListener('click', async () => {
         console.log('post id', post.id);
+        const displayPostID = document.querySelector('#editing-post');
+        displayPostID.innerHTML = `You are now editing :${post.title} <br> With the ID of : ${post.id}`;
       });
     });
     return posts;
-    // functioning
   } catch (error) {
     console.error();
     console.log(`error: ${error}`);

@@ -4,7 +4,9 @@ import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { singlePost } from './common.mjs';
 import { singlePostId } from './common.mjs';
-
+const techBlogs = `${allArticles}?_tag=tech`;
+const trendingBlogs = `${allArticles}?_tag=trending`;
+const devBlogs = `${allArticles}?_tag=dev`;
 // add some logic if there is token or not to show the log in button
 // const token = JSON.parse(localStorage.getItem('token'));
 // const username = localStorage.getItem('name');
@@ -67,6 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error(error);
     console.log('Problem loading the content');
   }
+  renderHeroGrid();
 });
 //   // 1. check if logged in
 //   // 2. check if user is admin
@@ -78,3 +81,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 //create classes or id on links to manipulate if user is admin or simple user
 // if else  token exists
 // }
+// For  trending now section
+async function renderHeroGrid() {
+  try {
+    const { data: posts } = await fetchData(devBlogs);
+    const cardsContainerEdit = document.querySelector('.hero-cards-container');
+    for (let i = 0; i < 3; i++) {
+      const htmlForPost = `<div class="hero-grid-card">
+        <div class="hero-card--image-container">
+          <img src="${posts[i].media.url}" alt="${posts[i].media.alt}" />
+        </div>
+        <div class="card-content">
+          <p class="card-title text--grid-card">${posts[i].title}</p>
+          <div class="card-info">
+            <p>${new Date(posts[i].created).toLocaleDateString()} /</p>
+            <p class="text--grid-card">${posts[i].tags}</p>
+          </div>
+        </div>
+      </div>`;
+      cardsContainerEdit.insertAdjacentHTML('beforeend', htmlForPost);
+    }
+    return posts;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
