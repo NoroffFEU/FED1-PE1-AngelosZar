@@ -44,7 +44,7 @@ function displayRecentArticles(posts) {
     return gridCardsContainer;
   });
 }
-function clickedPost(post) {
+export function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
   location.href = 'post/index.html';
 }
