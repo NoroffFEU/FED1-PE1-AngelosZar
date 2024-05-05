@@ -71,3 +71,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 //   // 1. check if logged in
 //   // 2. check if user is admin
 //   // 3. Async load api data for
+// if (localStorage.getItem('accessToken')) {
+//   const logInBtn = document.querySelector('.log-in-btn');
+//   logInBtn.style.display = 'none';
+
+//create classes or id on links to manipulate if user is admin or simple user
+// if else  token exists
+// }

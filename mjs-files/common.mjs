@@ -24,3 +24,19 @@ export async function fetchData(url) {
     throw new Error(`error) ${error.message}`);
   }
 }
+// fetch idvividual post with token // for admin /edit page
+export async function fetchDataById(postId) {
+  try {
+    const res = await fetch(singlePost, {
+      method: 'GET',
+      Authorization: `Bearer ${userToken}`,
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await res.json();
+    console.log('data', data);
+    return data;
+  } catch (error) {
+    console.log('error');
+    throw new Error(`error) ${error.message}`);
+  }
+}

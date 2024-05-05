@@ -2,6 +2,7 @@ import { fetchData } from './common.mjs';
 import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { updatePost } from './updatePost.mjs';
+import { fetchDataById } from './common.mjs';
 
 async function renderPost() {
   try {
@@ -21,6 +22,10 @@ async function renderPost() {
         </div>
       </div>`;
       cardsContainerEdit.insertAdjacentHTML('beforeend', htmlForPost);
+      const gridCard = cardsContainerEdit.lastElementChild;
+      gridCard.addEventListener('click', async () => {
+        console.log('post id', post.id);
+      });
     });
     return posts;
     // functioning
@@ -29,7 +34,6 @@ async function renderPost() {
     console.log(`error: ${error}`);
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   renderPost();
 });
