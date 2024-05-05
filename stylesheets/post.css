@@ -26,6 +26,10 @@
 .recomended_articles > h2 {
   padding: 2rem 0 3rem 0;
 }
+
+#post-id {
+  color: var(--text-green);
+}
 /* ----------------- edit post page ----------------- */
 
 #main_body-edit-page {

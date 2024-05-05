@@ -4,6 +4,16 @@ import { allArticles } from './common.mjs';
 import { updatePost } from './updatePost.mjs';
 import { fetchDataById } from './common.mjs';
 
+// Form data
+const postId = document.querySelector('#post-id');
+const editForm = document.querySelector('#edit-form-post');
+const postTitle = document.querySelector('#post-title');
+const postTags = document.querySelector('#post-tags');
+const postImg = document.querySelector('#post-media-url');
+const postImgAlt = document.querySelector('#post-media-alt');
+const postBody = document.querySelector('#post-body');
+const displayPostID = document.querySelector('#editing-post');
+//
 export async function renderPost() {
   try {
     const { data: posts } = await fetchData(allArticles);
@@ -24,8 +34,13 @@ export async function renderPost() {
       const gridCard = cardsContainerEdit.lastElementChild;
       gridCard.addEventListener('click', async () => {
         console.log('post id', post.id);
-        const displayPostID = document.querySelector('#editing-post');
-        displayPostID.innerHTML = `You are now editing :${post.title} <br> With the ID of : ${post.id}`;
+        displayPostID.innerHTML = `You are now editing :<br>${post.title} <br>  <br> With the ID of :`;
+        postId.innerHTML = `${post.id}`;
+        postTitle.innerHTML = `${post.title}`;
+        postTags.innerHTML = `${post.tags}`;
+        postImg.innerHTML = `${post.media.url}`;
+        postImgAlt.innerHTML = `${post.media.alt}`;
+        postBody.innerHTML = `${post.body}`;
       });
     });
     return posts;
@@ -36,4 +51,32 @@ export async function renderPost() {
 }
 document.addEventListener('DOMContentLoaded', () => {
   renderPost();
+});
+
+editForm.addEventListener('submit', async e => {
+  e.preventDefault();
+  // console.log(id, 'id');
+  const id = postId.value;
+  const url = `${baseApiUrl}/posts/${post.id}`;
+  try {
+    const id = postId.value;
+    const data = {
+      title: `${postTitle.value}`,
+      body: `${postBody.value}`,
+      tags: `[${postTags.value},]`,
+      media: {
+        url: `${postImg.value}`,
+        alt: `${postImgAlt.value}`,
+      },
+    };
+    console.log(data, 'data');
+
+    console.log(postId, 'post id');
+    // await updatePost(data, url);
+    confirm('Post has been updated');
+    editForm.reset();
+  } catch (error) {
+    console.error();
+    console.log(`error: ${error}`);
+  }
 });
