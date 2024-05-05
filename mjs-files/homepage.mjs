@@ -1,39 +1,28 @@
 // imported variables
 import { fetchData } from './common.mjs';
-import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
-import { singlePost } from './common.mjs';
-import { singlePostId } from './common.mjs';
-const techBlogs = `${allArticles}?_tag=tech`;
-const trendingBlogs = `${allArticles}?_tag=trending`;
-const devBlogs = `${allArticles}?_tag=dev`;
+import { devBlogs } from './common.mjs';
 // add some logic if there is token or not to show the log in button
 // const token = JSON.parse(localStorage.getItem('token'));
 // const username = localStorage.getItem('name');
 // console.log(username);
 function genHtmlForGrid(post) {
-  // card
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
   gridCard.addEventListener('click', () => {
     clickedPost(post);
   });
-  //   card img div
   const cardImgContainer = document.createElement('div');
   cardImgContainer.classList.add('card--image-container');
-  //   card img
   const productImg = document.createElement('img');
-  //   issue with img
   productImg.src = post.media.url;
-  // const altImgText = post.media.alt;
-  //   do i have to declare the alt text for img ?
-  //   card content
+  const altImgText = document.createAttribute('alt');
+  altImgText.value = post.media.alt;
   const cardContent = document.createElement('div');
   cardContent.classList.add('card-content');
   const cardTtl = document.createElement('p');
   cardTtl.classList.add('card-title', 'text--grid-card');
   cardTtl.textContent = post.title;
-  //   card-info
   const cardInfo = document.createElement('div');
   cardInfo.classList.add('card-info');
   const cardAuthor = document.createElement('p');
@@ -42,7 +31,6 @@ function genHtmlForGrid(post) {
   const tagCategory = document.createElement('p');
   tagCategory.classList.add('text--grid-card');
   tagCategory.textContent = post.tags;
-  //   appending
   cardInfo.append(cardAuthor, tagCategory);
   cardContent.append(cardTtl, cardInfo);
   gridCard.append(cardImgContainer, cardContent);

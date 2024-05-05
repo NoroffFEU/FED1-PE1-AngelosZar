@@ -9,7 +9,9 @@ export const singlePostId = '73273943-a9ea-4b91-95a5-814dcbba102e';
 export const allArticles = `${baseApiUrl}/blog/posts/${admin}`;
 export const singlePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
 export const deletePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
-
+export const techBlogs = `${allArticles}?_tag=tech`;
+export const trendingBlogs = `${allArticles}?_tag=trending`;
+export const devBlogs = `${allArticles}?_tag=dev`;
 //
 // fetch async api // get//
 
