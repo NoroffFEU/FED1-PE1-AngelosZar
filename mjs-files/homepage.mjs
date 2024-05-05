@@ -100,6 +100,10 @@ async function renderHeroGrid() {
         </div>
       </div>`;
       cardsContainerEdit.insertAdjacentHTML('beforeend', htmlForPost);
+      const heroGridCard = cardsContainerEdit.lastElementChild;
+      heroGridCard.addEventListener('click', () => {
+        clickedPost(posts[i]);
+      });
     }
     return posts;
   } catch (error) {
