@@ -3,7 +3,8 @@ import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { updatePost } from './updatePost.mjs';
 import { fetchDataById } from './common.mjs';
-
+// const token = localStorage.getItem('token');
+const token = localStorage.getItem('accessToken');
 // Form data
 const postId = document.querySelector('#post-id');
 const editForm = document.querySelector('#edit-form-post');
@@ -42,6 +43,7 @@ export async function renderPost() {
         postImgAlt.innerHTML = `${post.media.alt}`;
         postBody.innerHTML = `${post.body}`;
       });
+      // console.log(token, 'token in renderPost');
     });
     return posts;
   } catch (error) {
@@ -55,28 +57,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 editForm.addEventListener('submit', async e => {
   e.preventDefault();
-  // console.log(id, 'id');
-  const id = postId.value;
-  const url = `${baseApiUrl}/posts/${post.id}`;
+
   try {
-    const id = postId.value;
+    const id = document.querySelector('#post-id').textContent;
+    const user = localStorage.getItem('name');
+    const tkn = localStorage.getItem('accessToken');
+    console.log(tkn, 'token');
+    console.log(user, 'user');
+    const url = `https://v2.api.noroff.dev/posts/${user}/${id}`;
+    // const data = {
+    //   title: `${postTitle.value}`,
+    //   body: `${postBody.value}`,
+    //   tags: `${[...postTags.value]}`,
+    //   media: {
+    //     url: `${postImg.value}`,
+    //     alt: `${postImgAlt.value}`,
+    //   },
+    // };
     const data = {
-      title: `${postTitle.value}`,
-      body: `${postBody.value}`,
-      tags: `[${postTags.value},]`,
+      title: postTitle.value,
+      body: postBody.value,
+      tags: postTags.value.split(','),
       media: {
-        url: `${postImg.value}`,
-        alt: `${postImgAlt.value}`,
+        url: postImg.value,
+        alt: postImgAlt.value,
       },
     };
-    console.log(data, 'data');
+    console.log(data);
+    await updatePost(data, url, token);
+    if (response.ok) {
+      confirm('Post has been updated');
 
-    console.log(postId, 'post id');
-    // await updatePost(data, url);
-    confirm('Post has been updated');
-    editForm.reset();
+      editForm.reset();
+    } else {
+      alert('Post not updated');
+      console.log(`error: ${error.message}`);
+    }
   } catch (error) {
     console.error();
-    console.log(`error: ${error}`);
+    console.log(`error: ${error.message}`);
   }
 });

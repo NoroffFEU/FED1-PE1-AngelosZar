@@ -1,24 +1,16 @@
-// update post function
-// work on the username variable
-// const username = localStorage.getItem('name');
-// console.log(username);
-// const updatePostEndpoint = `${baseApiUrl}/posts/${username}${singlePostId}`;
-
-// import { fetchData } from './common.mjs';
-// import { genHtmlForGrid } from './homepage.mjs';
-// import { displayRecentArticles } from './homepage.mjs';
-const testapireqresin = 'https://reqres.in/api/users/2';
-const datatest = {
-  name: 'morpheus',
-  job: 'zion resident',
-};
+const token = localStorage.getItem('accessToken');
+// const testapireqresin = 'https://reqres.in/api/users/2';
+// const datatest = {
+//   name: 'morpheus',
+//   job: 'zion resident',
+// };
 // update async function
-export const updatePost = async (data, api) => {
+export const updatePost = async (data, api, token) => {
   const response = await fetch(api, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      // Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(data),
   });
@@ -29,7 +21,6 @@ export const updatePost = async (data, api) => {
   } else {
     const error = await response.json();
     console.error(`Error updating post: ${error.message}`);
-    // might change
     alert(error(`Error updating post: ${error.message}`));
   }
 };
