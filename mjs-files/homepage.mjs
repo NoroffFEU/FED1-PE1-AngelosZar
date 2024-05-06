@@ -31,6 +31,7 @@ function genHtmlForGrid(post) {
   const tagCategory = document.createElement('p');
   tagCategory.classList.add('text--grid-card');
   tagCategory.textContent = post.tags;
+  cardImgContainer.append(productImg);
   cardInfo.append(cardAuthor, tagCategory);
   cardContent.append(cardTtl, cardInfo);
   gridCard.append(cardImgContainer, cardContent);
