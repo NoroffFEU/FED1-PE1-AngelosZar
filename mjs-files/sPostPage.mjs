@@ -13,6 +13,7 @@ function displaySinglePost(post) {
             <h5>${post.tags} /</h5>
             <h5>${new Date(post.created).toLocaleDateString()} /</h5>
             <h5>${post.author.name} /</h5>
+            <button class="primary-button" id="clicked-url">Copy link</button>
           </div>
           <h1>${post.title}</h1>
           <div class="focused-blog-info-img-container">
@@ -24,8 +25,19 @@ function displaySinglePost(post) {
         </article>
       </section>
       `;
-  //   blogContainer.appendChild(clickedPost);
+
   blogContainer.insertAdjacentHTML('beforeend', clickedPost);
+  // click to copy the url
+  const clickedUrl = document.querySelector('#clicked-url');
+  clickedUrl.addEventListener('click', () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      console.log('it worked');
+      // need to find a way for a smaller message to appear
+      // prompt('Copy the link', url);
+      window.confirm('Linked was copied to clipboard');
+    });
+  });
 }
 async function renderRecommendedPosts() {
   try {

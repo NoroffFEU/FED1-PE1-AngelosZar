@@ -2,13 +2,15 @@
 
 .focused-blog,
 .focused-blog-article {
-  padding: 8rem 2rem 0 2rem;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .focused-blog-info {
   display: flex;
   justify-content: space-between;
-  max-width: 40%;
+  align-items: center;
+  max-width: 60%;
+  flex-wrap: wrap;
   padding-bottom: 2rem;
 }
 .focused-blog h1 {
