@@ -26,7 +26,7 @@ export async function fetchData(url) {
     throw new Error(`error) ${error.message}`);
   }
 }
-// fetch idvividual post with token // for admin /edit page
+// fetch single  post with token // for admin /edit page
 export async function fetchDataById(postId) {
   try {
     const res = await fetch(singlePost, {

@@ -1,10 +1,13 @@
+// Imported modules
 import { fetchData } from './common.mjs';
 import { baseApiUrl } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { updatePost } from './updatePost.mjs';
 import { fetchDataById } from './common.mjs';
-// const token = localStorage.getItem('token');
-const token = localStorage.getItem('accessToken');
+import { deletePost } from './deletePost.mjs';
+
+// const token = localStorage.getItem('accessToken');
+// const userName = localStorage.getItem('name');
 // Form data
 const postId = document.querySelector('#post-id');
 const editForm = document.querySelector('#edit-form-post');
@@ -15,7 +18,7 @@ const postImgAlt = document.querySelector('#post-media-alt');
 const postBody = document.querySelector('#post-body');
 const displayPostID = document.querySelector('#editing-post');
 const btnDeletePost = document.querySelector('.btn-delete-post');
-import { deletePost } from './deletePost.mjs';
+
 //
 export async function renderPost() {
   try {
@@ -61,12 +64,15 @@ editForm.addEventListener('submit', async e => {
   e.preventDefault();
   try {
     const id = document.querySelector('#post-id').textContent;
-    const user = localStorage.getItem('name');
+    const userName = localStorage.getItem('name');
     const token = localStorage.getItem('accessToken');
-    const url = `https://v2.api.noroff.dev/posts/${user}/${id}`;
+    // for some reason the user var is not working...
+    const url = `https://v2.api.noroff.dev/posts/${userName}/${id}`;
+    // const url = `${allArticles}/${id}`;
     console.log(token, 'token');
-    console.log(user, 'user');
+    console.log(userName, 'userName');
     console.log(url, 'url');
+    console.log(id, 'id');
     // if all data are shown in console log, then the data is ready to be sent to the API
     // the data is not taken from the input??? why ???
     const data = {
@@ -81,7 +87,6 @@ editForm.addEventListener('submit', async e => {
     console.log(data);
     console.log(postTitle.value);
     const response = await updatePost(data, url, token);
-    console.log(response, 'response');
     if (response.ok) {
       confirm('Post has been updated');
       // editForm.reset();
@@ -90,7 +95,7 @@ editForm.addEventListener('submit', async e => {
       console.log(`error: ${error.message}`);
     }
   } catch (error) {
-    console.error(`error: ${error.message}`);
+    console.log(`error: ${error.message}`);
   }
 });
 // event listener to delete an article
@@ -100,3 +105,11 @@ btnDeletePost.addEventListener('click', async e => {
   alert('Are you sure you want to delete this post?');
   deletePost(id);
 });
+
+// const id = document.querySelector('#post-id').textContent;
+// const user = localStorage.getItem('name');
+// const token = localStorage.getItem('accessToken');
+// for some reason the user var is not working...
+// const id = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
+// const url = `https://v2.api.noroff.dev/posts/${user}/${id}`;
+// console.log('url', url);

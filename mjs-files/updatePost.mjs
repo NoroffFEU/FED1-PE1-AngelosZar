@@ -1,10 +1,5 @@
 const token = localStorage.getItem('accessToken');
-// const testapireqresin = 'https://reqres.in/api/users/2';
-// const datatest = {
-//   name: 'morpheus',
-//   job: 'zion resident',
-// };
-// update async function
+// update  a post async function
 export const updatePost = async (data, api, token) => {
   try {
     const response = await fetch(api, {
@@ -18,12 +13,13 @@ export const updatePost = async (data, api, token) => {
     });
     if (response.ok) {
       const updatedPost = await response.json();
-      console.log(updatedPost);
+      // console.log(updatedPost);
       confirm('Post updated successfully');
+      setTimeout(window.location.reload(), 2500);
     } else {
       const error = await response.json();
       console.error(`Error updating post: ${error.message}`);
-      alert(error(`Error updating post: ${error.message}`));
+      alert(`Error updating post: ${error.message}`);
     }
   } catch (error) {
     console.error(`Error updating post: ${error.message}`);

@@ -28,7 +28,12 @@
 .recomended_articles > h2 {
   padding: 2rem 0 3rem 0;
 }
-
+.greet-admin {
+  padding: 0 0 2rem 0;
+}
+.greet-admin h1 {
+  color: var(--text-green);
+}
 #post-id {
   color: var(--text-green);
 }
