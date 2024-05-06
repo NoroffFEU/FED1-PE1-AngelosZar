@@ -1,6 +1,7 @@
-const username = localStorage.getItem('name');
-const deletePost = async function (name, postId) {
+// Delete post function
+export const deletePost = async function (postId) {
   const token = localStorage.getItem('accessToken');
+  const name = localStorage.getItem('name');
   const deleteApiUrl = `https://v2.api.noroff.dev/blog/posts/${name}/${postId}`;
   try {
     const res = await fetch(deleteApiUrl, {
@@ -14,13 +15,10 @@ const deletePost = async function (name, postId) {
     if (res.status === 204) {
       console.log('Post was successfully deleted');
       alert('Post was successfully deleted');
+      setTimeout(window.location.reload(), 2500);
     }
-    // console.log('data', data);
-    // return data;
   } catch (error) {
     console.log(`${error.message}`);
     throw new Error(`error) ${error.message}`);
   }
 };
-
-// deletePost(username, singlePostId);

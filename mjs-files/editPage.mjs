@@ -14,6 +14,8 @@ const postImg = document.querySelector('#post-media-url');
 const postImgAlt = document.querySelector('#post-media-alt');
 const postBody = document.querySelector('#post-body');
 const displayPostID = document.querySelector('#editing-post');
+const btnDeletePost = document.querySelector('.btn-delete-post');
+import { deletePost } from './deletePost.mjs';
 //
 export async function renderPost() {
   try {
@@ -90,4 +92,11 @@ editForm.addEventListener('submit', async e => {
   } catch (error) {
     console.error(`error: ${error.message}`);
   }
+});
+// event listener to delete an article
+btnDeletePost.addEventListener('click', async e => {
+  e.preventDefault();
+  const id = document.querySelector('#post-id').textContent;
+  alert('Are you sure you want to delete this post?');
+  deletePost(id);
 });

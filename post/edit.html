@@ -61,55 +61,13 @@
                   <p class="text--grid-card">tag category</p>
                 </div>
               </div>
-            </div>
-            <div class="grid-card">
-              <div class="card--image-container">
-                <img
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="img placeholder"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-title text--grid-card">title of article</p>
-                <div class="card-info">
-                  <p class="text--grid-card">tag category</p>
-                </div>
-              </div>
-            </div>
-            <div class="grid-card">
-              <div class="card--image-container">
-                <img
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="img placeholder"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-title text--grid-card">title of article</p>
-                <div class="card-info">
-                  <p class="text--grid-card">tag category</p>
-                  <p class="text--grid-card">id</p>
-                </div>
-              </div>
-            </div>
-            <div class="grid-card">
-              <div class="card--image-container">
-                <img
-                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="img placeholder"
-                />
-              </div>
-              <div class="card-content">
-                <p class="card-title text--grid-card">title of article</p>
-                <div class="card-info">
-                  <p class="text--grid-card">tag category</p>
-                </div>
-              </div>
             </div> -->
           </section>
         </div>
         <div class="column-right">
           <div class="editor-container">
-            <form action="PUT" id="edit-form-post">
+            <form id="edit-form-post">
+              <!-- action="PUT"  -->
               <h3 id="editing-post"></h3>
               <h2 id="post-id"></h2>
               <label for="post-title">post title:</label>
@@ -147,9 +105,15 @@
                 cols="80"
                 rows="30"
               ></textarea>
-
               <button class="primary-button" type="submit">
                 Submit changes to post
+              </button>
+              <button
+                class="primary-button btn-delete-post"
+                id="btn-danger"
+                type="submit"
+              >
+                Delete Post
               </button>
             </form>
           </div>
