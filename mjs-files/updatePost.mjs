@@ -6,22 +6,28 @@ const token = localStorage.getItem('accessToken');
 // };
 // update async function
 export const updatePost = async (data, api, token) => {
-  const response = await fetch(api, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(data),
-  });
-  if (response.ok) {
-    const updatedPost = await response.json();
-    console.log(updatedPost);
-    alert('Post updated successfully');
-  } else {
-    const error = await response.json();
+  try {
+    const response = await fetch(api, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      // body: JSON.stringify({ data }),
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      const updatedPost = await response.json();
+      console.log(updatedPost);
+      confirm('Post updated successfully');
+    } else {
+      const error = await response.json();
+      console.error(`Error updating post: ${error.message}`);
+      alert(error(`Error updating post: ${error.message}`));
+    }
+  } catch (error) {
     console.error(`Error updating post: ${error.message}`);
-    alert(error(`Error updating post: ${error.message}`));
+    alert(`Error updating post: ${error.message}`);
   }
 };
 

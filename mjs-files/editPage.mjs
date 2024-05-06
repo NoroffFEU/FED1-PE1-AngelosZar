@@ -57,23 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 editForm.addEventListener('submit', async e => {
   e.preventDefault();
-
   try {
     const id = document.querySelector('#post-id').textContent;
     const user = localStorage.getItem('name');
-    const tkn = localStorage.getItem('accessToken');
-    console.log(tkn, 'token');
-    console.log(user, 'user');
+    const token = localStorage.getItem('accessToken');
     const url = `https://v2.api.noroff.dev/posts/${user}/${id}`;
-    // const data = {
-    //   title: `${postTitle.value}`,
-    //   body: `${postBody.value}`,
-    //   tags: `${[...postTags.value]}`,
-    //   media: {
-    //     url: `${postImg.value}`,
-    //     alt: `${postImgAlt.value}`,
-    //   },
-    // };
+    console.log(token, 'token');
+    console.log(user, 'user');
+    console.log(url, 'url');
+    // if all data are shown in console log, then the data is ready to be sent to the API
+    // the data is not taken from the input??? why ???
     const data = {
       title: postTitle.value,
       body: postBody.value,
@@ -84,17 +77,17 @@ editForm.addEventListener('submit', async e => {
       },
     };
     console.log(data);
-    await updatePost(data, url, token);
+    console.log(postTitle.value);
+    const response = await updatePost(data, url, token);
+    console.log(response, 'response');
     if (response.ok) {
       confirm('Post has been updated');
-
-      editForm.reset();
+      // editForm.reset();
     } else {
       alert('Post not updated');
       console.log(`error: ${error.message}`);
     }
   } catch (error) {
-    console.error();
-    console.log(`error: ${error.message}`);
+    console.error(`error: ${error.message}`);
   }
 });
