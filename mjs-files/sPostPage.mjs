@@ -1,6 +1,19 @@
+// Imported scrips and variables
 import { fetchData } from './common.mjs';
 import { devBlogs } from './common.mjs';
-
+import { admin } from './common.mjs';
+// URL Query Parameters in the Browser test on deployment.
+const queryParams = new URLSearchParams(window.location.search);
+const postId = queryParams.get('id');
+// Variables
+const userName = localStorage.getItem('name');
+const token = localStorage.getItem('accessToken');
+//
+// console.log('postId', postId);
+// console.log('userName', userName);
+// console.log(token, 'token');
+//
+//
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 console.log(singlePost);
 const blogContainer = document.querySelector('.focused-blog');
@@ -25,16 +38,17 @@ function displaySinglePost(post) {
         </article>
       </section>
       `;
-
   blogContainer.insertAdjacentHTML('beforeend', clickedPost);
   // click to copy the url
   const clickedUrl = document.querySelector('#clicked-url');
   clickedUrl.addEventListener('click', () => {
-    const url = window.location.href;
+    // const url = window.location.href;
+    const url = `/post/edit.html?id=${post.id}`;
+    // or need to add full link like ??? http://localhost:3000/post/edit.html?id=${post.id} ???
     navigator.clipboard.writeText(url).then(() => {
       console.log('it worked');
-      // need to find a way for a smaller message to appear
-      // prompt('Copy the link', url);
+      console.log('post.id', post.id);
+      console.log(urlId);
       window.confirm('Linked was copied to clipboard');
     });
   });

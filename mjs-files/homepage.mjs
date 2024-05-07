@@ -1,11 +1,14 @@
-// imported variables
+// imported scripts and variables
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { devBlogs } from './common.mjs';
+
 // add some logic if there is token or not to show the log in button
 // const token = JSON.parse(localStorage.getItem('token'));
 // const username = localStorage.getItem('name');
 // console.log(username);
+
+// Create html content for the grid
 function genHtmlForGrid(post) {
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
@@ -37,6 +40,7 @@ function genHtmlForGrid(post) {
   gridCard.append(cardImgContainer, cardContent);
   return gridCard;
 }
+// Display the recent articles grid on the homepage
 function displayRecentArticles(posts) {
   const gridCardsContainer = document.querySelector('.cards-container');
   posts.forEach(post => {
@@ -45,6 +49,7 @@ function displayRecentArticles(posts) {
     return gridCardsContainer;
   });
 }
+//Function to store the clicked post in local storage
 export function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
   location.href = 'post/index.html';
@@ -70,7 +75,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 //create classes or id on links to manipulate if user is admin or simple user
 // if else  token exists
 // }
-// For  trending now section
+
+// For  trending now section Grid
 async function renderHeroGrid() {
   try {
     const { data: posts } = await fetchData(devBlogs);

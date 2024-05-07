@@ -29,20 +29,9 @@ signUpForm.addEventListener('submit', async () => {
   registerUser(registeringUser, registerUrl2);
 });
 
-// api test platform
-const reqtest = 'https://reqres.in/api/register';
-const reqUser = {
-  email: 'eve.holt@reqres.in',
-  password: 'pistol',
-  //   email: 'inputUserEmail.value',
-  //   password: 'inputUserPassword.value',
-  //   name: 'inputUserName.value',
-};
-
 // registering user function
 async function registerUser(user, api) {
   try {
-    // const response = await fetch.(`${baseApiUrl}${registerEndPoint}`);
     const res = await fetch(api, {
       method: 'POST',
       headers: {
@@ -52,13 +41,12 @@ async function registerUser(user, api) {
     });
     const responseData = await res.json();
     console.log(responseData);
-    responseData.ok ? prompt('Congratulation \nNew user was registered') : '';
-
+    responseData.ok ? confirm('Congratulation \nNew user was registered') : '';
     return responseData;
   } catch (error) {
     console.error(`Error creating user:, ${error.message}`);
-    return null;
+    alert(`Error creating user:, ${error.message}`);
   }
 }
 
-// registerUser(myCredentials, registerUrl2);
+registerUser(myCredentials, registerUrl2);

@@ -5,6 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     alert('You are now logged out');
     localStorage.removeItem('accessToken');
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
   });
 });

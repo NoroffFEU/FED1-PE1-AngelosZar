@@ -13,12 +13,12 @@ export const deletePost = async function (postId) {
     });
 
     if (res.status === 204) {
-      console.log('Post was successfully deleted');
+      // console.log('Post was successfully deleted');
       alert('Post was successfully deleted');
       setTimeout(window.location.reload(), 2500);
     }
   } catch (error) {
-    console.log(`${error.message}`);
+    // console.log(`${error.message}`);
     throw new Error(`error) ${error.message}`);
   }
 };
