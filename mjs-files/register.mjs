@@ -24,7 +24,6 @@ const myCredentials = {
 };
 signUpForm.addEventListener('submit', async () => {
   e.preventDefault();
-  //   e.stopPropagation()
   console.log(inputUserEmail, inputUserName, inputUserPassword);
   registerUser(registeringUser, registerUrl2);
 });
@@ -49,4 +48,4 @@ async function registerUser(user, api) {
   }
 }
 
-registerUser(myCredentials, registerUrl2);
+// registerUser(myCredentials, registerUrl2);
