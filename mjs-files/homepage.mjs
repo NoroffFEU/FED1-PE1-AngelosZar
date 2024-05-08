@@ -2,10 +2,10 @@
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { devBlogs } from './common.mjs';
+import { logOut } from './logOut.mjs';
 
-// add some logic if there is token or not to show the log in button
-// const token = JSON.parse(localStorage.getItem('token'));
-// const username = localStorage.getItem('name');
+const token = localStorage.getItem('accessToken');
+const username = localStorage.getItem('name');
 // console.log(username);
 
 // Create html content for the grid
@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Problem loading the content');
   }
   renderHeroGrid();
+  // initCarousel();
+  // if there is token
+  if (token) {
+    console.log('Token:', token);
+    // alert(`Welcome back ${username}`);
+  } else {
+    console.log('No token');
+  }
+  // if there is not token
 });
 //   // 1. check if logged in
 //   // 2. check if user is admin
@@ -105,3 +114,4 @@ async function renderHeroGrid() {
     console.error('Error:', error);
   }
 }
+// logOut();

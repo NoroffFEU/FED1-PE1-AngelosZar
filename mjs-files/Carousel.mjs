@@ -4,10 +4,7 @@ const slides = document.querySelectorAll('.slide');
 const sliderBtnLeft = document.querySelector('.slider-btn-left');
 const sliderBtnRight = document.querySelector('.slider-btn-right');
 const dotContainer = document.querySelector('.dots');
-// slider.style.transform = 'scale(0.2)';
-// slider.style.overflow = 'visible';
 
-// slides
 let currentSlide = 0;
 // use this variable for the api as well to keep slides at three
 const maxSlideNum = slides.length;
@@ -59,11 +56,15 @@ const syncDots = function (slide) {
 dotContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('dots__dot')) {
     const { slide } = e.target.dataset;
-    // moveSlide((currentSlide = slide));
-    moveSlide(slide);
+    moveSlide((currentSlide = slide));
+    // moveSlide(slide);
     console.log('DOTS', e.target);
   }
 });
-moveSlide(0);
-createDots();
-syncDots(0);
+
+const initCarousel = function () {
+  moveSlide(0);
+  createDots();
+  syncDots(0);
+};
+initCarousel();
