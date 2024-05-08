@@ -21,10 +21,12 @@ const moveSlide = function (slide) {
 const nextSlide = function () {
   currentSlide === maxSlideNum - 1 ? (currentSlide = 0) : currentSlide++;
   moveSlide(currentSlide);
+  syncDots(currentSlide);
 };
 const prevSlide = function () {
   currentSlide === 0 ? (currentSlide = maxSlideNum - 1) : currentSlide--;
   moveSlide(currentSlide);
+  syncDots(currentSlide);
 };
 sliderBtnRight.addEventListener('click', nextSlide);
 sliderBtnLeft.addEventListener('click', prevSlide);
@@ -44,13 +46,24 @@ const createDots = function () {
     );
   });
 };
-
+const syncDots = function (slide) {
+  // remove active class from all dots
+  document.querySelectorAll('.dots__dot').forEach(dot => {
+    dot.classList.remove('dots__dot--active');
+  });
+  //   add active class to the current dot slide
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
+};
 dotContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('dots__dot')) {
     const { slide } = e.target.dataset;
-    moveSlide((currentSlide = slide));
+    // moveSlide((currentSlide = slide));
+    moveSlide(slide);
     console.log('DOTS', e.target);
   }
 });
 moveSlide(0);
 createDots();
+syncDots(0);
