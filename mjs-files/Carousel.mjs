@@ -7,10 +7,7 @@ const slides = document.querySelectorAll('.slide');
 const sliderBtnLeft = document.querySelector('.slider-btn-left');
 const sliderBtnRight = document.querySelector('.slider-btn-right');
 const dotContainer = document.querySelector('.dots');
-
 let currentSlide = 0;
-// use this variable for the api as well to keep slides at three
-// const maxSlideNum = slides.length;
 const maxSlideNum = 3;
 //
 // Move the slides to the left or right
@@ -37,6 +34,7 @@ sliderBtnRight.addEventListener('click', nextSlide);
 sliderBtnLeft.addEventListener('click', prevSlide);
 
 // keyboard events fro slider
+// use getboundingClientRect to get this command to run only when carousel is on viewport
 document.addEventListener('keydown', function (e) {
   console.log(e);
   if (e.key === 'ArrowRight') nextSlide();

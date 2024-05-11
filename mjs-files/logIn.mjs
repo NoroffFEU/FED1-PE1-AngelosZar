@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     await logInUser(logInUserName, logInUserEmail, logInApi);
     confirm('You are now logged in');
     logInForm.reset();
+    // window.location.href = './edit.html';
     window.location.href = '/post/edit.html';
   });
 });

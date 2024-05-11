@@ -13,6 +13,7 @@ export const techBlogs = `${allArticles}?_tag=tech`;
 export const trendingBlogs = `${allArticles}?_tag=trending`;
 export const devBlogs = `${allArticles}?_tag=dev`;
 //
+import { logOut } from './logOut.mjs';
 
 // fetch async api // get//
 export async function fetchData(url) {
@@ -52,13 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const logOutLink = document.querySelector('.log-out-link');
   const techLink = document.querySelector('.tech-link');
   const devLink = document.querySelector('.dev-link');
+  logOutLink.addEventListener('click', () => {
+    logOut();
+  });
 
   if (token) {
     console.log('token:', token);
     logInLink.style.display = 'none';
     aboutUsLink.style.display = 'none';
-    techLink.style.display = 'none';
-    devLink.style.display = 'none';
+    // techLink.style.display = 'none';
+    // devLink.style.display = 'none';
   } else {
     registerLink.style.display = 'none';
     adminLink.style.display = 'none';
