@@ -1,6 +1,7 @@
 //
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
+import { clickedPost } from './homepage.mjs';
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 const sliderBtnLeft = document.querySelector('.slider-btn-left');
@@ -72,34 +73,41 @@ dotContainer.addEventListener('click', function (e) {
 });
 //
 // create slide with adjacent html
-const createSlide = function (post) {
+const createSlide = function (posts) {
   const slide = document.createElement('div');
   slide.classList.add('slide');
   // not sure if ts will accept this
   // slide.classList.add(`'slide--${post[i]}'`);
   slide.insertAdjacentHTML = `
-<img src="${post.media.url}" alt="${post.media.alt}" class="slide__img" />
+<img src="${posts[i].media.url}" alt="${posts[i].media.alt}" class="slide__img" />
 `;
   slider.appendChild(slide);
 };
-// fetch and populate the slides
+
+// innerHTML;
 const populateSlider = async function () {
   try {
     const { data: posts } = await fetchData(allArticles);
-    console.log('Posts:', posts);
-    for (let i = 0; i < 3; i++) {
-      console.log(posts[i]);
-      // createSlide(posts[i]);
-      // createSlide(posts;
+    slides.innerHTML = '';
+    for (let i = 0; i < maxSlideNum; i++) {
+      const slides = document.querySelector('.slide');
+      slides.classList.add('slide');
+      slides.innerHTML = `<img src="${posts[i].media.url}" alt="${posts[i].media.alt}" /> 
+      <div class="slider-title">
+      <h2>${posts[i].title}</h2>
+      <p class="card-author">${posts[i].author.name}</p>
+    </div>`;
+      slider.appendChild(slides);
+      slides.addEventListener('click', function (e) {
+        e.preventDefault;
+        console.log('click');
+      });
     }
+    moveSlide(currentSlide);
+    syncDots(currentSlide);
   } catch (error) {
     console.error(error);
-    console.log('Problem loading the content');
   }
-  // moveSlide(0);
-  // createDots();
-  // clickedPost();
-  // clickedPost(posts[i]);
 };
 //
 const initCarousel = function () {

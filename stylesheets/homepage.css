@@ -117,14 +117,15 @@ button {
   height: 100%;
   object-fit: cover;
 }
-/* .slider-title {
+.slider-title {
   position: absolute;
   top: 65%;
   left: 25%;
   right: 25%;
   text-align: center;
   padding-bottom: 2rem;
-} */
+  z-index: 1;
+}
 
 .slider-btn {
   position: absolute;
@@ -171,6 +172,7 @@ button {
   left: 50%;
   transform: translateX(-50%);
   /* display: flex; */
+  z-index: 1;
 }
 .dots__dot {
   border: 1px solid var(--text-green);
@@ -182,6 +184,7 @@ button {
   margin-right: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease 0s;
+  z-index: 1;
 }
 .dots__dot:last-child {
   margin: 0;
