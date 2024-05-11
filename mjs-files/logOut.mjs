@@ -9,3 +9,4 @@ export const logOut = function () {
   localStorage.removeItem('accessToken');
   window.location.href = '../index.html';
 };
+// logOut();

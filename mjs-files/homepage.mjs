@@ -54,36 +54,6 @@ export function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
   location.href = 'post/index.html';
 }
-// // Rendering homepage
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const { data: posts } = await fetchData(allArticles);
-    displayRecentArticles(posts);
-  } catch (error) {
-    console.error(error);
-    console.log('Problem loading the content');
-  }
-  renderHeroGrid();
-  // initCarousel();
-  // if there is token
-  if (token) {
-    console.log('Token:', token);
-    // alert(`Welcome back ${username}`);
-  } else {
-    console.log('No token');
-  }
-  // if there is not token
-});
-//   // 1. check if logged in
-//   // 2. check if user is admin
-//   // 3. Async load api data for
-// if (localStorage.getItem('accessToken')) {
-//   const logInBtn = document.querySelector('.log-in-btn');
-//   logInBtn.style.display = 'none';
-
-//create classes or id on links to manipulate if user is admin or simple user
-// if else  token exists
-// }
 
 // For  trending now section Grid
 async function renderHeroGrid() {
@@ -114,4 +84,17 @@ async function renderHeroGrid() {
     console.error('Error:', error);
   }
 }
-// logOut();
+const initHomePage = async () => {
+  try {
+    const { data: posts } = await fetchData(allArticles);
+    displayRecentArticles(posts);
+    renderHeroGrid();
+  } catch (error) {
+    console.error(error);
+    console.log('Problem loading the content');
+  }
+};
+initHomePage();
+//
+//
+//

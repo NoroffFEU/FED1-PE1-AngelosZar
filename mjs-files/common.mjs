@@ -41,3 +41,27 @@ export async function fetchDataById(postId) {
     throw new Error(`error) ${error.message}`);
   }
 }
+// header menu links//
+document.addEventListener('DOMContentLoaded', () => {
+  const token = localStorage.getItem('accessToken');
+  // const headingMenu = document.querySelector('.menu');
+  const aboutUsLink = document.querySelector('.about-us-link');
+  const logInLink = document.querySelector('.log-in-link');
+  const registerLink = document.querySelector('.register-link');
+  const adminLink = document.querySelector('.admin-link');
+  const logOutLink = document.querySelector('.log-out-link');
+  const techLink = document.querySelector('.tech-link');
+  const devLink = document.querySelector('.dev-link');
+
+  if (token) {
+    console.log('token:', token);
+    logInLink.style.display = 'none';
+    aboutUsLink.style.display = 'none';
+    techLink.style.display = 'none';
+    devLink.style.display = 'none';
+  } else {
+    registerLink.style.display = 'none';
+    adminLink.style.display = 'none';
+    logOutLink.style.display = 'none';
+  }
+});
