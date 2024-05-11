@@ -10,8 +10,8 @@ const dotContainer = document.querySelector('.dots');
 
 let currentSlide = 0;
 // use this variable for the api as well to keep slides at three
-const maxSlideNum = slides.length;
-// const maxSlideNum = 3;
+// const maxSlideNum = slides.length;
+const maxSlideNum = 3;
 //
 // Move the slides to the left or right
 const moveSlide = function (slide) {
@@ -71,18 +71,6 @@ dotContainer.addEventListener('click', function (e) {
     console.log('DOTS', e.target);
   }
 });
-//
-// create slide with adjacent html
-const createSlide = function (posts) {
-  const slide = document.createElement('div');
-  slide.classList.add('slide');
-  // not sure if ts will accept this
-  // slide.classList.add(`'slide--${post[i]}'`);
-  slide.insertAdjacentHTML = `
-<img src="${posts[i].media.url}" alt="${posts[i].media.alt}" class="slide__img" />
-`;
-  slider.appendChild(slide);
-};
 
 // innerHTML;
 const populateSlider = async function () {
@@ -101,6 +89,7 @@ const populateSlider = async function () {
       slides.addEventListener('click', function (e) {
         e.preventDefault;
         console.log('click');
+        clickedPost(posts[i]);
       });
     }
     moveSlide(currentSlide);

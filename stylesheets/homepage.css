@@ -120,11 +120,16 @@ button {
 .slider-title {
   position: absolute;
   top: 65%;
-  left: 25%;
-  right: 25%;
+  left: 20%;
+  right: 20%;
   text-align: center;
   padding-bottom: 2rem;
   z-index: 1;
+  padding: 1rem 1rem 1rem 1rem;
+  background: rgba(44, 33, 33, 0.65);
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+  border-radius: var(--standard-border-radius);
 }
 
 .slider-btn {
