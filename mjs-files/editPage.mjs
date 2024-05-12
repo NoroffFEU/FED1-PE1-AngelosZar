@@ -6,6 +6,7 @@ import { updatePost } from './updatePost.mjs';
 import { fetchDataById } from './common.mjs';
 import { deletePost } from './deletePost.mjs';
 import { admin } from './common.mjs';
+import { createNewPost } from './updatePost.mjs';
 
 // credentials
 const token = localStorage.getItem('accessToken');
@@ -100,4 +101,22 @@ btnDeletePost.addEventListener('click', async e => {
   const id = document.querySelector('#post-id').textContent;
   alert('Are you sure you want to delete this post?');
   deletePost(id);
+});
+
+const constPostBtn = document.querySelector('#create-post-btn');
+constPostBtn.addEventListener('click', async e => {
+  e.preventDefault();
+  console.log('click');
+  try {
+    const userName = localStorage.getItem('name') || admin;
+  } catch (error) {
+    console.log(`error: ${error.message}`);
+  }
+  // create additional button on top of page from creating a new post ..clear data first
+  // collect data from the form
+  // token ?
+  // admin?
+  // createNewPost();
+  //async (data, api, token)
+  // window.location.href = 'createPost.html';
 });

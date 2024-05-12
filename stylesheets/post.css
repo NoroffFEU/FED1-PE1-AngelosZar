@@ -37,6 +37,9 @@
 #post-id {
   color: var(--text-green);
 }
+#create-post-btn {
+  background-color: var(--purple-1);
+}
 /* ----------------- edit post page ----------------- */
 
 #main_body-edit-page {

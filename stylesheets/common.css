@@ -401,7 +401,8 @@ footer {
 
 .primary-button:hover,
 .secondary-button:hover,
-#btn-danger:hover {
+#btn-danger:hover,
+#create-post-btn:hover {
   background-color: var(--blue-1);
   cursor: pointer;
 }
@@ -435,7 +436,24 @@ textarea {
   font-size: 18px;
   resize: none;
 }
+/* about us page */
+.hero-about-us {
+  background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  width: 100%;
+  min-height: 70vh;
+  background-size: cover;
+  background-position-x: left;
+  background-position-y: bottom;
+  position: relative;
+  margin-bottom: 4rem;
+}
 
+.about-us-sub-ttl {
+  padding: 1rem 0 2rem 0;
+}
+.about-us-p {
+  max-width: 70%;
+}
 /* -------------------- Media quarries -------------------- */
 @media only screen and (max-width: 1230px) {
   :root {
