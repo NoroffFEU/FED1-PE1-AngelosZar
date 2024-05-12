@@ -2,13 +2,18 @@
 /* -------------two column flex layout ------------- */
 /* hero block */
 .hero-container {
-  background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+  /* background-video: url('https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4'); */
   width: 100%;
   min-height: 70vh;
   background-size: cover;
   background-position-x: center;
   background-position-y: bottom;
   position: relative;
+}
+.hero-container > video {
+  min-height: 70vh;
+  object-fit: cover;
 }
 .overlay-on-hero {
   max-width: 40%;
