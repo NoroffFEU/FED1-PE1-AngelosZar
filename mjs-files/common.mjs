@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('token:', token);
     logInLink.style.display = 'none';
     aboutUsLink.style.display = 'none';
-    // techLink.style.display = 'none';
-    // devLink.style.display = 'none';
+    techLink.style.display = 'none';
+    devLink.style.display = 'none';
   } else {
     registerLink.style.display = 'none';
     adminLink.style.display = 'none';

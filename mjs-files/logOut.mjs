@@ -12,6 +12,6 @@ export const logOut = function () {
     window.location.href = 'index.html';
     // /Users/angeloszaros/Documents/GitHub/FED1-PE1-AngelosZar/post/index.html
     // /Users/angeloszaros/Documents/GitHub/FED1-PE1-AngelosZar/index.html
-    alert('You are not logged in');
+    // alert('You are not logged in');
   }
 };
