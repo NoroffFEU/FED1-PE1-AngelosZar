@@ -19,7 +19,7 @@ const postTags = document.querySelector('#post-tags');
 const postImg = document.querySelector('#post-media-url');
 const postImgAlt = document.querySelector('#post-media-alt');
 const postBody = document.querySelector('#post-body');
-const displayPostID = document.querySelector('#editing-post');
+let displayPostID = document.querySelector('#editing-post');
 const btnDeletePost = document.querySelector('.btn-delete-post');
 
 //
@@ -103,12 +103,53 @@ btnDeletePost.addEventListener('click', async e => {
   deletePost(id);
 });
 
-const constPostBtn = document.querySelector('#create-post-btn');
-constPostBtn.addEventListener('click', async e => {
+const editNowMsg = document.querySelector('#start-editing-now');
+// event listener to clear the form
+const clearForm = document.querySelector('.clear-form-for-edit');
+clearForm.addEventListener('click', e => {
+  e.preventDefault();
+  console.log('click');
+  postId.innerHTML = '';
+  displayPostID.innerHTML = '';
+  postTitle.value = '';
+  postTags.value = '';
+  postImg.value = '';
+  postImgAlt.value = '';
+  postBody.value = '';
+  // const editNowMsg = document.querySelector('.start-edit-msg');
+  // editNowMsg.textContent = 'Start editing now';
+  // editNowMsg.style =
+  //   'margin-top: 30px; color: white; font-size: 1.5rem; border: 1px solid green; padding: 0;width: 100%; text-align: center;border-radius: 20px;';
+});
+//
+// create a new post
+const createNPostBtn = document.querySelector('#create-post-btn');
+createNPostBtn.addEventListener('click', async e => {
   e.preventDefault();
   console.log('click');
   try {
     const userName = localStorage.getItem('name') || admin;
+    // const url = `${baseApiUrl}/${userName}`;
+    const url = `${allArticles}`;
+    const token = localStorage.getItem('accessToken');
+    const data = {
+      title: postTitle.value,
+      body: postBody.value,
+      tags: postTags.value.split(','),
+      media: {
+        url: postImg.value,
+        alt: postImgAlt.value,
+      },
+    };
+    console.log('data', data);
+    const response = await createNewPost(data, url, token);
+    if (response.ok) {
+      confirm('Post has been created');
+      // window.location.href = 'createPost.html';
+    } else {
+      alert('Post not created');
+      console.log(`error: ${error.message}`);
+    }
   } catch (error) {
     console.log(`error: ${error.message}`);
   }
