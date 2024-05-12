@@ -34,7 +34,7 @@ sliderBtnRight.addEventListener('click', nextSlide);
 sliderBtnLeft.addEventListener('click', prevSlide);
 
 // keyboard events fro slider
-// use getboundingClientRect to get this command to run only when carousel is on viewport
+// use getboundingClientRect to get this command to run only when carousel is
 document.addEventListener('keydown', function (e) {
   console.log(e);
   if (e.key === 'ArrowRight') nextSlide();
@@ -83,13 +83,15 @@ const populateSlider = async function () {
       <h2>${posts[i].title}</h2>
       <p class="card-author">${posts[i].author.name}</p>
     </div>`;
+      const sliderTitle = document.querySelector('.slider-title');
       slider.appendChild(slides);
-      slides.addEventListener('click', function (e) {
+      sliderTitle.addEventListener('click', function (e) {
         e.preventDefault;
         console.log('click');
         clickedPost(posts[i]);
       });
     }
+
     moveSlide(currentSlide);
     syncDots(currentSlide);
   } catch (error) {

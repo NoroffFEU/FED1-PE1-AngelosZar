@@ -131,7 +131,20 @@ button {
     -1px -1px 0 #000;
   border-radius: var(--standard-border-radius);
 }
-
+.slider-title:hover {
+  text-decoration: underline;
+  /* background: linear-gradient(
+    0deg,
+    rgba(64, 209, 13, 1) 10%,
+    rgba(44, 33, 33, 0.65) 20%,
+    rgba(64, 209, 13, 1) 90%
+  ); */
+  background: rgba(44, 33, 33, 1);
+  border: 2px solid var(--text-green);
+  text-shadow: -1px 2px 0 #000, 1px 1px 0 #000, 1px -2px 0 #000,
+    -4px -1px 0 #000;
+  /* border-radius: var(--standard-border-radius); */
+}
 .slider-btn {
   position: absolute;
   top: 50%;
@@ -282,6 +295,7 @@ input[type='email'] {
   .recent-articles {
     padding-top: var(--spacing-sm);
   }
+
   /* newsletter section */
   .newsletter-container {
     padding: 2rem 2rem;
