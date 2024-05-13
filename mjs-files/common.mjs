@@ -6,7 +6,7 @@ const token = localStorage.getItem('accessToken');
 const username = localStorage.getItem('name');
 // api url / base + endpoints
 export const baseApiUrl = 'https://v2.api.noroff.dev';
-export const singlePostId = '73273943-a9ea-4b91-95a5-814dcbba102e';
+export const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
 export const allArticles = `${baseApiUrl}/blog/posts/${admin}`;
 export const singlePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
 // export const deletePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
