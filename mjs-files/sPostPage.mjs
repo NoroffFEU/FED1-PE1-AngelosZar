@@ -42,12 +42,13 @@ export function displaySinglePost(post) {
   // click to copy the url
   const clickedUrl = document.querySelector('#clicked-url');
   clickedUrl.addEventListener('click', () => {
-    const url = window.location.href;
+    const currentUrl = window.location.href;
     // const url = `/post/edit.html?id=${post.id}`;
     // or need to add full link like ??? http://localhost:3000/post/edit.html?id=${post.id} ???
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(currentUrl).then(() => {
       console.log('it worked');
       console.log('post.id', post.id);
+      console.log(currentUrl);
       window.confirm('Linked was copied to clipboard');
     });
   });
