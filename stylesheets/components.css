@@ -24,7 +24,8 @@
 /* refactor for login and sign up pages */
 
 /* ------------- grid container ------------- */
-.recent-articles > h2 {
+.recent-articles > h2,
+.most-shared-post > h2 {
   text-align: center;
   background: linear-gradient(
     90deg,

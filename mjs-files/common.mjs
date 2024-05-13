@@ -2,6 +2,8 @@
 //                 .....   variables ......
 // temporary only for testing
 export const admin = 'angZar';
+const token = localStorage.getItem('accessToken');
+const username = localStorage.getItem('name');
 // api url / base + endpoints
 export const baseApiUrl = 'https://v2.api.noroff.dev';
 export const singlePostId = '73273943-a9ea-4b91-95a5-814dcbba102e';
@@ -27,15 +29,15 @@ export async function fetchData(url) {
   }
 }
 // fetch // get single post with token // for admin /edit page
-export async function fetchDataById(postId) {
+export async function fetchDataById(singlePostUrl, userToken) {
   try {
-    const res = await fetch(singlePost, {
+    const res = await fetch(singlePostUrl, {
       method: 'GET',
       Authorization: `Bearer ${userToken}`,
       headers: { 'Content-Type': 'application/json' },
     });
     const data = await res.json();
-    // console.log('data', data);
+    console.log('data', data);
     return data;
   } catch (error) {
     // console.log('error');
@@ -69,3 +71,4 @@ document.addEventListener('DOMContentLoaded', () => {
     logOutLink.style.display = 'none';
   }
 });
+// fetchDataById(singlePost, token);

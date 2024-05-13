@@ -67,13 +67,8 @@ editForm.addEventListener('submit', async e => {
   const userName = localStorage.getItem('name') || admin;
   try {
     const id = document.querySelector('#post-id').textContent;
-    // const userName = localStorage.getItem('name') || admin;
-    // There is a bug here, the username  is not taken from the input
-    // const token = localStorage.getItem('accessToken');
-    // for some reason the user var is not working...
-    // const url = `https://v2.api.noroff.dev/posts/${admin}/${id}`;
-    // const url = `${baseApiUrl}/${userName}/${id}`;
-    const url = `${allArticles}/${id}`;
+    console.log(id);
+    const url = `${baseApiUrl}/blog/posts/${userName}/${id}`;
     const data = {
       title: postTitle.value,
       body: postBody.value,
@@ -129,7 +124,6 @@ createNPostBtn.addEventListener('click', async e => {
   console.log('click');
   try {
     const userName = localStorage.getItem('name') || admin;
-    // const url = `${baseApiUrl}/${userName}`;
     const url = `${allArticles}`;
     const token = localStorage.getItem('accessToken');
     const data = {
@@ -145,7 +139,6 @@ createNPostBtn.addEventListener('click', async e => {
     const response = await createNewPost(data, url, token);
     if (response.ok) {
       confirm('Post has been created');
-      // window.location.href = 'createPost.html';
     } else {
       alert('Post not created');
       console.log(`error: ${error.message}`);
@@ -153,11 +146,4 @@ createNPostBtn.addEventListener('click', async e => {
   } catch (error) {
     console.log(`error: ${error.message}`);
   }
-  // create additional button on top of page from creating a new post ..clear data first
-  // collect data from the form
-  // token ?
-  // admin?
-  // createNewPost();
-  //async (data, api, token)
-  // window.location.href = 'createPost.html';
 });

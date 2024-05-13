@@ -3,6 +3,10 @@ import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { devBlogs } from './common.mjs';
 import { logOut } from './logOut.mjs';
+import { fetchDataById } from './common.mjs';
+import { singlePost } from './common.mjs';
+import { baseApiUrl } from './common.mjs';
+import { singlePostId } from './common.mjs';
 
 const token = localStorage.getItem('accessToken');
 const username = localStorage.getItem('name');
@@ -106,13 +110,48 @@ addEventListener('DOMContentLoaded', () => {
   };
   heroVideoRender();
 });
-
 //
+// Most shared article
+
+const DisplaySinglePost = async function () {
+  const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
+  const mostSharedPostContainer = document.querySelector(
+    '.most-shared-single-post'
+  );
+  try {
+    const { data: post } = await fetchDataById(test1, token);
+    console.log(post.media.url);
+    const sharedPost = `
+    <img
+      src="${post.media.url}"
+      alt="${post.media.alt}"
+    />
+    <div class="shared-post-overlay">
+      <h2>${post.title}</h2>
+      <p class="card-author">${post.author.name}</p>
+    </div>
+      `;
+    // sharedPost.classList.add();
+    mostSharedPostContainer.insertAdjacentHTML('beforeend', sharedPost);
+    const postOverlay = document.querySelector('.shared-post-overlay');
+    postOverlay.addEventListener('click', e => {
+      e.preventDefault();
+      console.log('click');
+      clickedPost(post);
+      console.log(post);
+    });
+  } catch (error) {
+    // console.log('error');
+    throw new Error(`error) ${error.message}`);
+  }
+};
+
 const initHomePage = async () => {
   try {
     const { data: posts } = await fetchData(allArticles);
     displayRecentArticles(posts);
     renderHeroGrid();
+    DisplaySinglePost();
   } catch (error) {
     console.error(error);
     console.log('Problem loading the content');

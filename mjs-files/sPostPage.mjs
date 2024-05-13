@@ -18,7 +18,7 @@ const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 console.log(singlePost);
 const blogContainer = document.querySelector('.focused-blog');
 
-function displaySinglePost(post) {
+export function displaySinglePost(post) {
   const clickedPost = `
   <section class="focused-blog">
         <div>
@@ -42,13 +42,12 @@ function displaySinglePost(post) {
   // click to copy the url
   const clickedUrl = document.querySelector('#clicked-url');
   clickedUrl.addEventListener('click', () => {
-    // const url = window.location.href;
-    const url = `/post/edit.html?id=${post.id}`;
+    const url = window.location.href;
+    // const url = `/post/edit.html?id=${post.id}`;
     // or need to add full link like ??? http://localhost:3000/post/edit.html?id=${post.id} ???
     navigator.clipboard.writeText(url).then(() => {
       console.log('it worked');
       console.log('post.id', post.id);
-      console.log(urlId);
       window.confirm('Linked was copied to clipboard');
     });
   });

@@ -16,7 +16,7 @@
   object-fit: cover;
 }
 .overlay-on-hero {
-  max-width: 40%;
+  max-width: 45%;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 4rem;
   color: var(--text-green);
@@ -56,6 +56,7 @@
   display: inline;
   text-align: start;
 }
+
 .h2-green-gradient,
 .carousel-heading {
   background: linear-gradient(
@@ -72,25 +73,17 @@
   position: relative;
 }
 
-/* -------------sign up section ------------- */
-.sign-up-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  /* max-width: 70%; */
-  margin-top: 8rem;
+/*   -––––––––––––single post /featured –––––––––––– */
+.most-shared-post > h2 {
+  padding: 4rem 0 0 1rem;
 }
-.sign-up-section img {
-  max-width: 90%;
-}
+.most-shared-single-post {
+  padding: 4rem 4rem 4rem 4rem;
 
-.sign-up-section h3,
-button {
-  margin-bottom: 2rem;
-}
-.sign-up-section button {
-  margin-bottom: 2rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  object-fit: contain;
 }
 
 /* ------------- carousel with 3 sliders section ------------- */
@@ -122,7 +115,8 @@ button {
   height: 100%;
   object-fit: cover;
 }
-.slider-title {
+.slider-title,
+.shared-post-overlay {
   position: absolute;
   top: 65%;
   left: 20%;
@@ -136,19 +130,13 @@ button {
     -1px -1px 0 #000;
   border-radius: var(--standard-border-radius);
 }
-.slider-title:hover {
+.slider-title:hover,
+.shared-post-overlay:hover {
   text-decoration: underline;
-  /* background: linear-gradient(
-    0deg,
-    rgba(64, 209, 13, 1) 10%,
-    rgba(44, 33, 33, 0.65) 20%,
-    rgba(64, 209, 13, 1) 90%
-  ); */
   background: rgba(44, 33, 33, 1);
   border: 2px solid var(--text-green);
   text-shadow: -1px 2px 0 #000, 1px 1px 0 #000, 1px -2px 0 #000,
     -4px -1px 0 #000;
-  /* border-radius: var(--standard-border-radius); */
 }
 .slider-btn {
   position: absolute;
@@ -269,9 +257,9 @@ input[type='email'] {
     max-width: 45%;
     bottom: -10%;
   }
-  .sign-up-section {
+  /* .sign-up-section {
     margin-top: 4rem;
-  }
+  } */
 }
 @media only screen and (max-width: 1000px) {
   .column-left {
@@ -368,18 +356,6 @@ input[type='email'] {
   }
   .hero-cards-container {
     padding-top: 4rem;
-  }
-  .sign-up-section h3 {
-    padding-top: 2rem;
-  }
-  .sign-up-section {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .sign-up-section button {
-    margin: 0 0 0 0;
   }
 
   .slider-title {
