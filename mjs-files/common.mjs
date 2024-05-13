@@ -29,11 +29,11 @@ export async function fetchData(url) {
   }
 }
 // fetch // get single post with token // for admin /edit page
-export async function fetchDataById(singlePostUrl, userToken) {
+export async function fetchDataById(singlePostUrl, token) {
   try {
     const res = await fetch(singlePostUrl, {
       method: 'GET',
-      Authorization: `Bearer ${userToken}`,
+      Authorization: `Bearer ${token}`,
       headers: { 'Content-Type': 'application/json' },
     });
     const data = await res.json();

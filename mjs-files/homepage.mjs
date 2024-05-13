@@ -112,10 +112,15 @@ addEventListener('DOMContentLoaded', () => {
   heroVideoRender();
 });
 //
+
 // Most shared article
 
 const DisplaySinglePost = async function () {
+  const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
+  const username = localStorage.getItem('name') || 'angZar';
+  console.log(username);
   const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
+  console.log(test1);
   const mostSharedPostContainer = document.querySelector(
     '.most-shared-single-post'
   );
