@@ -9,7 +9,8 @@ import { baseApiUrl } from './common.mjs';
 import { singlePostId } from './common.mjs';
 
 const token = localStorage.getItem('accessToken');
-const username = localStorage.getItem('name');
+const username = localStorage.getItem('name') || 'angZar';
+
 // console.log(username);
 
 // Create html content for the grid
