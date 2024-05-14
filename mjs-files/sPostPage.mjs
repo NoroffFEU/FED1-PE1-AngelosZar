@@ -3,8 +3,8 @@ import { fetchData } from './common.mjs';
 import { devBlogs } from './common.mjs';
 import { admin } from './common.mjs';
 // URL Query Parameters in the Browser test on deployment.
-const queryParams = new URLSearchParams(window.location.search);
-const postId = queryParams.get('id');
+// const queryParams = new URLSearchParams(window.location.search);
+// const postId = queryParams.get('id');
 const userName = localStorage.getItem('name');
 const token = localStorage.getItem('accessToken');
 
@@ -38,12 +38,12 @@ export function displaySinglePost(post) {
   // click to copy the url
   const clickedUrl = document.querySelector('#clicked-url');
   clickedUrl.addEventListener('click', () => {
-    // const currentUrl = window.location.href;
+    const currentUrl = window.location.href;
     // const postId = queryParameters.get('id');
-    navigator.clipboard.writeText(`${clickedUrl}+${postId}`).then(() => {
+    navigator.clipboard.writeText(currentUrl).then(() => {
       // navigator.clipboard.writeText(`${currentUrl}+${postId}`).then(() => {
       window.confirm('Linked was copied to clipboard');
-      return postId;
+      return;
     });
   });
 }

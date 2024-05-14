@@ -56,16 +56,13 @@ function displayRecentArticles(posts) {
 }
 //Function to store the clicked post in local storage
 export function clickedPost(post) {
+  const postId = post.id;
   localStorage.setItem('clickedPost', JSON.stringify(post));
-  const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get('postId');
-  console.log('postId:', postId);
-  console.log('post.id', post.id);
-  const targetUrl = `https://66437529b4ed5a2b2c7b2ac5--hot-viewlabs.netlify.app/${username}/${postId}`;
-  console.log('username:', username);
-  // const targetUrl = `${baseApiUrl}/blog/posts/${username}/${postId}`;
-  // const targetUrl = `${allArticles}/${postId}`;
-  alert('You are now being redirected to the post page');
+  localStorage.setItem('postId', postId);
+  console.log(postId);
+  const targetUrl = `post/index.html?postId=${postId}`;
+  console.log(targetUrl);
+  // alert('You are now being redirected to the post page');
   // location.href = 'post/index.html';
   location.href = targetUrl;
 }
