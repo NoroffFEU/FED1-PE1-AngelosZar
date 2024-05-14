@@ -5,13 +5,9 @@ import { admin } from './common.mjs';
 // URL Query Parameters in the Browser test on deployment.
 const queryParams = new URLSearchParams(window.location.search);
 const postId = queryParams.get('id');
-// Variables
-const userName = localStorage.getItem('name');
-const token = localStorage.getItem('accessToken');
-//
-// console.log('postId', postId);
-// console.log('userName', userName);
-// console.log(token, 'token');
+// const userName = localStorage.getItem('name');
+// const token = localStorage.getItem('accessToken');
+
 //
 //
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
@@ -42,14 +38,12 @@ export function displaySinglePost(post) {
   // click to copy the url
   const clickedUrl = document.querySelector('#clicked-url');
   clickedUrl.addEventListener('click', () => {
-    const currentUrl = window.location.href;
-    // const url = `/post/edit.html?id=${post.id}`;
-    // or need to add full link like ??? http://localhost:3000/post/edit.html?id=${post.id} ???
-    navigator.clipboard.writeText(currentUrl).then(() => {
-      console.log('it worked');
-      console.log('post.id', post.id);
-      console.log(currentUrl);
+    // const currentUrl = window.location.href;
+    // const postId = queryParameters.get('id');
+    navigator.clipboard.writeText(`${clickedUrl}+${postId}`).then(() => {
+      // navigator.clipboard.writeText(`${currentUrl}+${postId}`).then(() => {
       window.confirm('Linked was copied to clipboard');
+      return postId;
     });
   });
 }

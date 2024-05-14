@@ -57,7 +57,17 @@ function displayRecentArticles(posts) {
 //Function to store the clicked post in local storage
 export function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
-  location.href = 'post/index.html';
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('postId');
+  console.log('postId:', postId);
+  console.log('post.id', post.id);
+  const targetUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+  console.log('username:', username);
+  // const targetUrl = `${baseApiUrl}/blog/posts/${username}/${postId}`;
+  // const targetUrl = `${allArticles}/${postId}`;
+  alert('You are now being redirected to the post page');
+  // location.href = 'post/index.html';
+  location.href = targetUrl;
 }
 
 // For  trending now section Grid

@@ -8,7 +8,10 @@ export const logOut = function () {
   if (token) {
     alert('You are now logged out');
     localStorage.removeItem('accessToken');
-    window.location.href = 'index.html';
+    localStorage.removeItem('name');
+    // window.location.href = '../index.html';
+    // window.location.href = '/login.html';
+    window.location.reload();
   } else {
     alert('You are not logged in');
   }
