@@ -60,7 +60,8 @@ export function clickedPost(post) {
   localStorage.setItem('clickedPost', JSON.stringify(post));
   localStorage.setItem('postId', postId);
   console.log(postId);
-  const targetUrl = `post/index.html?postId=${postId}`;
+  // const targetUrl = `post/index.html?postId=${postId}`;
+  const targetUrl = `https://main--hot-viewlabs.netlify.app/?postId=${postId}`;
   console.log(targetUrl);
   // alert('You are now being redirected to the post page');
   // location.href = 'post/index.html';
