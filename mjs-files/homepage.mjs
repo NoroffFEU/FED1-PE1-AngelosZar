@@ -61,7 +61,7 @@ export function clickedPost(post) {
   const postId = urlParams.get('postId');
   console.log('postId:', postId);
   console.log('post.id', post.id);
-  const targetUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+  const targetUrl = `https://66437529b4ed5a2b2c7b2ac5--hot-viewlabs.netlify.app/${username}/${postId}`;
   console.log('username:', username);
   // const targetUrl = `${baseApiUrl}/blog/posts/${username}/${postId}`;
   // const targetUrl = `${allArticles}/${postId}`;
@@ -136,7 +136,7 @@ const DisplaySinglePost = async function () {
   );
   try {
     const { data: post } = await fetchDataById(test1, token);
-    console.log(post.media.url);
+    // console.log(post.media.url);
     const sharedPost = `
     <img
       src="${post.media.url}"

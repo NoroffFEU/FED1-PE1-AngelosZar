@@ -5,8 +5,8 @@ import { admin } from './common.mjs';
 // URL Query Parameters in the Browser test on deployment.
 const queryParams = new URLSearchParams(window.location.search);
 const postId = queryParams.get('id');
-// const userName = localStorage.getItem('name');
-// const token = localStorage.getItem('accessToken');
+const userName = localStorage.getItem('name');
+const token = localStorage.getItem('accessToken');
 
 //
 //

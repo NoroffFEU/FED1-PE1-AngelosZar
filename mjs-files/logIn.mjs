@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const name = 'angzar49347@stud.noroff.no';
-const pass = '/.,offThe12qw3p09/';
-
 async function logInUser(email, password, api) {
   try {
     const res = await fetch(api, {
