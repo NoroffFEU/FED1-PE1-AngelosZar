@@ -61,11 +61,11 @@ export function clickedPost(post) {
   localStorage.setItem('postId', postId);
   console.log(postId);
   // const targetUrl = `post/index.html?postId=${postId}`;
-  const targetUrl = `https://main--hot-viewlabs.netlify.app/?postId=${postId}`;
-  console.log(targetUrl);
+  // const targetUrl = `https://main--hot-viewlabs.netlify.app/?postId=${postId}`;
+  // console.log(targetUrl);
   // alert('You are now being redirected to the post page');
-  // location.href = 'post/index.html';
-  location.href = targetUrl;
+  location.href = 'post/index.html';
+  // location.href = targetUrl;
 }
 
 // For  trending now section Grid
@@ -118,6 +118,7 @@ addEventListener('DOMContentLoaded', () => {
     heroContainer.appendChild(video);
   };
   heroVideoRender();
+  // homepageUrlFunc();
 });
 //
 
@@ -173,7 +174,15 @@ const initHomePage = async () => {
 };
 initHomePage();
 //
-//
+// const homepageUrlFunc = function () {
+//   const homePageUrl = window.location.href;
+//   console.log(homePageUrl);
+//   if (homePageUrl.endsWith('/')) {
+//     homePageUrl + 'index.html';
+//   } else {
+//     window.location.href = homePageUrl + '/index.html';
+//   }
+// };
 //
 // const heroVideoRender = () => {
 //   const heroContainer = document.querySelector('.hero-container');

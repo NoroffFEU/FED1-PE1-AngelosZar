@@ -2,9 +2,6 @@
 import { fetchData } from './common.mjs';
 import { devBlogs } from './common.mjs';
 import { admin } from './common.mjs';
-// URL Query Parameters in the Browser test on deployment.
-// const queryParams = new URLSearchParams(window.location.search);
-// const postId = queryParams.get('id');
 const userName = localStorage.getItem('name');
 const token = localStorage.getItem('accessToken');
 
@@ -89,6 +86,24 @@ async function renderRecommendedPosts() {
     console.error('Error:', error);
   }
 }
-displaySinglePost(singlePost);
-renderRecommendedPosts();
+document.addEventListener('DOMContentLoaded', () => {
+  searchParamsFunction();
+  displaySinglePost(singlePost);
+  renderRecommendedPosts();
+});
 // document.addEventListener('DOMContentLoaded', () => {
+
+const searchParamsFunction = () => {
+  if ('URLSearchParams' in window) {
+    let searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams);
+    const postId = localStorage.getItem('postId');
+    searchParams.set('id', postId);
+    console.log(window.location.search);
+    let newRelativePathQuery =
+      window.location.pathname + '?' + searchParams.toString();
+    history.pushState(null, '', newRelativePathQuery);
+  } else {
+    console.log('URLSearchParams is not found');
+  }
+};
