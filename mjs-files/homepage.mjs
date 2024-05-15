@@ -118,7 +118,7 @@ addEventListener('DOMContentLoaded', () => {
     heroContainer.appendChild(video);
   };
   heroVideoRender();
-  // homepageUrlFunc();
+  homepageUrlFunc();
 });
 //
 
