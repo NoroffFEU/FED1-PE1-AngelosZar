@@ -118,7 +118,7 @@ addEventListener('DOMContentLoaded', () => {
     heroContainer.appendChild(video);
   };
   heroVideoRender();
-  homepageUrlFunc();
+  // homepageUrlFunc();
 });
 //
 
@@ -177,11 +177,12 @@ initHomePage();
 const homepageUrlFunc = function () {
   const homePageUrl = window.location.href;
   console.log(homePageUrl);
-  if (homePageUrl.endsWith('/')) {
-    homePageUrl + 'index.html';
-  } else {
-    window.location.href = homePageUrl + '/index.html';
+  if (homePageUrl.endsWith('app')) {
+    homePageUrl + '/index.html';
   }
+  // else {
+  //   window.location.href = homePageUrl + '/index.html';
+  // }
 };
 //
 // const heroVideoRender = () => {
