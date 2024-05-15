@@ -118,7 +118,7 @@ addEventListener('DOMContentLoaded', () => {
     heroContainer.appendChild(video);
   };
   heroVideoRender();
-  // homepageUrlFunc();
+  homepageUrlFunc();
 });
 //
 
@@ -174,15 +174,15 @@ const initHomePage = async () => {
 };
 initHomePage();
 //
-// const homepageUrlFunc = function () {
-//   const homePageUrl = window.location.href;
-//   console.log(homePageUrl);
-//   if (homePageUrl.endsWith('/')) {
-//     homePageUrl + 'index.html';
-//   } else {
-//     window.location.href = homePageUrl + '/index.html';
-//   }
-// };
+const homepageUrlFunc = function () {
+  const homePageUrl = window.location.href;
+  console.log(homePageUrl);
+  if (homePageUrl.endsWith('/')) {
+    homePageUrl + 'index.html';
+  } else {
+    window.location.href = homePageUrl + '/index.html';
+  }
+};
 //
 // const heroVideoRender = () => {
 //   const heroContainer = document.querySelector('.hero-container');
