@@ -177,12 +177,17 @@ initHomePage();
 const homepageUrlFunc = function () {
   const homePageUrl = window.location.href;
   console.log(homePageUrl);
-  if (homePageUrl.endsWith('app')) {
-    homePageUrl + '/index.html';
+  if (homePageUrl.endsWith('app/')) {
+    const newUrl = homePageUrl + 'index.html';
+    window.location.href = newUrl;
+    // else if tha i can work with it on local host
+  } else if (homePageUrl.endsWith('/index.html')) {
+    console.log('index.html');
+    return;
+  } else {
+    const newUrl = homePageUrl + 'index.html';
+    window.location.href = newUrl;
   }
-  // else {
-  //   window.location.href = homePageUrl + '/index.html';
-  // }
 };
 //
 // const heroVideoRender = () => {
