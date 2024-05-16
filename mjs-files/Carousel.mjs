@@ -2,6 +2,7 @@
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { clickedPost } from './homepage.mjs';
+//
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 const sliderBtnLeft = document.querySelector('.slider-btn-left');
