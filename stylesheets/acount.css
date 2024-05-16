@@ -60,21 +60,21 @@ input[type='password'],
   font-size: var(--h4-size);
   /* align-self: flex-end; */
 }
-.log-in-se {
+/* .log-in-se {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-.log-in-se > h1 {
+} */
+/* .log-in-se > h1 {
   width: 50%;
 }
 .log-in-se h2,
 h3 {
   margin: 1rem 1rem 1rem 0;
-}
+} */
 .primary-button {
   margin: 1rem 0;
 }

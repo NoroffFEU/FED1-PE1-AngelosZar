@@ -12,7 +12,7 @@ const registeringUser = {
   email: `${inputUserName}`,
   password: `${inputUserName}`,
 };
-
+// sign up event listener
 signUpForm.addEventListener('submit', async () => {
   e.preventDefault();
   console.log(inputUserEmail, inputUserName, inputUserPassword);

@@ -98,7 +98,7 @@ btnDeletePost.addEventListener('click', async e => {
   deletePost(id);
 });
 
-const editNowMsg = document.querySelector('#start-editing-now');
+// const editNowMsg = document.querySelector('#start-editing-now');
 // event listener to clear the form
 const clearForm = document.querySelector('.clear-form-for-edit');
 clearForm.addEventListener('click', e => {

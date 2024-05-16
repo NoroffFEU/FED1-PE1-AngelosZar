@@ -1,5 +1,6 @@
 // imported variables
 import { baseApiUrl } from './common.mjs';
+// variables
 const logInEndPoint = '/auth/login';
 const logInApi = `${baseApiUrl}${logInEndPoint}`;
 const logInForm = document.querySelector('#log-in-form');
@@ -44,4 +45,3 @@ async function logInUser(email, password, api) {
     return false;
   }
 }
-// logInUser(name, pass, logInApi);
