@@ -36,7 +36,6 @@ sliderBtnLeft.addEventListener('click', prevSlide);
 // keyboard events fro slider
 // use getboundingClientRect to get this command to run only when carousel is
 document.addEventListener('keydown', function (e) {
-  console.log(e);
   if (e.key === 'ArrowRight') nextSlide();
   if (e.key === 'ArrowLeft') prevSlide();
 });
@@ -66,7 +65,6 @@ dotContainer.addEventListener('click', function (e) {
     const { slide } = e.target.dataset;
     moveSlide((currentSlide = slide));
     // moveSlide(slide);
-    console.log('DOTS', e.target);
   }
 });
 
@@ -87,16 +85,12 @@ const populateSlider = async function () {
       slider.appendChild(slides);
       sliderTitle.addEventListener('click', function (e) {
         e.preventDefault;
-        console.log('click');
         clickedPost(posts[i]);
       });
     }
-
     moveSlide(currentSlide);
     syncDots(currentSlide);
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 };
 //
 const initCarousel = function () {

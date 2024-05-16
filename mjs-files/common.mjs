@@ -1,16 +1,13 @@
 'use strict';
 //                 .....   variables ......
-// temporary only for testing
+// testing and fallback
 export const admin = 'angZar';
-const token = localStorage.getItem('accessToken');
-const username = localStorage.getItem('name');
+
 // api url / base + endpoints
 export const baseApiUrl = 'https://v2.api.noroff.dev';
 export const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
 export const allArticles = `${baseApiUrl}/blog/posts/${admin}`;
 export const singlePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
-// export const deletePost = `${baseApiUrl}/blog/posts/${admin}/${singlePostId}`;
-//
 export const techBlogs = `${allArticles}?_tag=tech`;
 export const trendingBlogs = `${allArticles}?_tag=trending`;
 export const devBlogs = `${allArticles}?_tag=dev`;
@@ -60,9 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (token) {
-    console.log('token:', token);
     logInLink.style.display = 'none';
-    // logInLink.style.display = 'none';
     // techLink.style.display = 'none';
     devLink.style.display = 'none';
   } else {

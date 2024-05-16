@@ -73,12 +73,6 @@ async function renderRecommendedPosts() {
         localStorage.clear();
         localStorage.setItem('clickedPost', JSON.stringify(posts[i]));
         console.log(localStorage.getItem('clickedPost'));
-        // displaySinglePost(singlePost);
-        // renderRecommendedPosts();
-        // setInterval();
-        // location.reload();
-        // location.href = 'post/index.html';
-        // window.location.href = 'post/index.html';
       });
     }
     return posts;
@@ -92,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRecommendedPosts();
 });
 // document.addEventListener('DOMContentLoaded', () => {
-
+//  function to create quarry string based on post id
 const searchParamsFunction = () => {
   if ('URLSearchParams' in window) {
     let searchParams = new URLSearchParams(window.location.search);
