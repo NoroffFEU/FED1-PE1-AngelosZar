@@ -2,16 +2,11 @@
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { devBlogs } from './common.mjs';
-import { logOut } from './logOut.mjs';
 import { fetchDataById } from './common.mjs';
-import { singlePost } from './common.mjs';
 import { baseApiUrl } from './common.mjs';
-import { singlePostId } from './common.mjs';
 
 const token = localStorage.getItem('accessToken');
 const username = localStorage.getItem('name') || 'angZar';
-
-// console.log(username);
 
 // Create html content for the grid
 function genHtmlForGrid(post) {
@@ -97,43 +92,33 @@ async function renderHeroGrid() {
     console.error('Error:', error);
   }
 }
-
-// trying to add a video to the hero section
-addEventListener('DOMContentLoaded', () => {
-  const heroVideoRender = () => {
-    const heroContainer = document.querySelector('.hero-container');
-    const video = document.createElement('video');
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    const source = document.createElement('source');
-    source.src =
-      'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
-    // source.src =
-    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-    // source.src =
-    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_1920_1080_30fps.mp4';
-    source.type = 'video/mp4';
-    video.appendChild(source);
-    heroContainer.appendChild(video);
-  };
-  heroVideoRender();
-  homepageUrlFunc();
-});
-//
-
-// Most shared article
-
+// Video on hero
+const heroVideoRender = () => {
+  const heroContainer = document.querySelector('.hero-container');
+  const video = document.createElement('video');
+  video.autoplay = true;
+  video.muted = true;
+  video.loop = true;
+  const source = document.createElement('source');
+  source.src =
+    'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
+  // source.src =
+  //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
+  source.type = 'video/mp4';
+  video.appendChild(source);
+  heroContainer.appendChild(video);
+};
+// Most shared article // get post by id
 const DisplaySinglePost = async function () {
-  const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
-  const username = localStorage.getItem('name') || 'angZar';
-  console.log(username);
-  const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
-  console.log(test1);
-  const mostSharedPostContainer = document.querySelector(
-    '.most-shared-single-post'
-  );
   try {
+    const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
+    // const username = localStorage.getItem('name') || 'angZar';
+    // console.log(username);
+    const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
+    console.log(test1);
+    const mostSharedPostContainer = document.querySelector(
+      '.most-shared-single-post'
+    );
     const { data: post } = await fetchDataById(test1, token);
     // console.log(post.media.url);
     const sharedPost = `
@@ -146,7 +131,6 @@ const DisplaySinglePost = async function () {
       <p class="card-author">${post.author.name}</p>
     </div>
       `;
-    // sharedPost.classList.add();
     mostSharedPostContainer.insertAdjacentHTML('beforeend', sharedPost);
     const postOverlay = document.querySelector('.shared-post-overlay');
     postOverlay.addEventListener('click', e => {
@@ -172,8 +156,8 @@ const initHomePage = async () => {
     console.log('Problem loading the content');
   }
 };
-initHomePage();
-//
+
+// add index.html to the url of homepage
 const homepageUrlFunc = function () {
   const homePageUrl = window.location.href;
   console.log(homePageUrl);
@@ -189,19 +173,13 @@ const homepageUrlFunc = function () {
     window.location.href = newUrl;
   }
 };
-//
-// const heroVideoRender = () => {
-//   const heroContainer = document.querySelector('.hero-container');
-//   const video = document.createElement('video');
-//   video.autoplay = true;
-//   video.muted = true;
-//   video.loop = true;
-//   const source = document.createElement('source');
-//   // source.src =
-//   //   'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
-//   source.src =
-//     'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-//   source.type = 'video/mp4';
-//   video.appendChild(source);
-//   heroContainer.appendChild(video);
-// };
+// null the submit button on the newsletter form
+const submitnewsletterBtn = document.querySelector('#submit-newsletter');
+submitnewsletterBtn.addEventListener('click', e => {
+  e.preventDefault();
+});
+addEventListener('DOMContentLoaded', () => {
+  initHomePage();
+  heroVideoRender();
+  homepageUrlFunc();
+});

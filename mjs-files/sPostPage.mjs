@@ -11,8 +11,9 @@ const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 console.log(singlePost);
 const blogContainer = document.querySelector('.focused-blog');
 
-export function displaySinglePost(post) {
-  const clickedPost = `
+export async function displaySinglePost(post) {
+  try {
+    const clickedPost = `
   <section class="focused-blog">
         <div>
           <div class="focused-blog-info">
@@ -31,18 +32,22 @@ export function displaySinglePost(post) {
         </article>
       </section>
       `;
-  blogContainer.insertAdjacentHTML('beforeend', clickedPost);
-  // click to copy the url
-  const clickedUrl = document.querySelector('#clicked-url');
-  clickedUrl.addEventListener('click', () => {
-    const currentUrl = window.location.href;
-    // const postId = queryParameters.get('id');
-    navigator.clipboard.writeText(currentUrl).then(() => {
-      // navigator.clipboard.writeText(`${currentUrl}+${postId}`).then(() => {
-      window.confirm('Linked was copied to clipboard');
-      return;
+    blogContainer.insertAdjacentHTML('beforeend', clickedPost);
+    // click to copy the url
+    const clickedUrl = document.querySelector('#clicked-url');
+    clickedUrl.addEventListener('click', () => {
+      const currentUrl = window.location.href;
+      // const postId = queryParameters.get('id');
+      navigator.clipboard.writeText(currentUrl).then(() => {
+        // navigator.clipboard.writeText(`${currentUrl}+${postId}`).then(() => {
+        window.confirm('Linked was copied to clipboard');
+        return;
+      });
     });
-  });
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Something went wrong,\nPlease reload the page');
+  }
 }
 async function renderRecommendedPosts() {
   try {
