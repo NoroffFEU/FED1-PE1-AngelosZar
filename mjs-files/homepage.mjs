@@ -57,7 +57,6 @@ export function clickedPost(post) {
   console.log(postId);
   location.href = 'post/index.html';
 }
-
 // For  trending now section Grid
 async function renderHeroGrid() {
   try {
@@ -87,21 +86,27 @@ async function renderHeroGrid() {
     console.error('Error:', error);
   }
 }
+// maybe make the heroVideoRender an async function
 // Video on hero
-const heroVideoRender = () => {
-  const heroContainer = document.querySelector('.hero-container');
-  const video = document.createElement('video');
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  const source = document.createElement('source');
-  source.src =
-    'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
-  // source.src =
-  //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-  source.type = 'video/mp4';
-  video.appendChild(source);
-  heroContainer.appendChild(video);
+const heroVideoRender = async () => {
+  try {
+    const heroContainer = document.querySelector('.hero-container');
+    const video = document.createElement('video');
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    const source = document.createElement('source');
+    source.src =
+      'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
+    // source.src =
+    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    heroContainer.appendChild(video);
+  } catch {
+    console.log('Error loading the video');
+  }
+  // loading spinner ?
 };
 // Most shared article // get post by id
 const DisplaySinglePost = async function () {

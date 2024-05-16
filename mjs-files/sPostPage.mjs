@@ -85,12 +85,7 @@ async function renderRecommendedPosts() {
     console.error('Error:', error);
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  searchParamsFunction();
-  displaySinglePost(singlePost);
-  renderRecommendedPosts();
-});
-// document.addEventListener('DOMContentLoaded', () => {
+
 //  function to create quarry string based on post id
 const searchParamsFunction = () => {
   if ('URLSearchParams' in window) {
@@ -106,3 +101,8 @@ const searchParamsFunction = () => {
     console.log('URLSearchParams is not found');
   }
 };
+document.addEventListener('DOMContentLoaded', () => {
+  searchParamsFunction();
+  displaySinglePost(singlePost);
+  renderRecommendedPosts();
+});
