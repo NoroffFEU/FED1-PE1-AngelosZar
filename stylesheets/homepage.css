@@ -218,7 +218,11 @@
 /* filtering bar buttons */
 #filtering-buttons-bar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  border: 1px solid var(--text-green);
+  border-radius: var(--standard-border-radius);
 }
 #filtering-buttons-bar > button {
   margin: 1rem;

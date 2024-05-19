@@ -22,16 +22,12 @@ function filteringPosts(filteredPosts) {
 // filter data all categories
 async function filterAllCategories() {
   const { data: posts } = await fetchData(allArticles);
-  //   const { data } = await fetchData(allArticles);
-  //   console.log('posts', posts);
   const container = document.querySelector('.cards-container');
   container.innerHTML = '';
   const filteredPosts = posts;
-  //   console.log('filteredPosts', filteredPosts);
+
   filteringPosts(filteredPosts);
 }
-
-// filterAllCategories();
 
 // buttons to filter by category tech dev trending crypto
 const filterBtnAll = document.querySelector('#filter-btn-all');
@@ -42,12 +38,10 @@ const filterBtnCrypto = document.querySelector('#filter-btn-crypto');
 
 filterBtnAll.addEventListener('click', () => {
   filterAllCategories();
-  //   console.log('filterAllCategories()');
 });
 
 filterBtnTech.addEventListener('click', () => {
   filterByCategory('tech');
-  //   console.log(filterByCategory('tech'));
 });
 
 filterBtnDev.addEventListener('click', () => {
