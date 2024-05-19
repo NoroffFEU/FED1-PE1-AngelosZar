@@ -54,3 +54,31 @@ filterBtnTrending.addEventListener('click', () => {
 filterBtnCrypto.addEventListener('click', () => {
   filterByCategory('crypto');
 });
+
+// filter by date
+// data.created
+
+async function filterByDate() {
+  try {
+    const { data: posts } = await fetchData(allArticles);
+    // console.log(posts);
+    // console.log(posts.sort((a, b) => new Date(a.created) - new Date(b.created)));
+    // const qwe = posts.sort((a, b) => new Date(a.created) - new Date(b.created));
+    // const qwe = posts.sort((a, b) => b.created - a.created);
+    // console.log(qwe);
+    const newerPosts = posts
+      .sort((a, b) => new Date(a.created) - new Date(b.created))
+      .forEach(post => {
+        // console.log(`Created: ${post.created}`);
+      });
+    const olderPosts = posts
+      .sort((a, b) => new Date(a.created) - new Date(b.created))
+      .forEach(post => {
+        // console.log(`Created: ${post.created}`);
+      });
+    return newerPosts, olderPosts;
+  } catch (error) {
+    console.log(error);
+  }
+}
+filterByDate();
