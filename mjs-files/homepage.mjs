@@ -9,7 +9,7 @@ const token = localStorage.getItem('accessToken');
 const username = localStorage.getItem('name') || 'angZar';
 
 // Create html content for the grid
-function genHtmlForGrid(post) {
+export function genHtmlForGrid(post) {
   const gridCard = document.createElement('div');
   gridCard.classList.add('grid-card');
   gridCard.addEventListener('click', () => {

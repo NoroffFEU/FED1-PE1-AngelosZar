@@ -11,9 +11,10 @@
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="mjs-files/common.mjs"></script>
-    <script type="module" src="mjs-files/homepage.mjs"></script>
-    <script type="module" src="mjs-files/Carousel.mjs"></script>
+    <script defer type="module" src="mjs-files/common.mjs"></script>
+    <script defer type="module" src="mjs-files/homepage.mjs"></script>
+    <script defer type="module" src="mjs-files/Carousel.mjs"></script>
+    <script defer type="module" src="mjs-files/filtering.mjs"></script>
   </head>
   <body>
     <!--------------------------  Header  -------------------------->
@@ -176,6 +177,15 @@
       <!-- Recent articles section /grid-of-12-articles-->
       <section class="recent-articles">
         <h2>Most recent =></h2>
+        <div id="filtering-buttons-bar">
+          <button class="primary-button" id="filter-btn-all">Show all</button>
+          <button class="primary-button" id="filter-btn-tech">tech</button>
+          <button class="primary-button" id="filter-btn-dev">dev</button>
+          <button class="primary-button" id="filter-btn-trending">
+            trending
+          </button>
+          <button class="primary-button" id="filter-btn-crypto">crypto</button>
+        </div>
         <section class="cards-container">
           <!-- <div class="grid-card">
             <div class="card--image-container">

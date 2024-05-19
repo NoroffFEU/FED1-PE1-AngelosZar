@@ -215,7 +215,15 @@
   padding-top: var(--spacing-lg);
 }
 /* ------------- grid container ------------- */
-
+/* filtering bar buttons */
+#filtering-buttons-bar {
+  display: flex;
+  justify-content: center;
+}
+#filtering-buttons-bar > button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
 /*-------------------- newsletter section --------------------*/
 .newsletter-section {
   margin: 0 auto;
