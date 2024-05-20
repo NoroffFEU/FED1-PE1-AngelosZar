@@ -98,3 +98,29 @@ filterBtnNewer.addEventListener('click', () => {
 filterBtnOlder.addEventListener('click', () => {
   sortedFiltering();
 });
+
+export const loadSearchResults = async query => {
+  try {
+    const { data: posts } = await fetchData(allArticles);
+    const searchResults = posts.filter(
+      post => post.title.toLowerCase().includes(query.toLowerCase())
+      //   post.title.toLowerCase().includes(`${quary}`.toLowerCase())
+    );
+    console.log(searchResults);
+    let filteredPosts = searchResults;
+    //
+    console.log(filteredPosts);
+    filteringPosts(filteredPosts);
+    // filteringPosts(searchResults);
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    throw error;
+  }
+};
+
+// loadSearchResults('age');
+loadSearchResults('the');
+// either use the same function and direct the search there or use the hero section//or the trending section for that.// or create an overlay for the search results???
+
+// Test on filteringPosts function
+// lloping through the data to display the grid
