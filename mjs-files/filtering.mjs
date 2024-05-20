@@ -1,6 +1,6 @@
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
-import { genHtmlForGrid } from './homepage.mjs';
+import { clickedPost, genHtmlForGrid } from './homepage.mjs';
 
 // function to filter the data by category
 async function filterByCategory(category) {
@@ -8,6 +8,16 @@ async function filterByCategory(category) {
   const container = document.querySelector('.cards-container');
   container.innerHTML = '';
   const filteredPosts = posts.filter(post => post.tags.includes(category));
+  filteringPosts(filteredPosts);
+}
+// filter by date// old to new
+async function sortedFiltering() {
+  const { data: posts } = await fetchData(allArticles);
+  const container = document.querySelector('.cards-container');
+  container.innerHTML = '';
+  const filteredPosts = posts.sort(
+    (a, b) => new Date(a.created) - new Date(b.created)
+  );
   filteringPosts(filteredPosts);
 }
 // lloping through the data to display the grid
@@ -19,7 +29,7 @@ function filteringPosts(filteredPosts) {
   });
 }
 
-// filter data all categories
+// filter data all categories // use the allArticles as filtering new to old as well
 async function filterAllCategories() {
   const { data: posts } = await fetchData(allArticles);
   const container = document.querySelector('.cards-container');
@@ -57,28 +67,34 @@ filterBtnCrypto.addEventListener('click', () => {
 
 // filter by date
 // data.created
+// async function filterByDate() {
+//   try {
+//     const { data: posts } = await fetchData(allArticles);
+//     const newerPosts = posts
+//       .sort((a, b) => new Date(a.created) - new Date(b.created))
+//       .forEach(post => {
+//         // console.log(`Created: ${post.created}`);
+//       });
+//     const olderPosts = posts
+//       .sort((a, b) => new Date(a.created) - new Date(b.created))
+//       .forEach(post => {
+//         // console.log(`Created: ${post.created}`);
+//       });
+//     return newerPosts, olderPosts;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// filterByDate();
 
-async function filterByDate() {
-  try {
-    const { data: posts } = await fetchData(allArticles);
-    // console.log(posts);
-    // console.log(posts.sort((a, b) => new Date(a.created) - new Date(b.created)));
-    // const qwe = posts.sort((a, b) => new Date(a.created) - new Date(b.created));
-    // const qwe = posts.sort((a, b) => b.created - a.created);
-    // console.log(qwe);
-    const newerPosts = posts
-      .sort((a, b) => new Date(a.created) - new Date(b.created))
-      .forEach(post => {
-        // console.log(`Created: ${post.created}`);
-      });
-    const olderPosts = posts
-      .sort((a, b) => new Date(a.created) - new Date(b.created))
-      .forEach(post => {
-        // console.log(`Created: ${post.created}`);
-      });
-    return newerPosts, olderPosts;
-  } catch (error) {
-    console.log(error);
-  }
-}
-filterByDate();
+const filterBtnNewer = document.querySelector('#filter-btn_newer');
+const filterBtnOlder = document.querySelector('#filter-btn_older');
+filterBtnNewer.addEventListener('click', () => {
+  // as the newest post is always on top,i just call the   filterAllCategories() function
+  filterAllCategories();
+});
+//
+
+filterBtnOlder.addEventListener('click', () => {
+  sortedFiltering();
+});
