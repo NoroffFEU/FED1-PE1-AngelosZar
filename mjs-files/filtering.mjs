@@ -1,6 +1,7 @@
 import { fetchData } from './common.mjs';
 import { allArticles } from './common.mjs';
 import { clickedPost, genHtmlForGrid } from './homepage.mjs';
+// import { genHtmlForGrid } from './homepage.mjs';
 
 // function to filter the data by category
 async function filterByCategory(category) {
@@ -98,7 +99,10 @@ filterBtnNewer.addEventListener('click', () => {
 filterBtnOlder.addEventListener('click', () => {
   sortedFiltering();
 });
-
+//
+//
+// Search functionality
+const searchOverlay = document.querySelector('#search-overlay');
 export const loadSearchResults = async query => {
   try {
     const { data: posts } = await fetchData(allArticles);
@@ -107,20 +111,34 @@ export const loadSearchResults = async query => {
       //   post.title.toLowerCase().includes(`${quary}`.toLowerCase())
     );
     console.log(searchResults);
-    let filteredPosts = searchResults;
+    // return searchResults;
+    searchResults.forEach(post => {
+      const gridOfCard = genHtmlForGrid(post);
+      searchOverlay.appendChild(gridOfCard);
+      return searchOverlay;
+    });
+    // let filteredPosts = searchResults;
     //
-    console.log(filteredPosts);
-    filteringPosts(filteredPosts);
+    // console.log(filteredPosts);
+
     // filteringPosts(searchResults);
   } catch (error) {
     console.error(`Error: ${error}`);
     throw error;
   }
 };
-
+const searchInput = document.querySelector('#search-input');
+const searchBtn = document.querySelector('#search-btn');
+const closeSearchOverlay = document.querySelector('#close-search-overlay');
+closeSearchOverlay.addEventListener('click', () => {
+  const searchOverlay = document.querySelector('#search-overlay');
+  searchOverlay.style.display = 'none';
+});
+searchBtn.addEventListener('click', () => {
+  console.log('click');
+  console.log(searchInput.value);
+  loadSearchResults(searchInput.value);
+  searchOverlay.style.display = 'block';
+});
 // loadSearchResults('age');
-loadSearchResults('the');
-// either use the same function and direct the search there or use the hero section//or the trending section for that.// or create an overlay for the search results???
-
-// Test on filteringPosts function
-// lloping through the data to display the grid
+// loadSearchResults('tech');
