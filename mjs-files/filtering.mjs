@@ -108,6 +108,7 @@ const searchOverlay = document.querySelector('#search-overlay');
 const searchInput = document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-btn');
 const closeSearchOverlay = document.querySelector('#close-search-overlay');
+let overlayPopUpHeading = document.querySelector('#overlay-pop-up-heading');
 export const loadSearchResults = async query => {
   try {
     const { data: posts } = await fetchData(allArticles);
@@ -118,7 +119,6 @@ export const loadSearchResults = async query => {
     console.log(searchResults);
     const querySearch = query;
     console.log(querySearch);
-
     // return searchResults;
     searchResults.forEach(post => {
       const htmlForPost = `
@@ -135,49 +135,51 @@ export const loadSearchResults = async query => {
         </div>`;
       overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
       const heroGridCard = overlayPopUp.lastElementChild;
-      const overlayPopUpHeading = document.querySelector(
-        '#overlay-pop-up-heading'
-      );
-      overlayPopUpHeading.textContent = `Search results for ${querySearch} .
-      You search matched ${searchResults.length} articles`;
+      if (searchResults.length === 0) {
+        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
+      We couldn't find any articles matching your search.`;
+      } else if (!searchInput.value) {
+        overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
+        overlayPopUp.innerHTML = '';
+        // overlayPopUp.innerHTML = `<img
+        // src="https://images.unsplash.com/photo-1560091549-c6c2e6fdce59?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        // alt="Please enter the term you want to search"
+        // style="
+        // width: 1920px;
+        // height: auto;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // margin: 0 auto;
+        // "/>`;
+      } else {
+        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
+      Your search matched ${searchResults.length} articles`;
+      }
 
       heroGridCard.addEventListener('click', async () => {
         clickedPost(post);
-        searchInput = '';
       });
-      if (searchResults.length === 0) {
-        overlayPopUpHeading.textContent = `Search results for ${querySearch} .
-      we couldn't find any articles matching your search.`;
-      }
+
       return overlayPopUp;
     });
-    // let filteredPosts = searchResults;
-    //
-    // console.log(filteredPosts);
-
-    // filteringPosts(searchResults);
   } catch (error) {
     console.error(`Error: ${error}`);
+    alert('An error occured while loading the data');
     throw error;
   }
 };
-closeSearchOverlay.addEventListener('click', () => {
-  const searchOverlay = document.querySelector('#search-overlay');
-  searchOverlay.style.display = 'none';
-});
 searchBtn.addEventListener('click', () => {
   console.log('click');
   console.log(searchInput.value);
   loadSearchResults(searchInput.value);
   searchOverlay.style.display = 'block';
 });
-// loadSearchResults('age');
-// loadSearchResults('tech');
 
-// if (searchResults.length === 0) {
-//   overlayPopUpHeading.textContent = `Search results for ${querySearch} .
-// we couldn't find any articles matching your search.`;
-// } else if (searchResults.length >= 1) {
-//   overlayPopUpHeading.textContent = `Search results for ${querySearch} .
-// You search matched ${searchResults.length} articles`;
-// }
+closeSearchOverlay.addEventListener('click', () => {
+  const searchOverlay = document.querySelector('#search-overlay');
+  searchOverlay.style.display = 'none';
+  searchInput.value = '';
+  overlayPopUp.innerHTML = '';
+});
+searchOverlay.style.display = 'none';

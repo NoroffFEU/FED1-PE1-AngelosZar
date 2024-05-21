@@ -330,7 +330,39 @@ nav ul {
   max-width: 340px;
   margin-left: var(--spacing-lg);
 }
-
+#search-input-span {
+  align-items: center;
+  justify-content: center;
+}
+#search-input {
+  height: 2rem;
+  border: none;
+  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+}
+input[type='search'],
+#search-input {
+  width: 14rem;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: var(--text-white);
+  color: var(--body-color-dark);
+  font-family: var(--body-font);
+  font-size: 1.25rem;
+}
+#search-btn {
+  background-color: var(--body-color-dark);
+  border: none;
+  color: var(--text-white);
+  border-radius: var(--standard-border-radius);
+  padding: 0.5rem 1rem;
+  margin: 0;
+  cursor: pointer;
+}
 /* Footer */
 footer {
   padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md)

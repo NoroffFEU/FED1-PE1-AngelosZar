@@ -25,7 +25,8 @@
 
 /* ------------- grid container ------------- */
 .recent-articles > h2,
-.most-shared-post > h2 {
+.most-shared-post > h2,
+#overlay-pop-up-heading {
   text-align: center;
   background: linear-gradient(
     90deg,
@@ -42,7 +43,8 @@
   margin: 2.5rem;
 }
 
-.cards-container {
+.cards-container,
+#overlay-pop-up {
   grid-column: 2 / span 12;
   /* grid-column: 2 / span 18; */
   display: grid;
