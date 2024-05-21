@@ -102,7 +102,12 @@ filterBtnOlder.addEventListener('click', () => {
 //
 //
 // Search functionality
+const overlayPopUp = document.querySelector('#overlay-pop-up'); // loadSearchResults('age');
+overlayPopUp.classList.add('.search-overlay-pop-up');
 const searchOverlay = document.querySelector('#search-overlay');
+const searchInput = document.querySelector('#search-input');
+const searchBtn = document.querySelector('#search-btn');
+const closeSearchOverlay = document.querySelector('#close-search-overlay');
 export const loadSearchResults = async query => {
   try {
     const { data: posts } = await fetchData(allArticles);
@@ -111,11 +116,40 @@ export const loadSearchResults = async query => {
       //   post.title.toLowerCase().includes(`${quary}`.toLowerCase())
     );
     console.log(searchResults);
+    const querySearch = query;
+    console.log(querySearch);
+
     // return searchResults;
     searchResults.forEach(post => {
-      const gridOfCard = genHtmlForGrid(post);
-      searchOverlay.appendChild(gridOfCard);
-      return searchOverlay;
+      const htmlForPost = `
+      <div class="grid-card">
+          <div class="card--image-container">
+            <img src="${post.media.url}" alt="${post.media.alt}" />
+          </div>
+          <div class="card-content">
+            <p class="card-title text--grid-card">${post.title}</p>
+            <div class="card-info">
+              <p class="text--grid-card">${post.id}</p>
+            </div>
+          </div>
+        </div>`;
+      overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
+      const heroGridCard = overlayPopUp.lastElementChild;
+      const overlayPopUpHeading = document.querySelector(
+        '#overlay-pop-up-heading'
+      );
+      overlayPopUpHeading.textContent = `Search results for ${querySearch} .
+      You search matched ${searchResults.length} articles`;
+
+      heroGridCard.addEventListener('click', async () => {
+        clickedPost(post);
+        searchInput = '';
+      });
+      if (searchResults.length === 0) {
+        overlayPopUpHeading.textContent = `Search results for ${querySearch} .
+      we couldn't find any articles matching your search.`;
+      }
+      return overlayPopUp;
     });
     // let filteredPosts = searchResults;
     //
@@ -127,9 +161,6 @@ export const loadSearchResults = async query => {
     throw error;
   }
 };
-const searchInput = document.querySelector('#search-input');
-const searchBtn = document.querySelector('#search-btn');
-const closeSearchOverlay = document.querySelector('#close-search-overlay');
 closeSearchOverlay.addEventListener('click', () => {
   const searchOverlay = document.querySelector('#search-overlay');
   searchOverlay.style.display = 'none';
@@ -142,3 +173,11 @@ searchBtn.addEventListener('click', () => {
 });
 // loadSearchResults('age');
 // loadSearchResults('tech');
+
+// if (searchResults.length === 0) {
+//   overlayPopUpHeading.textContent = `Search results for ${querySearch} .
+// we couldn't find any articles matching your search.`;
+// } else if (searchResults.length >= 1) {
+//   overlayPopUpHeading.textContent = `Search results for ${querySearch} .
+// You search matched ${searchResults.length} articles`;
+// }

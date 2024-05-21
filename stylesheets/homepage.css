@@ -70,6 +70,7 @@
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
+
 .hero-grid-card > img {
   object-fit: contain;
 }
