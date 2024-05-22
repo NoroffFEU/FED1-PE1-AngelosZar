@@ -101,14 +101,89 @@ filterBtnOlder.addEventListener('click', () => {
 //
 //
 // Search functionality
-const overlayPopUp = document.querySelector('#overlay-pop-up'); // loadSearchResults('age');
-overlayPopUp.classList.add('.search-overlay-pop-up');
-const searchOverlay = document.querySelector('#search-overlay');
-const searchInput = document.querySelector('#search-input');
-const searchBtn = document.querySelector('#search-btn');
-const closeSearchOverlay = document.querySelector('#close-search-overlay');
-let overlayPopUpHeading = document.querySelector('#overlay-pop-up-heading');
+// const overlayPopUp = document.querySelector('#overlay-pop-up'); // loadSearchResults('age');
+// overlayPopUp.classList.add('.search-overlay-pop-up');
+// const searchOverlay = document.querySelector('#search-overlay');
+// const searchInput = document.querySelector('#search-input');
+// const searchBtn = document.querySelector('#search-btn');
+// const closeSearchOverlay = document.querySelector('#close-search-overlay');
+// let overlayPopUpHeading = document.querySelector('#overlay-pop-up-heading');
+
+// export const loadSearchResults = async query => {
+//   try {
+//     const { data: posts } = await fetchData(allArticles);
+//     const searchResults = posts.filter(post =>
+//       post.title.toLowerCase().includes(query.toLowerCase())
+//     );
+//     console.log(searchResults);
+//     const querySearch = query;
+//     console.log(querySearch);
+//     // return searchResults;
+//     searchResults.forEach(post => {
+//       const htmlForPost = `
+//       <div class="grid-card">
+//           <div class="card--image-container">
+//             <img src="${post.media.url}" alt="${post.media.alt}" />
+//           </div>
+//           <div class="card-content">
+//             <p class="card-title text--grid-card">${post.title}</p>
+//             <div class="card-info">
+//               <p class="text--grid-card">${post.id}</p>
+//             </div>
+//           </div>
+//         </div>`;
+//       overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
+//       const heroGridCard = overlayPopUp.lastElementChild;
+//       if (searchResults.length === 0) {
+//         overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .We couldn't find any articles matching your search.`;
+//       } else if (!searchInput.value) {
+//         overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
+//         overlayPopUp.innerHTML = '';
+//         // overlayPopUp.innerHTML = `<img
+//         // src="https://images.unsplash.com/photo-1560091549-c6c2e6fdce59?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+//         // alt="Please enter the term you want to search"
+//         // style="
+//         // width: 1920px;
+//         // height: auto;
+//         // display: flex;
+//         // justify-content: center;
+//         // align-items: center;
+//         // margin: 0 auto;
+//         // "/>`;
+//       } else {
+//         overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
+//       Your search matched ${searchResults.length} articles`;
+//       }
+
+//       heroGridCard.addEventListener('click', async () => {
+//         clickedPost(post);
+//       });
+
+//       return overlayPopUp;
+//     });
+//   } catch (error) {
+//     console.error(`Error: ${error}`);
+//     alert('An error occured while loading the data');
+//     throw error;
+//   }
+// };
+// searchBtn.addEventListener('click', () => {
+//   console.log('click');
+//   console.log(searchInput.value);
+//   loadSearchResults(searchInput.value);
+//   searchOverlay.style.display = 'block';
+// });
+
+// closeSearchOverlay.addEventListener('click', () => {
+//   const searchOverlay = document.querySelector('#search-overlay');
+//   searchOverlay.style.display = 'none';
+//   searchInput.value = '';
+//   overlayPopUp.innerHTML = '';
+// });
+// searchOverlay.style.display = 'none';
 export const loadSearchResults = async query => {
+  const overlayPopUp = document.querySelector('#overlay-pop-up');
+  overlayPopUp.classList.add('.search-overlay-pop-up');
   try {
     const { data: posts } = await fetchData(allArticles);
     const searchResults = posts.filter(post =>
@@ -138,26 +213,13 @@ export const loadSearchResults = async query => {
       } else if (!searchInput.value) {
         overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
         overlayPopUp.innerHTML = '';
-        // overlayPopUp.innerHTML = `<img
-        // src="https://images.unsplash.com/photo-1560091549-c6c2e6fdce59?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        // alt="Please enter the term you want to search"
-        // style="
-        // width: 1920px;
-        // height: auto;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        // margin: 0 auto;
-        // "/>`;
       } else {
         overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
       Your search matched ${searchResults.length} articles`;
       }
-
       heroGridCard.addEventListener('click', async () => {
         clickedPost(post);
       });
-
       return overlayPopUp;
     });
   } catch (error) {
@@ -166,17 +228,3 @@ export const loadSearchResults = async query => {
     throw error;
   }
 };
-searchBtn.addEventListener('click', () => {
-  console.log('click');
-  console.log(searchInput.value);
-  loadSearchResults(searchInput.value);
-  searchOverlay.style.display = 'block';
-});
-
-closeSearchOverlay.addEventListener('click', () => {
-  const searchOverlay = document.querySelector('#search-overlay');
-  searchOverlay.style.display = 'none';
-  searchInput.value = '';
-  overlayPopUp.innerHTML = '';
-});
-searchOverlay.style.display = 'none';

@@ -45,8 +45,8 @@ export function clickedPost(post) {
   const postId = post.id;
   localStorage.setItem('clickedPost', JSON.stringify(post));
   localStorage.setItem('postId', postId);
-  console.log(postId);
-  location.href = 'post/index.html';
+  // const myUrl = new URL(window.location.href);
+  location.href = '/post/index.html';
 }
 
 // header menu links//
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBar = document.querySelector('#search-input-span');
   logOutLink.addEventListener('click', () => {
     logOut();
+    // loadSearchResults();
   });
 
   if (token) {
     logInLink.style.display = 'none';
-    // aboutUsLink.style.display = 'none';
-    // devLink.style.display = 'none';
+    aboutUsLink.style.display = 'none';
     searchBar.style.display = 'none';
   } else {
     registerLink.style.display = 'none';
@@ -77,3 +77,74 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // fetchDataById(singlePost, token);
 //
+const overlayPopUp = document.querySelector('#overlay-pop-up'); // loadSearchResults('age');
+overlayPopUp.classList.add('.search-overlay-pop-up');
+const searchOverlay = document.querySelector('#search-overlay');
+const searchInput = document.querySelector('#search-input');
+const searchBtn = document.querySelector('#search-btn');
+const closeSearchOverlay = document.querySelector('#close-search-overlay');
+let overlayPopUpHeading = document.querySelector('#overlay-pop-up-heading');
+
+export const loadSearchResults = async query => {
+  try {
+    const { data: posts } = await fetchData(allArticles);
+    const searchResults = posts.filter(post =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+    console.log(searchResults);
+    const querySearch = query;
+    console.log(querySearch);
+
+    searchResults.forEach(post => {
+      const htmlForPost = `
+      <div class="grid-card">
+          <div class="card--image-container">
+            <img src="${post.media.url}" alt="${post.media.alt}" />
+          </div>
+          <div class="card-content">
+            <p class="card-title text--grid-card">${post.title}</p>
+            <div class="card-info">
+              <p class="text--grid-card">${post.id}</p>
+            </div>
+          </div>
+        </div>`;
+      overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
+      const heroGridCard = overlayPopUp.lastElementChild;
+      if (searchResults.length === 0) {
+        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .We couldn't find any articles matching your search.`;
+      } else if (!searchInput.value) {
+        overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
+        // overlayPopUp.innerHTML = '';
+        // overlayPopUp.innerHTML = `<h1>Nothing to show <h1>`;
+      } else {
+        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
+      Your search matched ${searchResults.length} articles`;
+      }
+      heroGridCard.addEventListener('click', async () => {
+        clickedPost(post);
+      });
+      return overlayPopUp;
+    });
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    alert('An error occured while loading the data');
+    throw error;
+  }
+};
+
+// search btn
+searchBtn.addEventListener('click', () => {
+  console.log('click');
+  console.log(searchInput.value);
+  loadSearchResults(searchInput.value);
+  searchOverlay.style.display = 'block';
+});
+
+// close search overlay
+closeSearchOverlay.addEventListener('click', () => {
+  const searchOverlay = document.querySelector('#search-overlay');
+  searchOverlay.style.display = 'none';
+  searchInput.value = '';
+  overlayPopUp.innerHTML = '';
+});
+searchOverlay.style.display = 'none';
