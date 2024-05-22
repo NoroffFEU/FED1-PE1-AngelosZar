@@ -1,7 +1,5 @@
 //
-import { fetchData } from './common.mjs';
-import { allArticles } from './common.mjs';
-import { clickedPost } from './homepage.mjs';
+import { fetchData, allArticles, clickedPost } from './common.mjs';
 //
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
@@ -40,6 +38,7 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'ArrowRight') nextSlide();
   if (e.key === 'ArrowLeft') prevSlide();
 });
+
 // dynamically create the dots
 const createDots = function () {
   slides.forEach(function (_, i) {
@@ -49,6 +48,7 @@ const createDots = function () {
     );
   });
 };
+
 // synchronize the dots with the slides
 const syncDots = function (slide) {
   // remove active class from all dots
@@ -60,6 +60,7 @@ const syncDots = function (slide) {
     .querySelector(`.dots__dot[data-slide="${slide}"]`)
     .classList.add('dots__dot--active');
 };
+
 // make dots clickable and move to the slide
 dotContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('dots__dot')) {
@@ -93,6 +94,7 @@ const populateSlider = async function () {
     syncDots(currentSlide);
   } catch (error) {}
 };
+
 //
 const initCarousel = function () {
   moveSlide(0);

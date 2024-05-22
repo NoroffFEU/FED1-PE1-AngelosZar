@@ -1,16 +1,10 @@
 // Imported scrips and variables
-import { fetchData } from './common.mjs';
-import { devBlogs } from './common.mjs';
-import { admin } from './common.mjs';
-const userName = localStorage.getItem('name');
-const token = localStorage.getItem('accessToken');
+import { fetchData, devBlogs } from './common.mjs';
 
-//
-//
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
-console.log(singlePost);
 const blogContainer = document.querySelector('.focused-blog');
 
+// Display single/clicked post
 export async function displaySinglePost(post) {
   try {
     const clickedPost = `
@@ -33,13 +27,10 @@ export async function displaySinglePost(post) {
       </section>
       `;
     blogContainer.insertAdjacentHTML('beforeend', clickedPost);
-    // click to copy the url
     const clickedUrl = document.querySelector('#clicked-url');
     clickedUrl.addEventListener('click', () => {
       const currentUrl = window.location.href;
-      // const postId = queryParameters.get('id');
       navigator.clipboard.writeText(currentUrl).then(() => {
-        // navigator.clipboard.writeText(`${currentUrl}+${postId}`).then(() => {
         window.confirm('Linked was copied to clipboard');
         return;
       });
@@ -49,6 +40,7 @@ export async function displaySinglePost(post) {
     alert('Something went wrong,\nPlease reload the page');
   }
 }
+// Recommended section
 async function renderRecommendedPosts() {
   try {
     const { data: posts } = await fetchData(devBlogs);
@@ -101,6 +93,8 @@ const searchParamsFunction = () => {
     console.log('URLSearchParams is not found');
   }
 };
+
+//
 document.addEventListener('DOMContentLoaded', () => {
   searchParamsFunction();
   displaySinglePost(singlePost);

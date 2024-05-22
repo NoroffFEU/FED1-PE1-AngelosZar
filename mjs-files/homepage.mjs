@@ -1,63 +1,39 @@
 // imported scripts and variables
-import { fetchData } from './common.mjs';
-import { allArticles } from './common.mjs';
-import { devBlogs } from './common.mjs';
-import { fetchDataById } from './common.mjs';
-import { baseApiUrl } from './common.mjs';
+import {
+  fetchData,
+  allArticles,
+  devBlogs,
+  fetchDataById,
+  baseApiUrl,
+  clickedPost,
+} from './common.mjs';
 
 const token = localStorage.getItem('accessToken');
 const username = localStorage.getItem('name') || 'angZar';
 
-// Create html content for the grid
-export function genHtmlForGrid(post) {
-  const gridCard = document.createElement('div');
-  gridCard.classList.add('grid-card');
-  gridCard.addEventListener('click', () => {
-    clickedPost(post);
-  });
-  const cardImgContainer = document.createElement('div');
-  cardImgContainer.classList.add('card--image-container');
-  const productImg = document.createElement('img');
-  productImg.src = post.media.url;
-  const altImgText = document.createAttribute('alt');
-  altImgText.value = post.media.alt;
-  const cardContent = document.createElement('div');
-  cardContent.classList.add('card-content');
-  const cardTtl = document.createElement('p');
-  cardTtl.classList.add('card-title', 'text--grid-card');
-  cardTtl.textContent = post.title;
-  const cardInfo = document.createElement('div');
-  cardInfo.classList.add('card-info');
-  const cardAuthor = document.createElement('p');
-  cardAuthor.classList.add('card-author');
-  cardAuthor.textContent = post.author.name;
-  const tagCategory = document.createElement('p');
-  tagCategory.classList.add('text--grid-card');
-  tagCategory.textContent = post.tags;
-  cardImgContainer.append(productImg);
-  cardInfo.append(cardAuthor, tagCategory);
-  cardContent.append(cardTtl, cardInfo);
-  gridCard.append(cardImgContainer, cardContent);
-  return gridCard;
-}
-// Display the recent articles grid on the homepage
-function displayRecentArticles(posts) {
-  const gridCardsContainer = document.querySelector('.cards-container');
-  posts.forEach(post => {
-    const gridOfCard = genHtmlForGrid(post);
-    gridCardsContainer.appendChild(gridOfCard);
-    return gridCardsContainer;
-  });
-}
-//Function to store the clicked post in local storage
-export function clickedPost(post) {
-  const postId = post.id;
-  localStorage.setItem('clickedPost', JSON.stringify(post));
-  localStorage.setItem('postId', postId);
-  console.log(postId);
-  location.href = 'post/index.html';
-}
-// For  trending now section Grid
+// Video on hero
+const heroVideoRender = async () => {
+  try {
+    const heroContainer = document.querySelector('.hero-container');
+    const video = document.createElement('video');
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    const source = document.createElement('source');
+    source.src =
+      'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
+    // source.src =
+    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    heroContainer.appendChild(video);
+  } catch {
+    console.log('Error loading the video');
+  }
+  // loading spinner ?
+};
+
+// trending now section // grid get the first 3 posts with the tag of dev
 async function renderHeroGrid() {
   try {
     const { data: posts } = await fetchData(devBlogs);
@@ -86,28 +62,7 @@ async function renderHeroGrid() {
     console.error('Error:', error);
   }
 }
-// maybe make the heroVideoRender an async function
-// Video on hero
-const heroVideoRender = async () => {
-  try {
-    const heroContainer = document.querySelector('.hero-container');
-    const video = document.createElement('video');
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    const source = document.createElement('source');
-    source.src =
-      'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
-    // source.src =
-    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-    source.type = 'video/mp4';
-    video.appendChild(source);
-    heroContainer.appendChild(video);
-  } catch {
-    console.log('Error loading the video');
-  }
-  // loading spinner ?
-};
+
 // Most shared article // get post by id
 const DisplaySinglePost = async function () {
   try {
@@ -145,6 +100,49 @@ const DisplaySinglePost = async function () {
   }
 };
 
+// Create html content for the grid
+export function genHtmlForGrid(post) {
+  const gridCard = document.createElement('div');
+  gridCard.classList.add('grid-card');
+  gridCard.addEventListener('click', () => {
+    clickedPost(post);
+  });
+  const cardImgContainer = document.createElement('div');
+  cardImgContainer.classList.add('card--image-container');
+  const productImg = document.createElement('img');
+  productImg.src = post.media.url;
+  const altImgText = document.createAttribute('alt');
+  altImgText.value = post.media.alt;
+  const cardContent = document.createElement('div');
+  cardContent.classList.add('card-content');
+  const cardTtl = document.createElement('p');
+  cardTtl.classList.add('card-title', 'text--grid-card');
+  cardTtl.textContent = post.title;
+  const cardInfo = document.createElement('div');
+  cardInfo.classList.add('card-info');
+  const cardAuthor = document.createElement('p');
+  cardAuthor.classList.add('card-author');
+  cardAuthor.textContent = post.author.name;
+  const tagCategory = document.createElement('p');
+  tagCategory.classList.add('text--grid-card');
+  tagCategory.textContent = post.tags;
+  cardImgContainer.append(productImg);
+  cardInfo.append(cardAuthor, tagCategory);
+  cardContent.append(cardTtl, cardInfo);
+  gridCard.append(cardImgContainer, cardContent);
+  return gridCard;
+}
+
+// Display the recent articles grid on the homepage
+function displayRecentArticles(posts) {
+  const gridCardsContainer = document.querySelector('.cards-container');
+  posts.forEach(post => {
+    const gridOfCard = genHtmlForGrid(post);
+    gridCardsContainer.appendChild(gridOfCard);
+    return gridCardsContainer;
+  });
+}
+
 const initHomePage = async () => {
   try {
     const { data: posts } = await fetchData(allArticles);
@@ -178,6 +176,7 @@ const submitnewsletterBtn = document.querySelector('#submit-newsletter');
 submitnewsletterBtn.addEventListener('click', e => {
   e.preventDefault();
 });
+//
 addEventListener('DOMContentLoaded', () => {
   initHomePage();
   heroVideoRender();

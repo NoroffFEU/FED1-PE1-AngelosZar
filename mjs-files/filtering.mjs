@@ -1,7 +1,5 @@
-import { fetchData } from './common.mjs';
-import { allArticles } from './common.mjs';
-import { clickedPost, genHtmlForGrid } from './homepage.mjs';
-// import { genHtmlForGrid } from './homepage.mjs';
+import { fetchData, allArticles, clickedPost } from './common.mjs';
+import { genHtmlForGrid } from './homepage.mjs';
 
 // function to filter the data by category
 async function filterByCategory(category) {
@@ -11,6 +9,7 @@ async function filterByCategory(category) {
   const filteredPosts = posts.filter(post => post.tags.includes(category));
   filteringPosts(filteredPosts);
 }
+
 // filter by date// old to new
 async function sortedFiltering() {
   const { data: posts } = await fetchData(allArticles);
@@ -21,6 +20,7 @@ async function sortedFiltering() {
   );
   filteringPosts(filteredPosts);
 }
+
 // lloping through the data to display the grid
 function filteringPosts(filteredPosts) {
   const container = document.querySelector('.cards-container');
@@ -36,7 +36,6 @@ async function filterAllCategories() {
   const container = document.querySelector('.cards-container');
   container.innerHTML = '';
   const filteredPosts = posts;
-
   filteringPosts(filteredPosts);
 }
 
@@ -112,9 +111,8 @@ let overlayPopUpHeading = document.querySelector('#overlay-pop-up-heading');
 export const loadSearchResults = async query => {
   try {
     const { data: posts } = await fetchData(allArticles);
-    const searchResults = posts.filter(
-      post => post.title.toLowerCase().includes(query.toLowerCase())
-      //   post.title.toLowerCase().includes(`${quary}`.toLowerCase())
+    const searchResults = posts.filter(post =>
+      post.title.toLowerCase().includes(query.toLowerCase())
     );
     console.log(searchResults);
     const querySearch = query;
@@ -136,8 +134,7 @@ export const loadSearchResults = async query => {
       overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
       const heroGridCard = overlayPopUp.lastElementChild;
       if (searchResults.length === 0) {
-        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
-      We couldn't find any articles matching your search.`;
+        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .We couldn't find any articles matching your search.`;
       } else if (!searchInput.value) {
         overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
         overlayPopUp.innerHTML = '';

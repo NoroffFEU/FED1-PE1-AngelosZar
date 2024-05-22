@@ -1,12 +1,7 @@
 // Imported scripts and variables
-import { fetchData } from './common.mjs';
-import { baseApiUrl } from './common.mjs';
-import { allArticles } from './common.mjs';
-import { updatePost } from './updatePost.mjs';
-import { fetchDataById } from './common.mjs';
+import { fetchData, baseApiUrl, allArticles, admin } from './common.mjs';
+import { updatePost, createNewPost } from './updatePost.mjs';
 import { deletePost } from './deletePost.mjs';
-import { admin } from './common.mjs';
-import { createNewPost } from './updatePost.mjs';
 
 // credentials
 const token = localStorage.getItem('accessToken');
@@ -58,9 +53,6 @@ export async function renderPost() {
     console.log(`error: ${error}`);
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  renderPost();
-});
 
 editForm.addEventListener('submit', async e => {
   e.preventDefault();
@@ -146,4 +138,8 @@ createNPostBtn.addEventListener('click', async e => {
   } catch (error) {
     console.log(`error: ${error.message}`);
   }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderPost();
 });

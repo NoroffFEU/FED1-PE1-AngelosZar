@@ -4,14 +4,15 @@ const inputUserPassword = document.querySelector(
   '#password-input-sign_up'
 ).value;
 const inputUserName = document.querySelector('#userNameInput').value;
-// const registerUserBtn = document.querySelector('#btn-sign-up');
 const signUpForm = document.querySelector('#signUpForm');
+
 // user Inputs
 const registeringUser = {
   name: `${inputUserName}`,
   email: `${inputUserName}`,
   password: `${inputUserName}`,
 };
+
 // sign up event listener
 signUpForm.addEventListener('submit', async () => {
   e.preventDefault();

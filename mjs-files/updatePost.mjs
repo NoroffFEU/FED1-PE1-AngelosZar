@@ -1,4 +1,5 @@
 const token = localStorage.getItem('accessToken');
+
 // update  a post async function
 export const updatePost = async (data, api, token) => {
   try {
@@ -25,6 +26,7 @@ export const updatePost = async (data, api, token) => {
     alert(`Error updating post: ${error.message}`);
   }
 };
+
 // create a post async function
 export const createNewPost = async (data, api, token) => {
   try {

@@ -2,7 +2,6 @@
 //                 .....   variables ......
 // testing and fallback
 export const admin = 'angZar';
-
 // api url / base + endpoints
 export const baseApiUrl = 'https://v2.api.noroff.dev';
 export const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
@@ -41,6 +40,15 @@ export async function fetchDataById(singlePostUrl, token) {
     throw new Error(`error) ${error.message}`);
   }
 }
+//Function to store the clicked post in local storage
+export function clickedPost(post) {
+  const postId = post.id;
+  localStorage.setItem('clickedPost', JSON.stringify(post));
+  localStorage.setItem('postId', postId);
+  console.log(postId);
+  location.href = 'post/index.html';
+}
+
 // header menu links//
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('accessToken');
