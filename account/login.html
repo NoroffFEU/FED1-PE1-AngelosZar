@@ -3,17 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hot view labs Log-in</title>
+    <title>HotHiew Labs - Log in page</title>
+    <meta property="og:title" content="HotHiew Labs" />
+    <meta
+      property="og:description"
+      content="HotHiew Labs log in with your account in a trending blog site "
+    />
+    <link rel="stylesheet" href="/stylesheets/common.css" />
+    <link rel="stylesheet" href="/stylesheets/components.css" />
+    <link rel="stylesheet" href="/stylesheets/acount.css" />
     <script
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="/stylesheets/common.css" />
-    <link rel="stylesheet" href="/stylesheets/components.css" />
-    <link rel="stylesheet" href="/stylesheets/acount.css" />
     <script defer type="module" src="/mjs-files/common.mjs"></script>
     <script defer type="module" src="/mjs-files/logIn.mjs"></script>
-    <!-- <script type="module" src="/mjs-files/logOut.mjs"></script> -->
   </head>
 
   <body>
@@ -30,19 +34,36 @@
       <input type="checkbox" id="menu-checkbox" />
       <nav>
         <ul class="menu">
-          <li class="dev-link"><a href=""></a>Dev /</li>
+          <li class="about-link">
+            <a href="/post/aboutUs.html">About us /</a>
+          </li>
           <li>
-            <a href="/account/login.html" class="log-in-link">Log In /</a>
+            <a href="/account/login.html" class="log-in-link current-page"
+              >Log In /</a
+            >
+          </li>
+          <li></li>
+          <li>
+            <span id="search-input-span">
+              <input
+                type="search"
+                name="search-input"
+                id="search-input"
+                placeholder="  Search" />
+              <button id="search-btn">
+                <i
+                  class="fa-solid fa-magnifying-glass fa-xl"
+                  style="color: #40d10d"
+                ></i></button
+            ></span>
           </li>
           <li>
             <a href="/account/register.html" class="register-link"
-              >Register User /</a
+              >Register user /</a
             >
           </li>
           <li>
-            <a href="/post/edit.html" class="current-page admin-link"
-              >Admin /</a
-            >
+            <a href="/post/edit.html" class="admin-link">Admin /</a>
           </li>
           <li>
             <a href="#" id="log-out-btn2" class="log-out-link">Log out /</a>

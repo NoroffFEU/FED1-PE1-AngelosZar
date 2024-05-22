@@ -12,7 +12,7 @@
   --text-green: #40d10d;
 
   /* Headings 1-6 */
-  --h1-size: 4.75rem;
+  --h1-size: 4.5rem;
   --h2-size: 3.5rem;
   --h3-size: 2.5rem;
   --h4-size: 2rem;
@@ -204,9 +204,7 @@ body {
 }
 main {
   width: 100%;
-  /* margin-top: var(--spacing-lg); */
   max-width: var(--body-width);
-  /* padding: var(--spacing-xl); */
 }
 /* Images & videos */
 img,
@@ -277,7 +275,6 @@ h6 {
 p {
   font-size: 1.125rem;
   font-weight: 400;
-  /* margin: var(--spacing-md) 0; */
 }
 
 /* Header */
@@ -287,7 +284,7 @@ header {
   align-items: center;
   width: 100%;
   max-width: var(--body-width);
-  margin: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 nav {
@@ -343,7 +340,7 @@ nav ul {
 }
 input[type='search'],
 #search-input {
-  width: 14rem;
+  width: 10rem;
   height: 2rem;
   padding: 0.5rem;
   margin: 5px;
@@ -363,6 +360,7 @@ input[type='search'],
   margin: 0;
   cursor: pointer;
 }
+
 /* Footer */
 footer {
   padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md)

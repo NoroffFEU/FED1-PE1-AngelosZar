@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>public-posts</title>
+    <title>HotView labs - public-posts</title>
+    <meta property="og:title" content="HotView" />
+    <meta
+      property="og:description"
+      content="HotView labs a selected by user post to be read "
+    />
     <link rel="stylesheet" href="/stylesheets/common.css" />
     <link rel="stylesheet" href="/stylesheets/post.css" />
     <link rel="stylesheet" href="/stylesheets/components.css" />
-    <!-- <link rel="stylesheet" href="/stylesheets/posts1.css" />
-    <link rel="stylesheet" href="stylesheets/posts1.css" /> -->
     <script
       src="https://kit.fontawesome.com/aea85badd7.js"
       crossorigin="anonymous"
@@ -29,9 +32,26 @@
       <input type="checkbox" id="menu-checkbox" />
       <nav>
         <ul class="menu">
-          <li class="dev-link"><a href=""></a>Dev /</li>
+          <li class="about-link">
+            <a href="/post/aboutUs.html">About us /</a>
+          </li>
           <li>
             <a href="/account/login.html" class="log-in-link">Log In /</a>
+          </li>
+          <li></li>
+          <li>
+            <span id="search-input-span">
+              <input
+                type="search"
+                name="search-input"
+                id="search-input"
+                placeholder="  Search" />
+              <button id="search-btn">
+                <i
+                  class="fa-solid fa-magnifying-glass fa-xl"
+                  style="color: #40d10d"
+                ></i></button
+            ></span>
           </li>
           <li>
             <a href="/account/register.html" class="register-link"

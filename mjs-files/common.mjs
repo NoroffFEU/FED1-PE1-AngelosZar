@@ -45,21 +45,22 @@ export async function fetchDataById(singlePostUrl, token) {
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('accessToken');
   // const headingMenu = document.querySelector('.menu');
-  const aboutUsLink = document.querySelector('.about-us-link');
+  const aboutUsLink = document.querySelector('.about-link');
   const logInLink = document.querySelector('.log-in-link');
   const registerLink = document.querySelector('.register-link');
   const adminLink = document.querySelector('.admin-link');
   const logOutLink = document.querySelector('.log-out-link');
-  const techLink = document.querySelector('.tech-link');
-  const devLink = document.querySelector('.dev-link');
+  // const devLink = document.querySelector('.dev-link');
+  const searchBar = document.querySelector('#search-input-span');
   logOutLink.addEventListener('click', () => {
     logOut();
   });
 
   if (token) {
     logInLink.style.display = 'none';
-    // techLink.style.display = 'none';
-    devLink.style.display = 'none';
+    // aboutUsLink.style.display = 'none';
+    // devLink.style.display = 'none';
+    searchBar.style.display = 'none';
   } else {
     registerLink.style.display = 'none';
     adminLink.style.display = 'none';
@@ -67,3 +68,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 // fetchDataById(singlePost, token);
+//

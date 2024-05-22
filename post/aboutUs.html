@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/common.css" />
-    <title>About us</title>
+    <title>HotView labs - About us</title>
+    <meta property="og:title" content="HotView"> 
+    <meta property="og:description" content="HotView labs about us page ,all the vital information on us"> 
+    <script
+    src="https://kit.fontawesome.com/aea85badd7.js"
+    crossorigin="anonymous"
+    ></script>
     <script type="module" src="/mjs-files/common.mjs"></script>
   </head>
   <body>
@@ -20,9 +26,30 @@
       <input type="checkbox" id="menu-checkbox" />
       <nav>
         <ul class="menu">
-          <li class="dev-link"><a href=""></a>Dev /</li>
+          <li class="about-link current-page" >
+            <a href="/post/aboutUs.html">About us /</a>
+          </li>
           <li>
-            <a href="/account/login.html" class="log-in-link">Log In /</a>
+            <a
+              href="/account/login.html"
+              class="log-in-link"
+              >Log In /</a
+            >
+          </li>
+          <li></li>
+          <li>
+            <span id="search-input-span">
+              <input
+                type="search"
+                name="search-input"
+                id="search-input"
+                placeholder="  Search" />
+              <button id="search-btn">
+                <i
+                  class="fa-solid fa-magnifying-glass fa-xl"
+                  style="color: #40d10d"
+                ></i></button
+            ></span>
           </li>
           <li>
             <a href="/account/register.html" class="register-link"
@@ -33,16 +60,13 @@
             <a href="/post/edit.html" class="admin-link">Admin /</a>
           </li>
           <li>
-            <a href="#" id="log-out-btn2" class="log-out-link"
-              >Log out /</a
-            >
+            <a href="#" id="log-out-btn2" class="log-out-link">Log out /</a>
           </li>
         </ul>
       </nav>
     </header>
     <main> 
         <div class="hero-about-us"></div>
-      
          <section>
             <article>
                 <h3 class="about-us-sub-ttl" >About Hot View Labs</h3>
