@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const logOutLink = document.querySelector('.log-out-link');
   // const devLink = document.querySelector('.dev-link');
   const searchBar = document.querySelector('#search-input-span');
+  urlFunc();
   logOutLink.addEventListener('click', () => {
     logOut();
-    urlFunc();
     // loadSearchResults();
   });
 

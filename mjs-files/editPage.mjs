@@ -1,5 +1,11 @@
 // Imported scripts and variables
-import { fetchData, baseApiUrl, allArticles, admin } from './common.mjs';
+import {
+  fetchData,
+  baseApiUrl,
+  allArticles,
+  admin,
+  urlFunc,
+} from './common.mjs';
 import { updatePost, createNewPost } from './updatePost.mjs';
 import { deletePost } from './deletePost.mjs';
 
@@ -142,4 +148,5 @@ createNPostBtn.addEventListener('click', async e => {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderPost();
+  urlFunc();
 });
