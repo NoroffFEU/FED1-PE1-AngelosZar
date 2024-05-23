@@ -166,8 +166,9 @@ const homepageUrlFunc = function () {
   } else if (homePageUrl.endsWith('/index.html')) {
     console.log('index.html');
     return;
-  } else {
+  } else if (homePageUrl.endsWith('.html')) {
     const newUrl = homePageUrl + 'index.html';
+    // const newUrl = homePageUrl + '.html';
     window.location.href = newUrl;
   }
 };

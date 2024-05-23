@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBar = document.querySelector('#search-input-span');
   logOutLink.addEventListener('click', () => {
     logOut();
+    urlFunc();
     // loadSearchResults();
   });
 
@@ -94,7 +95,6 @@ export const loadSearchResults = async query => {
     console.log(searchResults);
     const querySearch = query;
     console.log(querySearch);
-
     searchResults.forEach(post => {
       const htmlForPost = `
       <div class="grid-card">
@@ -148,3 +148,16 @@ closeSearchOverlay.addEventListener('click', () => {
   overlayPopUp.innerHTML = '';
 });
 searchOverlay.style.display = 'none';
+
+export const urlFunc = function () {
+  const currentUrl = window.location.href;
+  console.log(currentUrl);
+  if (currentUrl.endsWith('/index.html')) {
+    return;
+  } else if (!currentUrl.endsWith('.html')) {
+    const newUrl = currentUrl + '.html';
+    console.log(newUrl);
+    window.location.href = newUrl;
+  }
+};
+urlFunc();

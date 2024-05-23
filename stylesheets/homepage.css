@@ -25,12 +25,10 @@
   right: 3rem;
   font-size: var(--h1-size);
 }
-.overlay-on-hero p {
-  padding-bottom: 1rem;
-  font-size: var(--h5-size);
-}
+
 .overlay-on-hero h1 {
-  font-size: clamp(var(--h1-size), 2.5vw, 4.75rem);
+  /* font-size: clamp(var(--h1-size), 2.5vw, 4.75rem); */
+  font-size: var(--h1-size);
 }
 
 /* -------------trending now section ------------- */
