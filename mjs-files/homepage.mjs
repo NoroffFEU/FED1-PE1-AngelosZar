@@ -136,10 +136,13 @@ export function genHtmlForGrid(post) {
 // Display the recent articles grid on the homepage
 function displayRecentArticles(posts) {
   const gridCardsContainer = document.querySelector('.cards-container');
+  const displayedPostIds = new Set();
   posts.forEach(post => {
-    const gridOfCard = genHtmlForGrid(post);
-    gridCardsContainer.appendChild(gridOfCard);
-    return gridCardsContainer;
+    if (!displayedPostIds.has(post.id)) {
+      const gridCard = genHtmlForGrid(post);
+      gridCardsContainer.appendChild(gridCard);
+      displayedPostIds.add(post.id);
+    }
   });
 }
 
