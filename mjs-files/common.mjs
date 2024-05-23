@@ -20,7 +20,6 @@ export async function fetchData(url) {
     const data = await res.json();
     return data;
   } catch (error) {
-    // console.log('error');
     throw new Error(`error) ${error.message}`);
   }
 }
@@ -33,10 +32,8 @@ export async function fetchDataById(singlePostUrl, token) {
       headers: { 'Content-Type': 'application/json' },
     });
     const data = await res.json();
-    // console.log('data', data);
     return data;
   } catch (error) {
-    // console.log('error');
     throw new Error(`error) ${error.message}`);
   }
 }
@@ -92,11 +89,13 @@ export const loadSearchResults = async query => {
     const searchResults = posts.filter(post =>
       post.title.toLowerCase().includes(query.toLowerCase())
     );
-    console.log(searchResults);
-    const querySearch = query;
-    console.log(querySearch);
-    searchResults.forEach(post => {
-      const htmlForPost = `
+    if (searchResults.length === 0) {
+      overlayPopUpHeading.textContent = `Search results for ''${query}'' .We couldn't find any articles matching your search.`;
+      overlayPopUp.innerHTML = '';
+    } else {
+      const querySearch = query;
+      searchResults.forEach(post => {
+        const htmlForPost = `
       <div class="grid-card">
           <div class="card--image-container">
             <img src="${post.media.url}" alt="${post.media.alt}" />
@@ -110,25 +109,28 @@ export const loadSearchResults = async query => {
               </div>
           </div>
       </div>`;
-      overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
-      const heroGridCard = overlayPopUp.lastElementChild;
-      if (searchResults.length === 0) {
-        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .We couldn't find any articles matching your search.`;
-      } else if (!searchInput.value) {
-        overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
-        // overlayPopUp.innerHTML = '';
-        // overlayPopUp.innerHTML = `<h1>Nothing to show <h1>`;
-      } else {
-        overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
+        overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
+        const heroGridCard = overlayPopUp.lastElementChild;
+        if (post.title) {
+          overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .We couldn't find any articles matching your search.`;
+        }
+        if (!searchInput.value) {
+          overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
+          overlayPopUp.innerHTML = '';
+
+          // overlayPopUp.innerHTML = `<h1>Nothing to show <h1>`;
+        } else {
+          overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
       Your search matched ${searchResults.length} articles`;
-      }
-      heroGridCard.addEventListener('click', async () => {
-        clickedPost(post);
+        }
+        heroGridCard.addEventListener('click', async () => {
+          clickedPost(post);
+        });
+        return overlayPopUp;
       });
-      return overlayPopUp;
-    });
+    }
   } catch (error) {
-    console.error(`Error: ${error}`);
+    // console.error(`Error: ${error}`);
     alert('An error occured while loading the data');
     throw error;
   }
@@ -136,8 +138,6 @@ export const loadSearchResults = async query => {
 
 // search btn
 searchBtn.addEventListener('click', () => {
-  console.log('click');
-  console.log(searchInput.value);
   loadSearchResults(searchInput.value);
   searchOverlay.style.display = 'block';
 });
@@ -153,16 +153,14 @@ searchOverlay.style.display = 'none';
 
 export const urlFunc = function () {
   const currentUrl = window.location.href;
-  console.log(currentUrl);
   if (currentUrl.endsWith('app/')) {
     const newUrl = currentUrl + 'index.html';
     window.location.href = newUrl;
     // else if tha i can work with it on local host
-  } else if (currentUrl.endsWith('/index.html')) {
+  } else if (currentUrl.endsWith('index.html')) {
     return;
   } else if (!currentUrl.endsWith('.html')) {
     const newUrl = currentUrl + '.html';
-    console.log(newUrl);
     window.location.href = newUrl;
   }
 };
