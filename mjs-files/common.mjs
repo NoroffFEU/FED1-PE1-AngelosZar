@@ -152,7 +152,11 @@ searchOverlay.style.display = 'none';
 export const urlFunc = function () {
   const currentUrl = window.location.href;
   console.log(currentUrl);
-  if (currentUrl.endsWith('/index.html')) {
+  if (currentUrl.endsWith('app/')) {
+    const newUrl = currentUrl + 'index.html';
+    window.location.href = newUrl;
+    // else if tha i can work with it on local host
+  } else if (currentUrl.endsWith('/index.html')) {
     return;
   } else if (!currentUrl.endsWith('.html')) {
     const newUrl = currentUrl + '.html';
