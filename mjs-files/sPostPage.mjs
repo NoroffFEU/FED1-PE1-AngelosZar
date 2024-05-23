@@ -1,5 +1,5 @@
 // Imported scrips and variables
-import { fetchData, devBlogs } from './common.mjs';
+import { fetchData, devBlogs, allArticles } from './common.mjs';
 
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 const blogContainer = document.querySelector('.focused-blog');
@@ -40,23 +40,33 @@ export async function displaySinglePost(post) {
     alert('Something went wrong,\nPlease reload the page');
   }
 }
+
+// console.log(recomendedTags);
+// console.log(...singlePost.tags);
 // Recommended section
 async function renderRecommendedPosts() {
+  let recommended = singlePost.tags;
+  // let recommended = [...singlePost.tags];
   try {
-    const { data: posts } = await fetchData(devBlogs);
-    console.log(posts);
+    const { data: posts } = await fetchData(allArticles);
+    const filteredPosts = posts.filter(post => {
+      return post.tags.some(tag => recommended.includes(tag));
+    });
+    console.log(filteredPosts);
     const cardsContainerRecommended = document.querySelector(
       '#cards-container-recommended'
     );
     for (let i = 0; i < 3; i++) {
       const htmlForRecPost = `<div class="grid-card">
       <div class="card--image-container">
-      <img src="${posts[i].media.url}" alt="${posts[i].media.alt}" />
+      <img src="${filteredPosts[i].media.url}" alt="${
+        filteredPosts[i].media.alt
+      }" />
       </div>
       <div class="card-content">
-        <p class="card-title text--grid-card">${posts[i].title}</p>
-        <p>${new Date(posts[i].created).toLocaleDateString()} /</p>
-            <p class="text--grid-card">${posts[i].tags}</p>
+        <p class="card-title text--grid-card">${filteredPosts[i].title}</p>
+        <p>${new Date(filteredPosts[i].created).toLocaleDateString()} /</p>
+            <p class="text--grid-card">${filteredPosts[i].tags}</p>
         </div>
       </div>
     </div>`;
@@ -66,7 +76,7 @@ async function renderRecommendedPosts() {
       // 1. How to change content of clicked post on the same page ?
       //
       gridCardRec.addEventListener('click', () => {
-        console.log(posts[i]);
+        console.log(filteredPosts[i]);
         localStorage.clear();
         localStorage.setItem('clickedPost', JSON.stringify(posts[i]));
         console.log(localStorage.getItem('clickedPost'));

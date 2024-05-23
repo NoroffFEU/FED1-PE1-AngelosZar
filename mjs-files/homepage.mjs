@@ -155,31 +155,14 @@ const initHomePage = async () => {
   }
 };
 
-// add index.html to the url of homepage
-const homepageUrlFunc = function () {
-  const homePageUrl = window.location.href;
-  console.log(homePageUrl);
-  if (homePageUrl.endsWith('app/')) {
-    const newUrl = homePageUrl + 'index.html';
-    window.location.href = newUrl;
-    // else if tha i can work with it on local host
-  } else if (homePageUrl.endsWith('/index.html')) {
-    console.log('index.html');
-    return;
-  } else if (homePageUrl.endsWith('.html')) {
-    const newUrl = homePageUrl + 'index.html';
-    // const newUrl = homePageUrl + '.html';
-    window.location.href = newUrl;
-  }
-};
 // null the submit button on the newsletter form
 const submitnewsletterBtn = document.querySelector('#submit-newsletter');
 submitnewsletterBtn.addEventListener('click', e => {
   e.preventDefault();
 });
+
 //
 addEventListener('DOMContentLoaded', () => {
   initHomePage();
   heroVideoRender();
-  homepageUrlFunc();
 });
