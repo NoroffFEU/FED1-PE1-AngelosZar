@@ -143,18 +143,23 @@ function displayRecentArticles(posts) {
   });
 }
 
+let page = 1;
+const limit = 5;
 const initHomePage = async () => {
   try {
-    const { data: posts } = await fetchData(allArticles);
+    const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
+    const { data: posts } = await fetchData(paginatedData);
     displayRecentArticles(posts);
-    renderHeroGrid();
-    DisplaySinglePost();
   } catch (error) {
     console.error(error);
     console.log('Problem loading the content');
   }
 };
-
+const showMoreBtn = document.querySelector('.show-more-btn');
+showMoreBtn.addEventListener('click', () => {
+  page += 1;
+  initHomePage();
+});
 // null the submit button on the newsletter form
 const submitnewsletterBtn = document.querySelector('#submit-newsletter');
 submitnewsletterBtn.addEventListener('click', e => {
@@ -162,7 +167,26 @@ submitnewsletterBtn.addEventListener('click', e => {
 });
 
 //
+
+//
 addEventListener('DOMContentLoaded', () => {
   initHomePage();
   heroVideoRender();
+  renderHeroGrid();
+  DisplaySinglePost();
 });
+
+//
+// test function pagination
+
+const pagination = async () => {
+  // const skip = (page - 1) * limit;
+  try {
+    const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
+    const { data: posts } = await fetchData(paginatedData);
+    console.log(posts);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+// pagination();
