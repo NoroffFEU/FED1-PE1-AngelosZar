@@ -160,4 +160,3 @@ export const urlFunc = function () {
     window.location.href = newUrl;
   }
 };
-urlFunc();
