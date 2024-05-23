@@ -102,6 +102,45 @@
 .text--grid-card {
   margin-left: auto;
 }
+/* Dropdown Button */
+.dropbtn {
+  font-size: var(--h6-size);
+  background-color: var(--green-1);
+  color: white;
+  padding: 1rem;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 2rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--body-color-white);
+  width: 100%;
+  z-index: 1;
+}
+.dropdown-content a {
+  font-size: var(--h6-size);
+  color: var(--text-green);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: var(--blue-1);
+  color: var(--body-color-white);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: var(--purple-1);
+}
 
 /* -------------Media quarries------------- */
 @media only screen and (max-width: 880px) {

@@ -45,26 +45,35 @@ const filterBtnTech = document.querySelector('#filter-btn-tech');
 const filterBtnDev = document.querySelector('#filter-btn-dev');
 const filterBtnTrending = document.querySelector('#filter-btn-trending');
 const filterBtnCrypto = document.querySelector('#filter-btn-crypto');
+const filterBtnai = document.querySelector('#filter-btn-ai');
 
-filterBtnAll.addEventListener('click', () => {
-  filterAllCategories();
-});
+// filterBtnAll.addEventListener('click', e => {
+//   e.preventDefault();
+//   filterAllCategories();
+// });
 
-filterBtnTech.addEventListener('click', () => {
+filterBtnTech.addEventListener('click', e => {
+  e.preventDefault();
   filterByCategory('tech');
 });
 
-filterBtnDev.addEventListener('click', () => {
+filterBtnDev.addEventListener('click', e => {
+  e.preventDefault();
   filterByCategory('dev');
 });
 
-filterBtnTrending.addEventListener('click', () => {
+filterBtnTrending.addEventListener('click', e => {
+  e.preventDefault();
   filterByCategory('trending');
 });
-filterBtnCrypto.addEventListener('click', () => {
+filterBtnCrypto.addEventListener('click', e => {
+  e.preventDefault();
   filterByCategory('crypto');
 });
-
+filterBtnai.addEventListener('click', e => {
+  e.preventDefault();
+  filterByCategory('AI');
+});
 // filter by date
 // data.created
 // async function filterByDate() {
@@ -89,12 +98,14 @@ filterBtnCrypto.addEventListener('click', () => {
 
 const filterBtnNewer = document.querySelector('#filter-btn_newer');
 const filterBtnOlder = document.querySelector('#filter-btn_older');
-filterBtnNewer.addEventListener('click', () => {
+filterBtnNewer.addEventListener('click', e => {
+  e.preventDefault();
   // as the newest post is always on top,i just call the   filterAllCategories() function
   filterAllCategories();
 });
 //
 
-filterBtnOlder.addEventListener('click', () => {
+filterBtnOlder.addEventListener('click', e => {
+  e.preventDefault();
   sortedFiltering();
 });

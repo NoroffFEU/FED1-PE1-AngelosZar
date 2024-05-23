@@ -211,20 +211,25 @@
       <section class="recent-articles">
         <h2>Most recent =></h2>
         <div id="filtering-buttons-bar">
-          <button class="primary-button" id="filter-btn-all">Show all</button>
-          <button class="primary-button" id="filter-btn-tech">tech</button>
-          <button class="primary-button" id="filter-btn-dev">dev</button>
-          <button class="primary-button" id="filter-btn-trending">
-            trending
-          </button>
-          <button class="primary-button" id="filter-btn-crypto">crypto</button>
-          <div id="filtering-btns-by_date">
-            <button class="primary-button" id="filter-btn_newer">
-              Newer /
-            </button>
-            <button class="primary-button" id="filter-btn_older">
-              Older /
-            </button>
+          <div class="dropdown">
+            <button class="dropbtn">All articles /</button>
+            <div class="dropdown-content">
+              <!-- <a id="filter-btn-all" href="#">Show all / </a> -->
+              <a id="filter-btn_older" href="#">Older /</a>
+              <a id="filter-btn_newer" href="#">Newer /</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">Categories /</button>
+            <div class="dropdown-content">
+              <!-- <a id="filter-btn-all" href="#">Show all / </a> -->
+              <a id="filter-btn-tech" href="#">tech</a>
+              <a id="filter-btn-dev" href="#">dev</a>
+              <a id="filter-btn-crypto" href="#">crypto</a>
+              <a id="filter-btn-trending" href="#">trending</a>
+              <a id="filter-btn-ai" href="#">ai</a>
+            </div>
           </div>
         </div>
 
