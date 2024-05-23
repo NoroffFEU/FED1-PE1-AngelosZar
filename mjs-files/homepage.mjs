@@ -144,7 +144,7 @@ function displayRecentArticles(posts) {
 }
 
 let page = 1;
-const limit = 5;
+const limit = 6;
 const initHomePage = async () => {
   try {
     const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
@@ -155,6 +155,7 @@ const initHomePage = async () => {
     console.log('Problem loading the content');
   }
 };
+
 const showMoreBtn = document.querySelector('.show-more-btn');
 showMoreBtn.addEventListener('click', () => {
   page += 1;
@@ -165,8 +166,6 @@ const submitnewsletterBtn = document.querySelector('#submit-newsletter');
 submitnewsletterBtn.addEventListener('click', e => {
   e.preventDefault();
 });
-
-//
 
 //
 addEventListener('DOMContentLoaded', () => {
@@ -180,7 +179,6 @@ addEventListener('DOMContentLoaded', () => {
 // test function pagination
 
 const pagination = async () => {
-  // const skip = (page - 1) * limit;
   try {
     const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
     const { data: posts } = await fetchData(paginatedData);

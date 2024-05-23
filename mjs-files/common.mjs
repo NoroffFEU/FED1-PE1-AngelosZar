@@ -103,11 +103,13 @@ export const loadSearchResults = async query => {
           </div>
           <div class="card-content">
             <p class="card-title text--grid-card">${post.title}</p>
-            <div class="card-info">
-              <p class="text--grid-card">${post.id}</p>
-            </div>
+            <div class="focused-blog-info">
+               <h5>${post.tags} /</h5>
+               <h5>${new Date(post.created).toLocaleDateString()} /</h5>
+               <h5>${post.author.name} /</h5>
+              </div>
           </div>
-        </div>`;
+      </div>`;
       overlayPopUp.insertAdjacentHTML('beforeend', htmlForPost);
       const heroGridCard = overlayPopUp.lastElementChild;
       if (searchResults.length === 0) {
