@@ -1,5 +1,6 @@
 // imported variables
 import { baseApiUrl } from './common.mjs';
+import { urlFunc } from './common.mjs';
 // variables
 const logInEndPoint = '/auth/login';
 const logInApi = `${baseApiUrl}${logInEndPoint}`;
@@ -45,3 +46,4 @@ async function logInUser(email, password, api) {
     return false;
   }
 }
+urlFunc();
