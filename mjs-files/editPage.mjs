@@ -30,7 +30,9 @@ export async function renderPost() {
         <div class="card-content">
           <p class="card-title text--grid-card">${post.title}</p>
           <div class="card-info">
-            <p class="text--grid-card">${post.id}</p>
+            <p class="text--grid-card">${new Date(
+              post.created
+            ).toLocaleDateString()}</p>
           </div>
         </div>
       </div>`;

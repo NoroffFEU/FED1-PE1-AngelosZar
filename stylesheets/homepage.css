@@ -17,6 +17,7 @@
 }
 .overlay-on-hero {
   max-width: 45%;
+  max-height: 450px;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 4rem;
   color: var(--text-green);

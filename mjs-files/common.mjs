@@ -49,30 +49,35 @@ export function clickedPost(post) {
 // header menu links//
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('accessToken');
-  // const headingMenu = document.querySelector('.menu');
   const aboutUsLink = document.querySelector('.about-link');
   const logInLink = document.querySelector('.log-in-link');
   const registerLink = document.querySelector('.register-link');
   const adminLink = document.querySelector('.admin-link');
   const logOutLink = document.querySelector('.log-out-link');
-  // const devLink = document.querySelector('.dev-link');
   const searchBar = document.querySelector('#search-input-span');
+
+  if (token) {
+    logInLink.classList.add('hidden');
+    logInLink.classList.add('hide-display');
+    aboutUsLink.classList.add('hidden');
+    aboutUsLink.classList.add('hide-display');
+    searchBar.classList.add('hidden');
+    searchBar.classList.add('hide-display');
+  } else {
+    registerLink.classList.add('hidden');
+    registerLink.classList.add('hide-display');
+
+    adminLink.classList.add('hidden');
+    adminLink.classList.add('hide-display');
+    logOutLink.classList.add('hidden');
+    logOutLink.classList.add('hide-display');
+  }
   urlFunc();
   logOutLink.addEventListener('click', () => {
     logOut();
-    // loadSearchResults();
   });
-
-  if (token) {
-    logInLink.style.display = 'none';
-    aboutUsLink.style.display = 'none';
-    searchBar.style.display = 'none';
-  } else {
-    registerLink.style.display = 'none';
-    adminLink.style.display = 'none';
-    logOutLink.style.display = 'none';
-  }
 });
+
 // fetchDataById(singlePost, token);
 //
 const overlayPopUp = document.querySelector('#overlay-pop-up'); // loadSearchResults('age');
@@ -117,8 +122,6 @@ export const loadSearchResults = async query => {
         if (!searchInput.value) {
           overlayPopUpHeading.textContent = `Please insert a search term to get results.`;
           overlayPopUp.innerHTML = '';
-
-          // overlayPopUp.innerHTML = `<h1>Nothing to show <h1>`;
         } else {
           overlayPopUpHeading.textContent = `Search results for ''${querySearch}'' .
       Your search matched ${searchResults.length} articles`;
@@ -130,8 +133,7 @@ export const loadSearchResults = async query => {
       });
     }
   } catch (error) {
-    // console.error(`Error: ${error}`);
-    alert('An error occured while loading the data');
+    alert('An error occurred while loading the data');
     throw error;
   }
 };
