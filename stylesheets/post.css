@@ -107,4 +107,19 @@
   h5 {
     font-size: 1.25rem;
   }
+  #cards-container-edit {
+    grid-template-columns: repeat(12, minmax(auto, 3.75rem));
+    grid-column: 3 / span 9;
+    grid-gap: 1rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #cards-container-edit {
+    grid-template-columns: repeat(8, minmax(auto, 3.75rem));
+    grid-column: 2 / span 8;
+    grid-gap: 1rem;
+  }
+  a.clear-form-for-edit {
+    font-size: 1.25rem;
+  }
 }

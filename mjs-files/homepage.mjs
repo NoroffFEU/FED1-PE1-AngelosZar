@@ -82,7 +82,7 @@ const DisplaySinglePost = async function () {
       alt="${post.media.alt}"
     />
     <div class="shared-post-overlay">
-      <h2>${post.title}</h2>
+      <h3>${post.title}</h3>
       <p class="card-author">${post.author.name}</p>
     </div>
       `;

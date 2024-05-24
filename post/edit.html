@@ -33,42 +33,26 @@
       </a>
       <label for="menu-checkbox"><i class="fa-solid fa-bars fa-2x"></i></label>
       <input type="checkbox" id="menu-checkbox" />
-      <nav>
-        <ul class="menu">
-          <li class="about-link">
-            <a href="/post/aboutUs.html">About us /</a>
-          </li>
-          <li>
-            <a href="/account/login.html" class="log-in-link">Log In /</a>
-          </li>
-          <li>
-            <span id="search-input-span">
-              <input
-                type="search"
-                name="search-input"
-                id="search-input"
-                placeholder="  Search" />
-              <button id="search-btn">
-                <i
-                  class="fa-solid fa-magnifying-glass fa-xl"
-                  style="color: #40d10d"
-                ></i></button
-            ></span>
-          </li>
-          <li>
-            <a href="/account/register.html" class="register-link"
-              >Register user /</a
-            >
-          </li>
-          <li>
-            <a href="/post/edit.html" class="admin-link current-page"
-              >Admin /</a
-            >
-          </li>
-          <li>
-            <a href="#" id="log-out-btn2" class="log-out-link">Log out /</a>
-          </li>
-        </ul>
+      <nav class="menu">
+        <a class="about-link" href="/post/aboutUs.html">About us /</a>
+        <a href="/account/login.html" class="log-in-link">Log In /</a>
+        <span id="search-input-span">
+          <input
+            type="search"
+            name="search-input"
+            id="search-input"
+            placeholder="  Search" />
+          <button id="search-btn">
+            <i
+              class="fa-solid fa-magnifying-glass fa-xl"
+              style="color: #40d10d"
+            ></i></button
+        ></span>
+        <a href="/account/register.html" class="register-link"
+          >Register user /</a
+        >
+        <a href="/post/edit.html" class="admin-link current-page">Admin /</a>
+        <a href="#" id="log-out-btn2" class="log-out-link">Log out /</a>
       </nav>
     </header>
     <!-- main -->
@@ -99,40 +83,23 @@
               <a href="" class="clear-form-for-edit">Start a new post</a>
               <!-- <h5 class="start-edit-msg"></h5> -->
               <label for="post-title">post title:</label>
-              <textarea
-                name="post-title:"
-                id="post-title"
-                cols="60"
-                rows="2"
-              ></textarea>
+              <textarea name="post-title:" id="post-title" rows="2"></textarea>
               <label for="post-title">post tags:</label>
-              <textarea
-                name="post-tags"
-                id="post-tags"
-                cols="60"
-                rows="2"
-              ></textarea>
+              <textarea name="post-tags" id="post-tags" rows="2"></textarea>
               <label for="post-media-url">post/media url:</label>
               <textarea
                 name="post-media-url"
                 id="post-media-url"
-                cols="60"
                 rows="2"
               ></textarea>
               <label for="post-media-alt">post/media alt:</label>
               <textarea
                 name="post-media-alt"
                 id="post-media-alt"
-                cols="60"
                 rows="2"
               ></textarea>
               <label for="post-body">post/body:</label>
-              <textarea
-                name="post-body"
-                id="post-body"
-                cols="70"
-                rows="30"
-              ></textarea>
+              <textarea name="post-body" id="post-body" rows="30"></textarea>
               <button class="primary-button" type="submit">
                 Submit changes to post
               </button>

@@ -75,7 +75,7 @@
 
 /*   -––––––––––––single post /featured –––––––––––– */
 .most-shared-post > h2 {
-  /* padding: 0 0 0 1rem; */
+  font-size: clump(1.5rem, 2.5vw, 2.5rem);
   margin: 0 0 2rem 0;
 }
 .most-shared-single-post {
@@ -88,7 +88,8 @@
 
 /* ------------- carousel with 3 sliders section ------------- */
 .carousel-section {
-  padding: 6rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
+  margin: 6rem 0 0 0;
 }
 .slider {
   max-width: 100rem;
@@ -379,12 +380,6 @@ input[type='email'] {
   .carousel-section {
     padding: 0 2rem;
   }
-  .carousel-heading {
-    margin-bottom: -2rem;
-  }
-  .recent-articles {
-    margin-top: -2rem;
-  }
   .slider-title {
     top: 60%;
     left: 15%;
@@ -404,13 +399,10 @@ input[type='email'] {
   .slider-title h2 {
     font-size: 1.1rem;
   }
-  .carousel-heading {
-    margin-bottom: -10rem;
+
+  .carousel-section {
+    padding: 2rem 2rem 2rem 2rem;
   }
-  /* .recent-articles {
-    margin-top: -40px;
-    padding-top: -20rem;
-  } */
   .newsletter-container {
     flex-direction: column;
   }
