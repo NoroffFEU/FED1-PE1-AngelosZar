@@ -57,20 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBar = document.querySelector('#search-input-span');
 
   if (token) {
-    logInLink.classList.add('hidden');
-    logInLink.classList.add('hide-display');
-    aboutUsLink.classList.add('hidden');
-    aboutUsLink.classList.add('hide-display');
-    searchBar.classList.add('hidden');
-    searchBar.classList.add('hide-display');
+    // logInLink.classList.add('hidden');
+    logInLink.style.display = 'none';
+    // aboutUsLink.classList.add('hidden');
+    aboutUsLink.style.display = 'none';
+    // searchBar.classList.add('hidden');
+    searchBar.style.display = 'none';
   } else {
-    registerLink.classList.add('hidden');
-    registerLink.classList.add('hide-display');
-
-    adminLink.classList.add('hidden');
-    adminLink.classList.add('hide-display');
-    logOutLink.classList.add('hidden');
-    logOutLink.classList.add('hide-display');
+    // registerLink.classList.add('hidden');
+    registerLink.style.display = 'none';
+    // registerLink.classList.add('hide-display');
+    // adminLink.classList.add('hidden');
+    adminLink.style.display = 'none';
+    // adminLink.classList.add('hide-display');
+    // logOutLink.classList.add('hidden');
+    // logOutLink.classList.add('hide-display');
+    logOutLink.style.display = 'none';
   }
   urlFunc();
   logOutLink.addEventListener('click', () => {
