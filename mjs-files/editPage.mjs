@@ -21,7 +21,7 @@ const btnDeletePost = document.querySelector('.btn-delete-post');
 export async function renderPost() {
   try {
     const { data: posts } = await fetchData(allArticles);
-    const cardsContainerEdit = document.querySelector('.cards-container-edit');
+    const cardsContainerEdit = document.querySelector('#cards-container-edit');
     posts.forEach(post => {
       const htmlForPost = `<div class="grid-card">
         <div class="card--image-container">
