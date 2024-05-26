@@ -57,21 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchBar = document.querySelector('#search-input-span');
 
   if (token) {
-    // logInLink.classList.add('hidden');
     logInLink.style.display = 'none';
-    // aboutUsLink.classList.add('hidden');
     aboutUsLink.style.display = 'none';
-    // searchBar.classList.add('hidden');
     searchBar.style.display = 'none';
   } else {
-    // registerLink.classList.add('hidden');
     registerLink.style.display = 'none';
-    // registerLink.classList.add('hide-display');
-    // adminLink.classList.add('hidden');
     adminLink.style.display = 'none';
-    // adminLink.classList.add('hide-display');
-    // logOutLink.classList.add('hidden');
-    // logOutLink.classList.add('hide-display');
     logOutLink.style.display = 'none';
   }
   urlFunc();
@@ -167,4 +158,14 @@ export const urlFunc = function () {
     const newUrl = currentUrl + '.html';
     window.location.href = newUrl;
   }
+};
+
+export const showloader = () => {
+  const loadingSpinner = (document.createElement('div').style.display =
+    'block');
+  loadingSpinner.classList.add('loader');
+};
+export const hideLoader = () => {
+  const loadingSpinner = (document.querySelector('.loader').style.display =
+    'none');
 };

@@ -6,6 +6,8 @@ import {
   fetchDataById,
   baseApiUrl,
   clickedPost,
+  showloader,
+  hideLoader,
 } from './common.mjs';
 
 const token = localStorage.getItem('accessToken');
@@ -15,6 +17,9 @@ const username = localStorage.getItem('name') || 'angZar';
 const heroVideoRender = async () => {
   try {
     const heroContainer = document.querySelector('.hero-container');
+    const loadingSpinner = document.createElement('div');
+    loadingSpinner.classList.add('loader');
+    heroContainer.appendChild(loadingSpinner);
     const video = document.createElement('video');
     video.autoplay = true;
     video.muted = true;
@@ -24,8 +29,12 @@ const heroVideoRender = async () => {
       'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
     // source.src =
     //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-    source.type = 'video/mp4';
+    //videos.pexels.com/video-files/3130284/3130284-uhd_3840_2160_30fps.mp4
+    https: source.type = 'video/mp4';
     video.appendChild(source);
+    video.addEventListener('loadeddata', () => {
+      loadingSpinner.style.display = 'none';
+    });
     heroContainer.appendChild(video);
   } catch {
     console.log('Error loading the video');
@@ -126,6 +135,9 @@ export function genHtmlForGrid(post) {
   const tagCategory = document.createElement('p');
   tagCategory.classList.add('text--grid-card');
   tagCategory.textContent = post.tags;
+  // test
+  productImg.setAttributeNode(altImgText);
+  //
   cardImgContainer.append(productImg);
   cardInfo.append(cardAuthor, tagCategory);
   cardContent.append(cardTtl, cardInfo);
@@ -153,6 +165,7 @@ const initHomePage = async () => {
     const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
     const { data: posts } = await fetchData(paginatedData);
     displayRecentArticles(posts);
+    return posts;
   } catch (error) {
     console.error(error);
     console.log('Problem loading the content');
