@@ -120,13 +120,13 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--body-color-white);
+  background-color: var(--green-1);
   width: 100%;
   z-index: 1;
 }
 .dropdown-content a {
   font-size: var(--h6-size);
-  color: var(--text-green);
+  color: var(--text-white);
   padding: 0.5rem 1rem;
   text-decoration: none;
   display: block;
