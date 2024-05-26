@@ -301,6 +301,7 @@ header {
   width: 100%;
   max-width: var(--body-width);
   margin-bottom: var(--spacing-md);
+  margin: 0 1rem 0 0;
 }
 
 nav {
@@ -344,8 +345,9 @@ menu {
   margin-left: var(--spacing-lg);
 }
 #search-input-span {
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  justify-content: flex-end;
+  /* margin: 1rem 1rem 0 0; */
 }
 /*  ----------- pop up overlay for search----------- */
 #search-overlay {
@@ -583,7 +585,6 @@ textarea {
   }
 
   .menu {
-    margin: 0;
     padding: 1rem;
   }
 

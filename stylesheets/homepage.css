@@ -28,8 +28,8 @@
 }
 
 .overlay-on-hero h1 {
-  /* font-size: clamp(var(--h1-size), 2.5vw, 4.75rem); */
-  font-size: var(--h1-size);
+  font-size: clamp(var(--h1-size), 2.5vw, 4.75rem);
+  /* font-size: var(--h1-size); */
 }
 
 /* -------------trending now section ------------- */

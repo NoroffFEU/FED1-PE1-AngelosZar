@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (token) {
     logInLink.style.display = 'none';
     aboutUsLink.style.display = 'none';
-    searchBar.style.display = 'none';
+    // searchBar.style.display = 'block';
   } else {
     registerLink.style.display = 'none';
     adminLink.style.display = 'none';
@@ -161,12 +161,15 @@ export const urlFunc = function () {
   }
 };
 
-export const showloader = () => {
-  const loadingSpinner = (document.querySelector('.loader').style.display =
-    'block');
-  loadingSpinner.classList.add('loader');
+export const showLoader = () => {
+  const loadingSpinner = document.querySelector('.loader');
+  if (loadingSpinner) {
+    loadingSpinner.style.display = 'block';
+  }
 };
 export const hideLoader = () => {
-  const loadingSpinner = (document.querySelector('.loader').style.display =
-    'none');
+  const loadingSpinner = document.querySelector('.loader');
+  if (loadingSpinner) {
+    loadingSpinner.hidden = true;
+  }
 };

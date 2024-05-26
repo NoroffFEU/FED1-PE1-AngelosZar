@@ -145,7 +145,7 @@
 /* free to use spiners from */
 /* https://css-loaders.com/flipping/ */
 .loader {
-  width: 60px;
+  width: 80px;
   margin: auto;
   aspect-ratio: 1;
   display: grid;

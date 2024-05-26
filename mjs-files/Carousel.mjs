@@ -1,5 +1,11 @@
 //
-import { fetchData, allArticles, clickedPost } from './common.mjs';
+import {
+  fetchData,
+  allArticles,
+  clickedPost,
+  showLoader,
+  hideLoader,
+} from './common.mjs';
 //
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
@@ -73,6 +79,7 @@ dotContainer.addEventListener('click', function (e) {
 
 // innerHTML;
 const populateSlider = async function () {
+  showLoader();
   try {
     const { data: posts } = await fetchData(allArticles);
     slides.innerHTML = '';
@@ -84,8 +91,10 @@ const populateSlider = async function () {
       <h2>${posts[i].title}</h2>
       <p class="card-author">${posts[i].author.name}</p>
     </div>`;
+
       const sliderTitle = document.querySelector('.slider-title');
       slider.appendChild(slides);
+
       sliderTitle.addEventListener('click', function (e) {
         e.preventDefault;
         clickedPost(posts[i]);
@@ -93,7 +102,11 @@ const populateSlider = async function () {
     }
     moveSlide(currentSlide);
     syncDots(currentSlide);
-  } catch (error) {}
+  } catch (error) {
+    console.error('Error:', error);
+  } finally {
+    hideLoader();
+  }
 };
 
 //

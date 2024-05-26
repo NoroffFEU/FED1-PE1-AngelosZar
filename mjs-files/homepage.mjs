@@ -6,7 +6,7 @@ import {
   fetchDataById,
   baseApiUrl,
   clickedPost,
-  showloader,
+  showLoader,
   hideLoader,
 } from './common.mjs';
 

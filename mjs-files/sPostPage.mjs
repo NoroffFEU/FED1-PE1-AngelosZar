@@ -1,18 +1,25 @@
 // Imported scrips and variables
-import { fetchData, devBlogs, allArticles, clickedPost } from './common.mjs';
+import {
+  fetchData,
+  allArticles,
+  clickedPost,
+  showLoader,
+  hideLoader,
+} from './common.mjs';
 
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 const blogContainer = document.querySelector('.focused-blog');
 
 // Display single/clicked post
 export async function displaySinglePost(post) {
+  showLoader();
   try {
     const clickedPost = `
   <section class="focused-blog">
         <div>
           <div class="focused-blog-info">
             <h5>${post.tags} /</h5>
-            <h5>${new Date(post.created).toLocaleDateString()} /</h5>
+            <h5>${new Date(post.created).toLocaleDateString('no-NO')} /</h5>
             <h5>${post.author.name} /</h5>
             <button class="primary-button" id="clicked-url">Copy link</button>
           </div>
@@ -28,6 +35,7 @@ export async function displaySinglePost(post) {
       `;
     blogContainer.insertAdjacentHTML('beforeend', clickedPost);
     const clickedUrl = document.querySelector('#clicked-url');
+    hideLoader();
     clickedUrl.addEventListener('click', () => {
       const currentUrl = window.location.href;
       navigator.clipboard.writeText(currentUrl).then(() => {
