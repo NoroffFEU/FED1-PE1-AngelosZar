@@ -1,5 +1,5 @@
 // Imported scrips and variables
-import { fetchData, devBlogs, allArticles } from './common.mjs';
+import { fetchData, devBlogs, allArticles, clickedPost } from './common.mjs';
 
 const singlePost = JSON.parse(localStorage.getItem('clickedPost'));
 const blogContainer = document.querySelector('.focused-blog');
@@ -41,8 +41,6 @@ export async function displaySinglePost(post) {
   }
 }
 
-// console.log(recomendedTags);
-// console.log(...singlePost.tags);
 // Recommended section
 async function renderRecommendedPosts() {
   let recommended = singlePost.tags;
@@ -80,6 +78,8 @@ async function renderRecommendedPosts() {
         localStorage.clear();
         localStorage.setItem('clickedPost', JSON.stringify(posts[i]));
         console.log(localStorage.getItem('clickedPost'));
+        const post = JSON.parse(localStorage.getItem('clickedPost'));
+        clickedPost(post);
       });
     }
     return posts;

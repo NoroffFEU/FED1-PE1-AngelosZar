@@ -73,18 +73,14 @@ async function renderHeroGrid() {
 }
 
 // Most shared article // get post by id
-const DisplaySinglePost = async function () {
+const displaySinglePost = async function () {
   try {
     const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
-    // const username = localStorage.getItem('name') || 'angZar';
-    // console.log(username);
     const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
-    console.log(test1);
     const mostSharedPostContainer = document.querySelector(
       '.most-shared-single-post'
     );
     const { data: post } = await fetchDataById(test1, token);
-    // console.log(post.media.url);
     const sharedPost = `
     <img
       src="${post.media.url}"
@@ -99,12 +95,9 @@ const DisplaySinglePost = async function () {
     const postOverlay = document.querySelector('.shared-post-overlay');
     postOverlay.addEventListener('click', e => {
       e.preventDefault();
-      console.log('click');
       clickedPost(post);
-      console.log(post);
     });
   } catch (error) {
-    // console.log('error');
     throw new Error(`error) ${error.message}`);
   }
 };
@@ -135,9 +128,7 @@ export function genHtmlForGrid(post) {
   const tagCategory = document.createElement('p');
   tagCategory.classList.add('text--grid-card');
   tagCategory.textContent = post.tags;
-  // test
   productImg.setAttributeNode(altImgText);
-  //
   cardImgContainer.append(productImg);
   cardInfo.append(cardAuthor, tagCategory);
   cardContent.append(cardTtl, cardInfo);
@@ -184,23 +175,9 @@ submitnewsletterBtn.addEventListener('click', e => {
 });
 
 //
-addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   initHomePage();
   heroVideoRender();
   renderHeroGrid();
-  DisplaySinglePost();
+  displaySinglePost();
 });
-
-//
-// test function pagination
-
-const pagination = async () => {
-  try {
-    const paginatedData = `${baseApiUrl}/blog/posts/${username}?limit=${limit}&page=${page}`;
-    const { data: posts } = await fetchData(paginatedData);
-    console.log(posts);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
-// pagination();

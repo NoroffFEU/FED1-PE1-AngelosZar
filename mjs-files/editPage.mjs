@@ -39,6 +39,7 @@ export async function renderPost() {
       cardsContainerEdit.insertAdjacentHTML('beforeend', htmlForPost);
       const gridCard = cardsContainerEdit.lastElementChild;
       gridCard.addEventListener('click', async () => {
+        editForm.reset();
         console.log('post id', post.id);
         displayPostID.innerHTML = `You are now editing :<br>${post.title} <br>  <br> With the ID of :`;
         postId.innerHTML = `${post.id}`;
@@ -55,6 +56,15 @@ export async function renderPost() {
     console.log(`error: ${error}`);
   }
 }
+const clearEditForm = function () {
+  postId.innerHTML = '';
+  displayPostID.innerHTML = '';
+  postTitle.value = '';
+  postTags.value = '';
+  postImg.value = '';
+  postImgAlt.value = '';
+  postBody.value = '';
+};
 
 editForm.addEventListener('submit', async e => {
   e.preventDefault();
@@ -92,25 +102,13 @@ btnDeletePost.addEventListener('click', async e => {
   deletePost(id);
 });
 
-// const editNowMsg = document.querySelector('#start-editing-now');
-// event listener to clear the form
 const clearForm = document.querySelector('.clear-form-for-edit');
 clearForm.addEventListener('click', e => {
   e.preventDefault();
-  console.log('click');
-  postId.innerHTML = '';
-  displayPostID.innerHTML = '';
-  postTitle.value = '';
-  postTags.value = '';
-  postImg.value = '';
-  postImgAlt.value = '';
-  postBody.value = '';
-  // const editNowMsg = document.querySelector('.start-edit-msg');
-  // editNowMsg.textContent = 'Start editing now';
-  // editNowMsg.style =
-  //   'margin-top: 30px; color: white; font-size: 1.5rem; border: 1px solid green; padding: 0;width: 100%; text-align: center;border-radius: 20px;';
+  clearEditForm();
 });
 //
+
 // create a new post
 const createNPostBtn = document.querySelector('#create-post-btn');
 createNPostBtn.addEventListener('click', async e => {

@@ -368,13 +368,13 @@ menu {
 }
 #close-search-overlay {
   position: absolute;
-  top: 5rem;
+  top: 2rem;
   right: 2rem;
   padding: 1rem;
   cursor: pointer;
 }
 #overlay-pop-up-heading {
-  padding: 2rem 2rem 4rem 2rem;
+  padding: 6rem 2rem 4rem 2rem;
 }
 #overlay-pop-up {
   display: flex;

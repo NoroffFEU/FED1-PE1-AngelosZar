@@ -6,6 +6,7 @@ const slides = document.querySelectorAll('.slide');
 const sliderBtnLeft = document.querySelector('.slider-btn-left');
 const sliderBtnRight = document.querySelector('.slider-btn-right');
 const dotContainer = document.querySelector('.dots');
+//
 let currentSlide = 0;
 const maxSlideNum = 3;
 //

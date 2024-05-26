@@ -145,7 +145,7 @@ closeSearchOverlay.addEventListener('click', () => {
   overlayPopUp.innerHTML = '';
 });
 searchOverlay.style.display = 'none';
-
+// url function
 export const urlFunc = function () {
   const currentUrl = window.location.href;
   if (currentUrl.endsWith('app/')) {
@@ -161,7 +161,7 @@ export const urlFunc = function () {
 };
 
 export const showloader = () => {
-  const loadingSpinner = (document.createElement('div').style.display =
+  const loadingSpinner = (document.querySelector('.loader').style.display =
     'block');
   loadingSpinner.classList.add('loader');
 };
