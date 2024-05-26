@@ -50,7 +50,6 @@ async function renderRecommendedPosts() {
     const filteredPosts = posts.filter(post => {
       return post.tags.some(tag => recommended.includes(tag));
     });
-    console.log(filteredPosts);
     const cardsContainerRecommended = document.querySelector(
       '#cards-container-recommended'
     );
@@ -74,10 +73,8 @@ async function renderRecommendedPosts() {
       // 1. How to change content of clicked post on the same page ?
       //
       gridCardRec.addEventListener('click', () => {
-        console.log(filteredPosts[i]);
         localStorage.clear();
         localStorage.setItem('clickedPost', JSON.stringify(posts[i]));
-        console.log(localStorage.getItem('clickedPost'));
         const post = JSON.parse(localStorage.getItem('clickedPost'));
         clickedPost(post);
       });
@@ -92,10 +89,8 @@ async function renderRecommendedPosts() {
 const searchParamsFunction = () => {
   if ('URLSearchParams' in window) {
     let searchParams = new URLSearchParams(window.location.search);
-    console.log(searchParams);
     const postId = localStorage.getItem('postId');
     searchParams.set('id', postId);
-    console.log(window.location.search);
     let newRelativePathQuery =
       window.location.pathname + '?' + searchParams.toString();
     history.pushState(null, '', newRelativePathQuery);

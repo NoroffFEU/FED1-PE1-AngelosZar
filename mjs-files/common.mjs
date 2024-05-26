@@ -145,6 +145,7 @@ closeSearchOverlay.addEventListener('click', () => {
   overlayPopUp.innerHTML = '';
 });
 searchOverlay.style.display = 'none';
+
 // url function
 export const urlFunc = function () {
   const currentUrl = window.location.href;
