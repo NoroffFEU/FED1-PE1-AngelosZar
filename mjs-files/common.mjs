@@ -42,7 +42,6 @@ export function clickedPost(post) {
   const postId = post.id;
   localStorage.setItem('clickedPost', JSON.stringify(post));
   localStorage.setItem('postId', postId);
-  // const myUrl = new URL(window.location.href);
   location.href = '/post/index.html';
 }
 
@@ -59,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (token) {
     logInLink.style.display = 'none';
     aboutUsLink.style.display = 'none';
-    // searchBar.style.display = 'block';
   } else {
     registerLink.style.display = 'none';
     adminLink.style.display = 'none';

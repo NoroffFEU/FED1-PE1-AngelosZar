@@ -2,8 +2,6 @@
 /* -------------two column flex layout ------------- */
 /* hero block */
 .hero-container {
-  /* background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
-  /* background-video: url('https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4'); */
   width: 100%;
   min-height: 70vh;
   background-size: cover;
@@ -16,7 +14,7 @@
   object-fit: cover;
 }
 .overlay-on-hero {
-  max-width: 45%;
+  max-width: 50%;
   max-height: 450px;
   background-color: rgba(0, 0, 0, 0.7);
   padding: 4rem;
@@ -28,8 +26,8 @@
 }
 
 .overlay-on-hero h1 {
-  font-size: clamp(var(--h1-size), 2.5vw, 4.75rem);
-  /* font-size: var(--h1-size); */
+  /* font-size: clamp(var(--h1-size), 2.5vw, 4.75rem); */
+  font-size: var(--h1-size);
 }
 
 /* -------------trending now section ------------- */
@@ -255,12 +253,7 @@ input[type='email'] {
   font-size: 1.25rem;
 }
 .cards-container {
-  /* grid-column: 2 / span 8; */
-  /* grid-column: 2 / span 18; */
-  /* display: grid; */
   grid-template-columns: repeat(8, minmax(auto, 3.75rem));
-  /* grid-template-columns: repeat(18, minmax(auto, 3.75rem)); */
-  /* grid-gap: 2.5rem; */
 }
 
 /* -------------Media quarries------------- */
@@ -270,7 +263,7 @@ input[type='email'] {
     bottom: -10%;
   }
   #two-column-flex_homepage {
-    margin: 0 0 8rem 0;
+    margin: 0 0 4rem 0;
   }
 }
 @media only screen and (max-width: 1000px) {
@@ -321,6 +314,10 @@ input[type='email'] {
     color: var(--body-color-dark);
     font-family: var(--body-font);
     font-size: 0.75rem;
+  }
+  .overlay-on-hero h1 {
+    /* font-size: clamp(var(--h1-size), 2.5vw, 4.75rem); */
+    font-size: var(--h2-size);
   }
 }
 

@@ -102,8 +102,6 @@ const searchParamsFunction = () => {
     let newRelativePathQuery =
       window.location.pathname + '?' + searchParams.toString();
     history.pushState(null, '', newRelativePathQuery);
-  } else {
-    console.log('URLSearchParams is not found');
   }
 };
 

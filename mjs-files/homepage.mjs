@@ -38,7 +38,7 @@ const heroVideoRender = async () => {
     });
     heroContainer.appendChild(video);
   } catch {
-    console.log('Error loading the video');
+    console.error(error.message);
   }
 };
 
@@ -68,7 +68,7 @@ async function renderHeroGrid() {
     }
     return posts;
   } catch (error) {
-    console.error('Error:', error);
+    console.error(error.message);
   }
 }
 
@@ -160,8 +160,7 @@ const initHomePage = async () => {
     displayRecentArticles(posts);
     return posts;
   } catch (error) {
-    console.error(error);
-    console.log('Problem loading the content');
+    console.error(error.message);
   }
 };
 

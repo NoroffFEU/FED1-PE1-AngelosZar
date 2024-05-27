@@ -40,7 +40,6 @@ export async function renderPost() {
       const gridCard = cardsContainerEdit.lastElementChild;
       gridCard.addEventListener('click', async () => {
         editForm.reset();
-        console.log('post id', post.id);
         displayPostID.innerHTML = `You are now editing :<br>${post.title} <br>  <br> With the ID of :`;
         postId.innerHTML = `${post.id}`;
         postTitle.innerHTML = `${post.title}`;
@@ -53,7 +52,6 @@ export async function renderPost() {
     return posts;
   } catch (error) {
     console.error();
-    console.log(`error: ${error}`);
   }
 }
 const clearEditForm = function () {
@@ -71,7 +69,6 @@ editForm.addEventListener('submit', async e => {
   const userName = localStorage.getItem('name') || admin;
   try {
     const id = document.querySelector('#post-id').textContent;
-    console.log(id);
     const url = `${baseApiUrl}/blog/posts/${userName}/${id}`;
     const data = {
       title: postTitle.value,
@@ -87,10 +84,9 @@ editForm.addEventListener('submit', async e => {
       confirm('Post has been updated');
     } else {
       alert('Post not updated');
-      console.log(`error: ${error.message}`);
     }
   } catch (error) {
-    console.log(`error: ${error.message}`);
+    console.error(`error: ${error.message}`);
   }
 });
 
@@ -113,7 +109,6 @@ clearForm.addEventListener('click', e => {
 const createNPostBtn = document.querySelector('#create-post-btn');
 createNPostBtn.addEventListener('click', async e => {
   e.preventDefault();
-  console.log('click');
   try {
     const userName = localStorage.getItem('name') || admin;
     const url = `${allArticles}`;
@@ -127,19 +122,15 @@ createNPostBtn.addEventListener('click', async e => {
         alt: postImgAlt.value,
       },
     };
-    console.log('data', data);
     const response = await createNewPost(data, url, token);
     if (response.ok) {
       confirm('Post has been created');
     } else {
       alert('Post not created');
-      console.log(`error: ${error.message}`);
     }
   } catch (error) {
-    console.log(`error: ${error.message}`);
+    console.error(`error: ${error.message}`);
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderPost();
-});
+renderPost();

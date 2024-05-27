@@ -9,7 +9,6 @@ export const updatePost = async (data, api, token) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      // body: JSON.stringify({ data }),
       body: JSON.stringify(data),
     });
     if (response.ok) {

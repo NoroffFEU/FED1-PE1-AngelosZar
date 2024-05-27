@@ -33,7 +33,6 @@ async function logInUser(email, password, api) {
       window.location.href = '/post/edit.html';
       return { responseData, accessToken, currentUser };
     } else {
-      console.log('response:', response);
       alert('Invalid username or password\nPlease try again');
       logInForm.reset();
       window.location.href.reload();

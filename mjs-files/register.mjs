@@ -16,7 +16,6 @@ const registeringUser = {
 // sign up event listener
 signUpForm.addEventListener('submit', async () => {
   e.preventDefault();
-  console.log(inputUserEmail, inputUserName, inputUserPassword);
   registerUser(registeringUser, registerUrl2);
 });
 
@@ -31,7 +30,6 @@ async function registerUser(user, api) {
       body: JSON.stringify(user),
     });
     const responseData = await res.json();
-    console.log(responseData);
     responseData.ok ? confirm('Congratulation \nNew user was registered') : '';
     return responseData;
   } catch (error) {
