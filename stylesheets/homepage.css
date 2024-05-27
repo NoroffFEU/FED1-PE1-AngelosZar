@@ -354,12 +354,12 @@ input[type='email'] {
   }
 
   .overlay-on-hero {
-    max-width: 100%;
+    /* max-width: 100%; */
     padding: 4rem;
     color: var(--text-green);
     position: absolute;
     bottom: 5%;
-    right: -35%;
+    right: -25%;
   }
   .hero-cards-container {
     padding-top: 4rem;
