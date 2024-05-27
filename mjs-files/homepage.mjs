@@ -28,8 +28,9 @@ const heroVideoRender = async () => {
     source.src =
       'https://videos.pexels.com/video-files/3141207/3141207-uhd_3840_2160_25fps.mp4';
     // source.src =
-    //   'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
-    //videos.pexels.com/video-files/3130284/3130284-uhd_3840_2160_30fps.mp4
+    // 'https://videos.pexels.com/video-files/3129671/3129671-uhd_3840_2160_30fps.mp4';
+    // source.src =
+    //   'https://videos.pexels.com/video-files/3130284/3130284-uhd_3840_2160_30fps.mp4';
     https: source.type = 'video/mp4';
     video.appendChild(source);
     video.addEventListener('loadeddata', () => {
@@ -39,7 +40,6 @@ const heroVideoRender = async () => {
   } catch {
     console.log('Error loading the video');
   }
-  // loading spinner ?
 };
 
 // trending now section // grid get the first 3 posts with the tag of dev
@@ -74,8 +74,9 @@ async function renderHeroGrid() {
 
 // Most shared article // get post by id
 const displaySinglePost = async function () {
+  showLoader();
   try {
-    const singlePostId = 'fbb1e2a4-fd52-4617-bf93-20fa87fa3dc1';
+    const singlePostId = 'c2de51ab-aed3-44b5-9f1e-d67a7d0d70bc';
     const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
     const mostSharedPostContainer = document.querySelector(
       '.most-shared-single-post'
@@ -92,6 +93,7 @@ const displaySinglePost = async function () {
     </div>
       `;
     mostSharedPostContainer.insertAdjacentHTML('beforeend', sharedPost);
+    hideLoader();
     const postOverlay = document.querySelector('.shared-post-overlay');
     postOverlay.addEventListener('click', e => {
       e.preventDefault();
