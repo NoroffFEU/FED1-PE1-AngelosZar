@@ -134,6 +134,12 @@ searchBtn.addEventListener('click', () => {
   loadSearchResults(searchInput.value);
   searchOverlay.style.display = 'block';
 });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    loadSearchResults(searchInput.value);
+    searchOverlay.style.display = 'block';
+  }
+});
 
 // close search overlay
 closeSearchOverlay.addEventListener('click', () => {
