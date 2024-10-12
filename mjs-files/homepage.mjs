@@ -76,7 +76,7 @@ async function renderHeroGrid() {
 const displaySinglePost = async function () {
   showLoader();
   try {
-    const singlePostId = 'c2de51ab-aed3-44b5-9f1e-d67a7d0d70bc';
+    const singlePostId = 'd7fb246e-5c9f-4498-b3bc-c51d0f685b66';
     const test1 = `${baseApiUrl}/blog/posts/${username}/${singlePostId}`;
     const mostSharedPostContainer = document.querySelector(
       '.most-shared-single-post'
