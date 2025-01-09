@@ -310,7 +310,7 @@ nav {
 
 nav a {
   display: inline;
-  font-size: var(--h4-size);
+  font-size: var(--h5-size);
 }
 
 nav a:hover {
@@ -342,7 +342,7 @@ menu {
 }
 
 .header-logo {
-  max-width: 280px;
+  max-width: 240px;
   margin-left: var(--spacing-lg);
 }
 #search-input-span {

@@ -22,7 +22,7 @@
   position: absolute;
   bottom: -30%;
   right: 3rem;
-  font-size: var(--h1-size);
+  font-size: var(--h2-size);
 }
 
 .overlay-on-hero h1 {
