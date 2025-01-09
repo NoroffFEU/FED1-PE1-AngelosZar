@@ -63,6 +63,7 @@ input[type='password'],
 .primary-button {
   margin: 1rem 0;
 }
+
 @media only screen and (max-width: 850px) {
   #two-column-flex-container_at-log-in {
     flex-direction: column-reverse;

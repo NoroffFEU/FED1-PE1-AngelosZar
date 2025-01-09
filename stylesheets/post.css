@@ -56,9 +56,20 @@
   text-decoration: underline;
 }
 /* ----------------- edit post page ----------------- */
-
+.text-area-on-edit {
+  max-width: 400px !important ;
+  height: 4rem;
+  /* padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--text-green);
+  border-radius: var(--standard-border-radius);
+  background-color: var(--text-white);
+  color: var(--body-color-dark);
+  font-family: var(--body-font);
+  font-size: 1.25rem; */
+}
 #main_body-edit-page {
-  padding-top: 3rem;
+  padding-top: 4rem;
 }
 #main_body-edit-page > .column-left {
   width: 40%;
