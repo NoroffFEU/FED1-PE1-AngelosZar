@@ -60,10 +60,4 @@ HotView Labs is a responsive web application built for a fictional tech research
 - Responsive design
 - Intuitive navigation
 
-## Getting Started
 
-### Installing
-
-1. Clone the repo:
-```bash
-git clone git@github.com:[YourUsername]/[RepositoryName].git
